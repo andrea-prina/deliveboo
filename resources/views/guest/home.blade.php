@@ -11,9 +11,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="brand-text">
     <div id="root">
         // Vue.js App
+
     </div>
 </body>
 </html>
