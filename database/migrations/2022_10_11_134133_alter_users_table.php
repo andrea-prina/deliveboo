@@ -19,7 +19,7 @@ class AlterUsersTable extends Migration
             $table->string('vat_number')->after('restaurant_name');
             $table->string('address')->after('password');
             $table->float('delivery_fee', 4, 2, true)->after('address');
-            $table->boolean('free_delivery')->nullable()->after('delivery_fee');
+            $table->boolean('free_delivery')->nullable()->default(false)->after('delivery_fee');
             $table->string('image_path')->nullable()->after('free_delivery');
         });
     }
