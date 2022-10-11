@@ -26,6 +26,17 @@ $brand-white: #f8f7ffff;
 $accent-main: #ffd8beff;
 $accent-secondary: #ffeeddff;
 
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-right: linear-gradient(90deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-bottom: linear-gradient(180deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-left: linear-gradient(270deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-top-right: linear-gradient(45deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-bottom-right: linear-gradient(135deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-top-left: linear-gradient(225deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-bottom-left: linear-gradient(315deg, #9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+$gradient-radial: radial-gradient(#9381ffff, #b8b8ffff, #f8f7ffff, #ffeeddff, #ffd8beff);
+
 /* Font Family proprietries
         Inserimento proprietà font family nel css
             font-family: 'Montserrat', sans-serif;
