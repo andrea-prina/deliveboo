@@ -16353,7 +16353,7 @@ module.exports = g;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/img-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/stefano/deliveboo/public/assets/img/logo-white.png'");
+module.exports = "/images/logo-white.png?5c8294afc5cceec88b46a1e132276b85";
 
 /***/ }),
 
