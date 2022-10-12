@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->string('customer_lastName', 30);
             $table->string('customer_address');
             $table->string('customer_phoneNumber', 10); // Italian number format without country prefix or whitespaces
+            $table->float('order_price', 7,2, true);
             $table->string('additional_notes')->nullable();
             $table->timestamps();
         });
