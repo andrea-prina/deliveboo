@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Food extends Model
+class FoodItem extends Model
 {
+
+    public $table = "food_items";
+
     protected $fillable = [
         'user_id',
         'name',
@@ -17,7 +19,7 @@ class Food extends Model
     ];
 
     public function users(){
-        return $this->BelongsTo('app\User');
+        return $this->belongsTo(User::class);
     }
 
 }

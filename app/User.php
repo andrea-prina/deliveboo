@@ -47,6 +47,6 @@ class User extends Authenticatable
     ];
 
     public function foods(){
-        return $this->hasMany('App/Models/Food');
+        return $this->hasMany(FoodItem::class);
     }
 }
