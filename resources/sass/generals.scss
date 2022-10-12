@@ -12,3 +12,28 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
+
+.bg-brand{
+    background-color: $brand-main !important;
+    color: $brand-white  !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.bg-brand-secondary{
+    background-color: $brand-secondary !important;
+    color: $brand-white  !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.btn-accent{
+    background-color: $accent-main !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.bg-brand-accent-secondary{
+    background-color: $accent-secondary !important;
+   /* background-image: $gradient-top; */
+}

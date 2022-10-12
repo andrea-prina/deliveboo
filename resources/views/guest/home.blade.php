@@ -16,7 +16,6 @@
 </head>
 <body class="brand-text">
     <div id="root">
-        // Vue.js App
 
     </div>
 </body>
