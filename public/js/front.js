@@ -175,7 +175,13 @@ var staticRenderFns = [function () {
     attrs: {
       href: "#"
     }
-  }, [_vm._v("Deliveboo")]), _vm._v(" "), _c("button", {
+  }, [_c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ../../../public/assets/img/logo-white.png */ "./public/assets/img/logo-white.png"),
+      alt: "",
+      height: "50"
+    }
+  })]), _vm._v(" "), _c("button", {
     staticClass: "navbar-toggler",
     attrs: {
       type: "button",
@@ -16337,6 +16343,17 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/assets/img/logo-white.png":
+/*!******************************************!*\
+  !*** ./public/assets/img/logo-white.png ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/img-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/stefano/deliveboo/public/assets/img/logo-white.png'");
 
 /***/ }),
 
