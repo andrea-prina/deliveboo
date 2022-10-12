@@ -1,21 +1,23 @@
 <template>
     <div>
-        <h1 class="red"><a href="http://127.0.0.1:8000/register">link</a></h1>
+        <HomePage/>
     </div>
 </template>
 
 <script>
+import HomePage from '../pages/HomePage.vue'
+
 
 export default {
-    name: "App",
-    components: {},
+
+    name: "app",
+    components: {
+        HomePage,
+    }
 }
 </script>
 
 <style>
 
-    .red {
-        color: blue;
-    }
 
 </style>
