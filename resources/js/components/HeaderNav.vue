@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light brand-title navbar-back">
+        <nav class="navbar navbar-expand-lg navbar-light brand-title navbar-back">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Deliveboo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-    name: HeaderNav,
+    name: 'HeaderNav',
 }
 </script>
 <style lang="scss">
@@ -32,11 +32,11 @@ export default {
 @import "../../sass/partials/headerBackOffice.scss";
 
 .navbar-back {
-    background-color: $brand-main;
-    color: $brand-white;
+    background-color: $brand-main !important;
+    color: $brand-white !important;
 
     a {
-        color: $brand-white;
+        color: $brand-white !important;
 
     }
 
