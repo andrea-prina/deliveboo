@@ -51,4 +51,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Type');
     }
+    
+    public function foods(){
+        return $this->hasMany(FoodItem::class);
+    }
 }

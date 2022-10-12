@@ -1,6 +1,7 @@
 {
-    "conventionalCommits.scopes": [
-        "UsersTable",
-        "Types"
-    ]
+        "conventionalCommits.scopes": [
+                "UsersTable",
+                "Types",
+                "FoodItemsTable"
+        ]
 }
