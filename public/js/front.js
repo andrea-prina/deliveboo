@@ -126,7 +126,11 @@ var staticRenderFns = [function () {
 
   return _c("div", [_c("h1", {
     staticClass: "red"
-  }, [_vm._v("EVVIVA 2")])]);
+  }, [_c("a", {
+    attrs: {
+      href: "http://127.0.0.1:8000/register"
+    }
+  }, [_vm._v("link")])])]);
 }];
 render._withStripped = true;
 
@@ -16255,7 +16259,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Git Repo\deliveboo\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/stefano/deliveboo/resources/js/front.js */"./resources/js/front.js");
 
 
 /***/ })
