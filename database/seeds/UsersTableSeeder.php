@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
 
 
 
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 10; $i++) {
             $newUser = new User();
             $newUser->name = $faker->name();
             $newUser->surname = $faker->lastName();
@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
             $newUser->vat_number ="12345678910";
             $newUser->password = Hash::make($faker->password());
             $newUser->image_path = $faker->imageUrl(640, 480, 'food', true);
-            
+
             $newUser->save();
         }
     }
