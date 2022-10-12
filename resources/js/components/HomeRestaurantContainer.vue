@@ -1,12 +1,20 @@
 <template>
-    <main>
+    <section>
         <div class="container ms_container-bg">
             <div class="row flex-wrap">
                 <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                <RestaurantCard/>
+                
+                
             </div>
             
         </div>
-    </main>
+    </section>
 </template>
 
 <script>
@@ -26,7 +34,6 @@ export default {
 
 .ms_container-bg{
     background-color: red;
-    height: 200px;
 }
 
 </style>

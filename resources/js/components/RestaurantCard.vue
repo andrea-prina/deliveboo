@@ -1,7 +1,5 @@
 <template>
-
-    <body>
-        <div class="card">
+        <div class="card col-12 col-md-5 col-lg-2">
             <span class="offer">FirstOrder25</span>
             <div class="item-image"> <img src="https://i.imgur.com/gzandIc.png"> </div>
             <div class="item-content">
@@ -10,7 +8,6 @@
                 <div class="item-price"> <span>125/piece</span> <span>min order(200)</span> </div>
             </div>
         </div>
-    </body>
 </template>
 
 <script>
@@ -22,20 +19,9 @@ export default {
 <style lang="scss">
 @import "../../sass/app.scss";
 
-* {
-    padding: 0;
-    margin: 0
-}
-
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #eee;
 
     .card .offer {
-        width: 150px;
+        
         height: 40px;
         background-color: red;
         position: absolute;
@@ -53,7 +39,7 @@ body {
 
     .card {
         height: 310px;
-        width: 320px;
+        
         background-color: #fff;
         border-radius: 20px;
         position: relative;
@@ -118,5 +104,5 @@ body {
         height: 100%;
         object-fit: cover
     }
-}
+
 </style>
