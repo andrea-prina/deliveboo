@@ -27,6 +27,7 @@ class FoodItemsTableSeeder extends Seeder
                 $newFood->name = "Dish n." . $i;
                 $newFood->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
                 $newFood->price = $faker->randomFloat(2,1,40);
+                $newFood->image_path = $faker->imageUrl(640, 480, 'food', true);
 
                 $newFood->save();
             }
