@@ -2,25 +2,28 @@
     <div>
         <HeaderNav/>
         <FooterComponent/>
+        <SearchComponent/>
     </div>
 </template>
 
 <script>
 import HeaderNav from '../components/HeaderNav.vue'
 import FooterComponent from '../components/FooterComponent.vue'
+import SearchComponent from '../components/SearchComponent.vue'
 
 export default {
     name: 'HomePage',
     components: {
         HeaderNav,
         FooterComponent,
+        SearchComponent,
+
     }
 }
 </script>
 
 <style lang="scss">
 @import "../../sass/app.scss";
-
 </style>
 
 
