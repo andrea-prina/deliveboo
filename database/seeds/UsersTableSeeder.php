@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 
@@ -40,7 +41,7 @@ class UsersTableSeeder extends Seeder
             $newUser->delivery_fee = $faker->randomFloat(2, 0, 10);
             $newUser->email = $faker->email();
             $newUser->vat_number ="12345678910";
-            $newUser->password = $faker->password();
+            $newUser->password = Hash::make($faker->password());
             $newUser->image_path = $faker->imageUrl(640, 480, 'food', true);
             
             $newUser->save();
