@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="red">EVVIVA 2</h1>
+        <h1 class="red"><a href="http://127.0.0.1:8000/register">link</a></h1>
     </div>
 </template>
 
