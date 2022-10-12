@@ -2,6 +2,7 @@
     <div>
         <HeaderNav/>
         <SearchComponent/>
+        <HomeRestaurantContainer/>
         <FooterComponent/>
     </div>
 </template>
@@ -10,6 +11,7 @@
 import HeaderNav from '../components/HeaderNav.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import SearchComponent from '../components/SearchComponent.vue'
+import HomeRestaurantContainer from '../components/HomeRestaurantContainer.vue'
 
 export default {
     name: 'HomePage',
@@ -17,6 +19,7 @@ export default {
         HeaderNav,
         FooterComponent,
         SearchComponent,
+        HomeRestaurantContainer,
 
     }
 }
