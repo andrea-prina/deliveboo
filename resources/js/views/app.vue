@@ -10,14 +10,17 @@ import HomePage from '../pages/HomePage.vue'
 
 export default {
 
-    name: "app",
+    name: "App",
     components: {
         HomePage,
     }
 }
 </script>
 
-<style>
+
+<style lang="scss">
+@import "~bootstrap/scss/bootstrap.scss";
+@import "../../sass/app.scss";
 
 
 </style>
