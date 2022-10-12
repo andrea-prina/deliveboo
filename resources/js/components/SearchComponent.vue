@@ -43,6 +43,7 @@ export default {
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #9DBFAF;
+  min-width: 190px;
 }
 
 .searchTerm:focus{

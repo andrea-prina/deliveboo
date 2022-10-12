@@ -1,8 +1,8 @@
 <template>
     <div>
         <HeaderNav/>
-        <FooterComponent/>
         <SearchComponent/>
+        <FooterComponent/>
     </div>
 </template>
 
