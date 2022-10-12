@@ -1,6 +1,7 @@
 <template>
     <div>
         <HeaderNav/>
+        <SearchComponent/>
         <FooterComponent/>
     </div>
 </template>
@@ -8,12 +9,15 @@
 <script>
 import HeaderNav from '../components/HeaderNav.vue'
 import FooterComponent from '../components/FooterComponent.vue'
+import SearchComponent from '../components/SearchComponent.vue'
 
 export default {
     name: 'HomePage',
     components: {
         HeaderNav,
         FooterComponent,
+        SearchComponent,
+
     }
 }
 </script>
