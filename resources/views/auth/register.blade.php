@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header bg-brand-secondary">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="name" autofocus>
 
                                 @error('surname')
@@ -42,7 +42,7 @@
                         <div class="form-group row">
                             <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">{{ __('Restaurant_name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="name" autofocus>
 
                                 @error('restaurant_name')
@@ -56,7 +56,7 @@
                         <div class="form-group row">
                             <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('Vat_number') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="vat_number" type="text" class="form-control @error('vat_number') is-invalid @enderror" name="vat_number" value="{{ old('vat_number') }}" required autocomplete="name" autofocus>
 
                                 @error('vat_number')
@@ -70,7 +70,7 @@
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -84,7 +84,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -98,7 +98,7 @@
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="name" autofocus>
 
                                 @error('address')
@@ -120,7 +120,7 @@
                         <div class="form-group row">
                             <label for="delivery_fee" class="col-md-4 col-form-label text-md-right">{{ __('Delivery_fee') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="delivery_fee" type="number" class="form-control @error('delivery_fee') is-invalid @enderror" name="delivery_fee" value="{{ old('delivery_fee') }}" required autocomplete="name" autofocus>
 
                                 @error('delivery_fee')
@@ -134,7 +134,7 @@
                         <div class="form-group row">
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image_path') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 my-2">
                                 <input id="image_path" type="text" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value="{{ old('image_path') }}" required autocomplete="name" autofocus>
 
                                 @error('image_path')
@@ -145,9 +145,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row mb-0 my-2">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-accent">
                                     {{ __('Register') }}
                                 </button>
                             </div>
