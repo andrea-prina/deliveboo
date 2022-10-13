@@ -69,7 +69,8 @@ class FoodItemController extends Controller
      */
     public function edit($id)
     {
-        //
+       $food = FoodItem::findOrFail($id);
+         return view('admin.foodItems.edit', compact('food'));
     }
 
     /**
@@ -81,7 +82,12 @@ class FoodItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $foodItems = FoodItem::findOrFail($id);
+        $data['user_id'] = Auth::id();
+        $foodItems->update($data);
+
+        return redirect()->route('admin.foodItems.index');
     }
 
     /**

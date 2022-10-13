@@ -30,7 +30,7 @@
                     <td>{{$food->price}}</td>
                     <td>{{$food->availability}}</td>
                     <td>
-                        <a href="#">
+                        <a href="{{route('admin.foodItems.edit', $food->id)}}">
                             <button type="button" class="btn btn-sm btn-success">Edit</button>
                         </a>
                     </td>
