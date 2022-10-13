@@ -1,30 +1,26 @@
 <template>
-<div>
-    <div class="container fluid">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="text-center">Categorie</h2>
+
+
+        <div class="row" id="tag-section">
+            <div class="slider p-3 col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 d-flex align-items-center scrollbar">
+                <!-- <TagCard v-for="tag in tags" :key="tag.id" :tag="tag"/> -->
+                <div class="slider_container">
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                </div>
             </div>
         </div>
-    </div>
-        <div class="slider">
-            <!-- <TagCard v-for="tag in tags" :key="tag.id" :tag="tag"/> -->
-            <div class="slider_container">
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-                <div class="tag-card"></div>
-            </div>
-        </div>
-</div>
+
+
 </template>
 
 <script>
@@ -56,25 +52,53 @@ export default {
 
 .tag-card{
     display: inline-block;
-    height: 50vh;
-    width: 25vw;
-    background-color: $accent-main;
-    overflow: visible;
-    border: 2px red solid;
+    height: 7vw;
+    width: 7vw;
+    background-color: $brand-white;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 1rem;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
 }
-
+#tag-section{
+    width: 100%;
+    background-color: $brand-white;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    position: relative;
+}
 .slider{
     display: block;
-    width: 100%;
     overflow-x:scroll ;
     box-sizing: border-box;
+    width: 80vw;
 }
+
 
 .slider_container{
     display:block;
     white-space: nowrap;
+    width: 100%;
+
 }
 
+.scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: $accent-secondary;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  box-shadow: inset 6px 0 6px $brand-secondary;
+  background-color: $brand-secondary;
+  border-radius: 10px;
+}
 
 </style>
