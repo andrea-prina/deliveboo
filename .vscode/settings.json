@@ -2,6 +2,7 @@
         "conventionalCommits.scopes": [
                 "UsersTable",
                 "Types",
-                "FoodItemsTable"
+                "FoodItemsTable",
+                "API"
         ]
 }
