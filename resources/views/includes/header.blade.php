@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm brand-title navbar-back ">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="images/logo-white.png" alt="DeliveBoo" height="50">
             {{--  {{ config('app.name', 'DeliveBoo') }} --}}
