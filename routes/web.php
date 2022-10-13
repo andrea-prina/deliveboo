@@ -19,6 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware('auth')
+    // Update the folder containing the Controllers
+    ->namespace('Admin')
+    // Update the name of each subroute with a prefix
+    ->name('admin.')
+    // Update each url by adding the prefix/
+    ->prefix('admin')
+    // Group all the routes in that folder
+    ->group(function() {
+        Route::get('/user', 'UserController@show');
+    });
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get("{any?}", function() {
