@@ -1,17 +1,49 @@
 <template>
     <section>
-        <div class="container ms_container-bg">
-            <div class="row flex-wrap">
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                <RestaurantCard/>
-                
+        <div class="container py-3">
+            <div class="row g-3">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <RestaurantCard/>
+                </div>
+
+               
             </div>
-            
         </div>
     </section>
 </template>
@@ -23,7 +55,7 @@ export default {
     name: 'HomeRestaurantContainer',
     components: {
         RestaurantCard,
-        
+
     }
 }
 </script>
@@ -31,8 +63,5 @@ export default {
 <style lang="scss">
 @import "../../sass/app.scss";
 
-.ms_container-bg{
-    background-color: red;
-}
 
 </style>
