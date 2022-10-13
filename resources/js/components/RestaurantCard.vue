@@ -1,9 +1,9 @@
 <template>
-        <div class="card col-12 col-md-5 col-lg-2">
-            <span class="offer">FirstOrder25</span>
-            <div class="item-image"> <img src="https://i.imgur.com/gzandIc.png"> </div>
+        <div class="card col-12 col-md-5 col-lg-2 mx-1 my-1">
+            <!-- <span class="offer">FirstOrder25</span> -->
+            <div class="item-image"> <img src="../../../public/assets/img/il villino.jpg"> </div>
             <div class="item-content">
-                <h3>SGF Grill Pizza</h3>
+                <h3>Ristorante il Villino</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur...</p>
                 <div class="item-price"> <span>125/piece</span> <span>min order(200)</span> </div>
             </div>
@@ -27,8 +27,7 @@ export default {
         position: absolute;
         top: 28px;
         left: -14px;
-        border-radius: 20px;
-        border-bottom-left-radius: 0px;
+        border-radius: 5px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -95,8 +94,6 @@ export default {
         width: 100%;
         height: 200px;
         overflow: hidden;
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px
     }
 
     .card .item-image img {
