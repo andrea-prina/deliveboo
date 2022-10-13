@@ -1,5 +1,5 @@
 <template>
-        <div class="card col-12 col-md-5 col-lg-2 mx-1 my-1">
+        <div class="card col-12 col-md-6 col-lg-3 mx-3">
             <!-- <span class="offer">FirstOrder25</span> -->
             <div class="item-image"> <img src="../../../public/assets/img/il villino.jpg"> </div>
             <div class="item-content">
