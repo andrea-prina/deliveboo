@@ -24,7 +24,7 @@
             <tbody>
                 @foreach ($foodItems as $food)
                 <tr>
-                    <td><a href="#">{{$food->id}}</a></th>
+                    <td><a href="#">{{$food->user_id}}</a></th>
                     <td>{{$food->name}}</td>
                     <td colspan="2">{{$food->description}}</td>
                     <td>{{$food->price}}</td>

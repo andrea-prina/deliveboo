@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\FoodItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FoodItemController extends Controller
 {
@@ -27,7 +28,8 @@ class FoodItemController extends Controller
      */
     public function create()
     {
-        //
+        $food = new FoodItem();
+        return view('admin.foodItems.create', compact('food'));
     }
 
     /**
@@ -38,7 +40,13 @@ class FoodItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $foodItems = new FoodItem();
+        $data['user_id'] = Auth::id();
+        $foodItems->create($data);
+
+        return redirect()->route('admin.foodItems.index');
+       
     }
 
     /**
