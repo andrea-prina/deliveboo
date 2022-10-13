@@ -1,6 +1,9 @@
 <template>
 
-    <div class="card">
+    <div class="card position-relative">
+        <div class="position-absolute bg-style p-1">
+            <h1 class="text-white">Free Delivery</h1>
+        </div>
         <img src="../../../public/assets/img/il villino.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title brand-title">Restaurant name</h5>
@@ -21,6 +24,15 @@ export default {
 
 <style lang="scss">
 @import "../../sass/app.scss";
+
+.bg-style{
+    top: 10px;
+    background-color: $brand-main;
+    h1{
+        font-size: 14px;
+        margin-bottom: 0;
+    }
+}
 
 
 
