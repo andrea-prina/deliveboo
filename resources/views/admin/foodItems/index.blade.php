@@ -35,10 +35,10 @@
                         </a>
                     </td>
                     <td>
-                        <form action="#" method="post">
+                        <form action="{{route('admin.foodItems.destroy', $food->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
                         </form>
                     </td>
                     <td>
