@@ -8,7 +8,8 @@ class Type extends Model
 {
     //
     protected $fillable = [
-        'name'
+        'type_name',
+        'icon_path'
     ];
 
     public function users()

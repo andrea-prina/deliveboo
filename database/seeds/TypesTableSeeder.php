@@ -30,7 +30,7 @@ class TypesTableSeeder extends Seeder
 
         foreach ($types as $type) {
             $newType = new Type();
-            $newType->name = $type;
+            $newType->type_name = $type;
             $newType->save();
         }
     }
