@@ -4,9 +4,9 @@
         <div class="position-absolute bg-style p-1">
             <h1 class="text-white">Free Delivery</h1>
         </div>
-        <img src="../../../public/assets/img/il villino.jpg" class="card-img-top" alt="...">
+        <img :src='restaurant.image_path' class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title brand-title">Restaurant name</h5>
+            <h5 class="card-title brand-title">{{ restaurant.restaurant_name }}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's
                 content.</p>
@@ -18,8 +18,13 @@
 
 <script>
 export default {
-    name: 'RestaurantCard'
+    name: 'RestaurantCard',
+    props: {
+        restaurant: Object,
+    }
+
 }
+// passare a restaurantCard un props che sarà l'oggetto ristorante che recupero con la chiamata api nel component parent
 </script>
 
 <style lang="scss">
