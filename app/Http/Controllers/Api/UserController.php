@@ -10,17 +10,15 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Display the list of all restaurants. If no params are passed, it is a index of all restaurants.
+     * It is possible to pass as one, both or none of the parameters in the request 
+     * @param  Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-
-    
-    
-    public function index(Request $request){
-
-        $restaurantName = $request->query('name');
-        $restaurantType = $request->query('type');
+    public function index(Request $request)
+    {
+        $restaurantName = $request->query('name'); // String parameter
+        $restaurantType = $request->query('type'); // String parameter
 
         $query = DB::table('users')
                     ->join('type_user', 'users.id', '=', 'type_user.user_id')
@@ -50,15 +48,25 @@ class UserController extends Controller
 
 
 
+    /**
+     * Display the food items (menu) of a specific restaurant.
+     *
+     * @param  int  $id of the restaurant
+     * @return \Illuminate\Http\Response
+     */
+
     public function show($id)
     {
-        $user = User::find($id);
+        $foodItems = DB::table('food_items')
+                        ->select('name', 'description', 'image_path','price', 'availability')
+                        ->where('food_items.user_id', $id)
+                        ->get();
         
-        if($user){
+        if($foodItems){
             return response()->json([
                 'response' => true,
                 'results' => [
-                    'data' => $user
+                    'data' => $foodItems
                 ]]);
         }
         else return response('', 404);
