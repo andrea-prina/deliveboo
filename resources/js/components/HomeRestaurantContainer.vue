@@ -10,7 +10,6 @@
                 <RestaurantCard/>
                 <RestaurantCard/>
                 
-                
             </div>
             
         </div>
