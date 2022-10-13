@@ -30,6 +30,7 @@ Route::middleware('auth')
     ->group(function() {
         Route::get('/user', 'UserController@show');
     });
+Route::get('/changeFreeDelivery','UserController@changeFreeDeliveryStatus')->name('changeFreeDelivery');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

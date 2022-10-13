@@ -29,4 +29,12 @@ class UserController extends Controller
         $user = User::where('id', Auth::id())->first();
         return view('admin.users.edit', compact('user'));
     }
+
+    public function changeFreeDeliveryStatus(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->free_delivery = $request->status;
+        $user->save();
+        return response()->json(['success'=>'Status change successfully.']);
+    }
 }

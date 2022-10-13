@@ -33,10 +33,37 @@
                 <span class="form-control">
                     {{ $user->free_delivery ? 'FREE' : '€ ' . $user->delivery_fee }}
                 </span>
+                <div class="form-check form-switch">
+                    <input type="checkbox" data-id="{{$user->id}}" class="form-check-input" data-onstyle='success' data-offstyle='danger' data-toggle="toggle" data-on='Active' data-off='Inactive' role="switch"
+                    {{$user->free_delivery ? 'checked' : ''}}>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+
+        $(function() {
+            $('.form-check-input').change(function() {
+                var status = $(this).prop('checked') == true ? 1 : 0;
+                var id = $(this).data('id');
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '/changeFreeDeliveryStatus',
+                    data: {
+                        'status': status,
+                        'id': id
+                    },
+                    success: function(data) {
+                        console.log(data.success)
+                    }
+                });
+            })
+        })
+
+  
+</script>
 
 @endsection
