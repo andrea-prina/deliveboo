@@ -42,8 +42,8 @@
                         </form>
                     </td>
                     <td>
-                        <a href="#">
-                            <button type="button" class="btn btn-sm btn-primary">Show Post</button>
+                        <a href="{{route('admin.foodItems.show', $food->id)}}">
+                            <button type="button" class="btn btn-sm btn-primary">Show Food</button>
                         </a>
                     </td>
                 </tr>

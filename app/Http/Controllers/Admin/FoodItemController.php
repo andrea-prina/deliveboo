@@ -15,9 +15,8 @@ class FoodItemController extends Controller
      */
     public function index()
     {
-       $foodItems = foodItem::all();
-       $foodItems = foodItem::paginate(10);
-    //    return view('admin.foodItems.index', compact('foodItems'));
+       $foodItems = FoodItem::all();
+       $foodItems = FoodItem::paginate(10);
       return view('admin.foodItems.index', compact('foodItems'));
     }
 
@@ -50,7 +49,8 @@ class FoodItemController extends Controller
      */
     public function show($id)
     {
-        //
+        $food = FoodItem::findOrFail($id);
+        return view('admin.foodItems.show', compact('food'));
     }
 
     /**
