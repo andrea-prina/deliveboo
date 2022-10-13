@@ -22,6 +22,8 @@ class UserController extends Controller
     /**
      * Allow the logged user to modify its information (except for log in credentials)
      */
+
+    //TODO edit only on the free delivery
     public function edit()
     {
         $user = User::where('id', Auth::id())->first();
