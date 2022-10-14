@@ -57,7 +57,7 @@ class FoodItemController extends Controller
         $data = $request->all();
         $validatedData = $request->validate($this->validationArray);
 
-        $foodItems = new FoodItem();
+        $foodItem = new FoodItem();
         $data['user_id'] = Auth::id();
         $foodItem->fill($data);
         $foodItem->save();
@@ -101,7 +101,7 @@ class FoodItemController extends Controller
     {
         $data = $request->all();
         $validatedData = $request->validate($this->validationArray);
-        $foodItems = FoodItem::findOrFail($id);
+        $foodItem = FoodItem::findOrFail($id);
         $data['user_id'] = Auth::id();
         $foodItem->update($data);
 
