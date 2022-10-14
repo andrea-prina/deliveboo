@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label> 
 
                             <div class="col-md-6 my-2">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -107,7 +107,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="name" autofocus maxlength="255">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="name" autofocus maxlength="255">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -121,7 +121,7 @@
                             <label for="delivery_fee" class="col-md-4 col-form-label text-md-right">{{ __('Delivery fee') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="delivery_fee" type="number" class="form-control @error('delivery_fee') is-invalid @enderror" name="delivery_fee" value="{{ old('delivery_fee') }}" required autocomplete="name" autofocus min="0" max="99.99">
+                                <input id="delivery_fee" type="number" class="form-control @error('delivery_fee') is-invalid @enderror" name="delivery_fee" value="{{ old('delivery_fee') }}" autocomplete="name" autofocus min="0" max="99.99">
 
                                 @error('delivery_fee')
                                     <span class="invalid-feedback" role="alert">
@@ -135,7 +135,7 @@
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image upload') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="image_path" type="text" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value="{{ old('image_path') }}" required autocomplete="name" autofocus max="255">
+                                <input id="image_path" type="text" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value="{{ old('image_path') }}" autocomplete="name" autofocus max="255">
 
                                 @error('image_path')
                                     <span class="invalid-feedback" role="alert">
