@@ -6,6 +6,14 @@
 
     {{ $foodItems->links() }}
 
+    @if (session('delete'))
+        <div class="alert alert-danger">{{ session('delete') }}</div>
+    @elseif (session('new_entry'))
+        <div class="alert alert-success">{{ session('new_entry') }}</div>
+    @elseif (session('update'))
+        <div class="alert alert-warning">{{ session('update') }}</div>
+    @endif
+
     <div class="table-responsive">
         <table class="table table-hover table-dark">
             <thead>
@@ -49,7 +57,7 @@
             @endforeach
         </table>
     </div>
-    
+
 </div>
 
 @endsection
@@ -61,7 +69,6 @@
         deleteFormButton.forEach(element => {
             element.addEventListener('submit', function(event){
                 const foodItemName = this.getAttribute('food-item-name');
-                console.log(foodItemName);
                 event.preventDefault();
                 const result = window.confirm(`Do you REALLY want to delete ${foodItemName} ?`);
                 if (result) {
