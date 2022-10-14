@@ -18,7 +18,7 @@
               </ul>
               @endif
 
-            <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST">
+            <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('POST')
                 <!-- Name input -->
@@ -29,7 +29,7 @@
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="text" required id="form4Example2" class="form-control" name="image_path" />
+                  <input type="file" required id="form4Example2" class="form-control" name="image_path" />
                   <label class="form-label" for="form4Example2">Image *</label>
                 </div>
 

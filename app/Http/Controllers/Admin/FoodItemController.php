@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\FoodItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class FoodItemController extends Controller
 {
@@ -13,7 +14,7 @@ class FoodItemController extends Controller
         'name' => 'required|string|max:255',
         'description' => 'required|string|max:255',
         'price' => 'required|numeric|min:0',
-        'image_path' => 'required|string|max:255',
+        'image_path' => 'required',
     ];
     /**
      * Display a listing of the resource.
@@ -24,15 +25,9 @@ class FoodItemController extends Controller
     {
         $user = Auth::user();
         $foodItems = FoodItem::where('user_id', $user->id)->paginate(10);
-    //    dd($foodItems);
-        // $foodItems = FoodItem::paginate(10);
+
 
         return view('admin.foodItems.index', compact('foodItems'));
-
-
-
-    //    $foodItems = Auth::user()->foodItems;
-    //   return view('admin.foodItems.index', compact('foodItems'));
     }
 
     /**
@@ -56,8 +51,8 @@ class FoodItemController extends Controller
     {
         $data = $request->all();
         $validatedData = $request->validate($this->validationArray);
-
         $foodItem = new FoodItem();
+        $data['image_path'] =  Storage::put('food_images', $data['image_path']);
         $data['user_id'] = Auth::id();
         $foodItem->fill($data);
         $foodItem->save();

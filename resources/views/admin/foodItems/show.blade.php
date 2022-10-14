@@ -11,7 +11,8 @@
    <div class="row justify-content-center w-100">
     <div class="col-4">
         <div class="card">
-            <img class="card-img-top p-2" src="{{$food->image_path}}" alt="{{$food->name}}">
+            <img class="card-img-top p-2" src="{{asset('/storage/' . $food->image_path)}}" alt="{{$food->name}}">
+
             <div class="card-body">
               <h5 class="card-title">{{$food->name}}</h5>
               <p class="card-text">{{$food->description}}</p>
