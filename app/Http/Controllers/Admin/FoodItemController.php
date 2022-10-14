@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class FoodItemController extends Controller
 {
+    protected $validationArray = [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'image_path' => 'required|string|max:255',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +22,17 @@ class FoodItemController extends Controller
      */
     public function index()
     {
-       $foodItems = FoodItem::all();
-       $foodItems = FoodItem::paginate(10);
-      return view('admin.foodItems.index', compact('foodItems'));
+        $user = Auth::user();
+        $foodItems = FoodItem::where('user_id', $user->id)->paginate(10);
+    //    dd($foodItems);
+        // $foodItems = FoodItem::paginate(10);
+
+        return view('admin.foodItems.index', compact('foodItems'));
+
+
+
+    //    $foodItems = Auth::user()->foodItems;
+    //   return view('admin.foodItems.index', compact('foodItems'));
     }
 
     /**
@@ -41,12 +55,15 @@ class FoodItemController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $foodItems = new FoodItem();
-        $data['user_id'] = Auth::id();
-        $foodItems->create($data);
+        $validatedData = $request->validate($this->validationArray);
 
-        return redirect()->route('admin.foodItems.index');
-       
+        $foodItem = new FoodItem();
+        $data['user_id'] = Auth::id();
+        $foodItem->fill($data);
+        $foodItem->save();
+
+        return redirect()->route('admin.foodItems.index')->with('new_entry', $foodItem->name .' created successfully');
+
     }
 
     /**
@@ -83,11 +100,13 @@ class FoodItemController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $foodItems = FoodItem::findOrFail($id);
+        $validatedData = $request->validate($this->validationArray);
+        $foodItem = FoodItem::findOrFail($id);
         $data['user_id'] = Auth::id();
-        $foodItems->update($data);
+        $foodItem->update($data);
 
-        return redirect()->route('admin.foodItems.index');
+
+        return redirect()->route('admin.foodItems.index')->with('update', $foodItem->name .' updated successfully');
     }
 
     /**
@@ -98,8 +117,8 @@ class FoodItemController extends Controller
      */
     public function destroy(FoodItem $foodItem)
     {
-
+        $oldFoodItem = $foodItem->name;
         $foodItem->delete();
-        return redirect()->route('admin.foodItems.index');
+        return redirect()->route('admin.foodItems.index')->with('delete', $oldFoodItem .' deleted successfully');
     }
 }
