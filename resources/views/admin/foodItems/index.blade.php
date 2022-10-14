@@ -14,23 +14,23 @@
         <div class="alert alert-warning">{{ session('update') }}</div>
     @endif
 
-    <div class="table-responsive">
-        <table class="table table-hover table-dark">
+    <div class="table-responsive rounded">
+        <table class="table table-head ">
             <thead>
-                <tr>
+                <tr class="bg-brand-secondary text-center">
                     <th scope="col">User ID</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Item Name</th>
                     <th scope="col" colspan="2">Description</th>
                     <th scope="col">Price</th>
                     <th scope="col">Availability</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                    <th scope="col">Show</th>
+                    <th scope="col">Edit Item</th>
+                    <th scope="col">Delete Item</th>
+                    <th scope="col">Show Item</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($foodItems as $food)
-                <tr>
+                <tr class="bg-white text-center">
                     <td><a href="#">{{$food->user_id}}</a></th>
                     <td>{{$food->name}}</td>
                     <td colspan="2">{{$food->description}}</td>
@@ -38,19 +38,19 @@
                     <td>{{$food->availability}}</td>
                     <td>
                         <a href="{{route('admin.foodItems.edit', $food->id)}}">
-                            <button type="button" class="btn btn-sm btn-success">Edit</button>
+                            <button type="button" class="btn btn-sm btn-accent">Edit</button>
                         </a>
                     </td>
                     <td>
                         <form action="{{route('admin.foodItems.destroy', $food->id)}}" method="POST" class="crud-delete-form" food-item-name="{{ $food->name }}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" class="btn btn-sm btn-danger"value="Delete" >
+                            <input type="submit" class="btn btn-sm btn-accent"value="Delete" >
                         </form>
                     </td>
                     <td>
                         <a href="{{route('admin.foodItems.show', $food->id)}}">
-                            <button type="button" class="btn btn-sm btn-primary">Show Food</button>
+                            <button type="button" class="btn btn-sm btn-accent">Show Food</button>
                         </a>
                     </td>
                 </tr>
