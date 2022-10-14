@@ -9,23 +9,23 @@
     <div class="row justify-content-center w-100">
         <div class="col-6">
 
-          @if($errors->any())
-          <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          @endif
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
 
-            <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('POST')
+                <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
 
-                @include('admin.foodItems.includes.form')
-                
-              </form>
+                    @include('admin.foodItems.includes.form')
+
+                </form>
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

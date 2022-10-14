@@ -80,8 +80,8 @@ class FoodItemController extends Controller
      */
     public function edit($id)
     {
-       $food = FoodItem::findOrFail($id);
-         return view('admin.foodItems.edit', compact('food'));
+        $food = FoodItem::findOrFail($id);
+        return view('admin.foodItems.edit', compact('food'));
     }
 
     /**
@@ -96,9 +96,9 @@ class FoodItemController extends Controller
         $data = $request->all();
         $validatedData = $request->validate($this->validationArray);
         $foodItem = FoodItem::findOrFail($id);
+        $data['image_path'] =  Storage::put('food_images', $data['image_path']);
         $data['user_id'] = Auth::id();
         $foodItem->update($data);
-
 
         return redirect()->route('admin.foodItems.index')->with('update', $foodItem->name .' updated successfully');
     }
