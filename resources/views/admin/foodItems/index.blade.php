@@ -9,16 +9,16 @@
     <div class="table-responsive">
         <table class="table table-hover table-dark">
             <thead>
-              <tr>
-                <th scope="col">User ID</th>
-                <th scope="col">Name</th>
-                <th scope="col" colspan="2">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Availability</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-                <th scope="col">Show</th>
-              </tr>
+                <tr>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" colspan="2">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Show</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach ($foodItems as $food)
@@ -34,10 +34,10 @@
                         </a>
                     </td>
                     <td>
-                        <form action="{{route('admin.foodItems.destroy', $food->id)}}" method="POST">
+                        <form action="{{route('admin.foodItems.destroy', $food->id)}}" method="POST" class="crud-delete-form" food-item-name="{{ $food->name }}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            <input type="submit" class="btn btn-sm btn-danger"value="Delete" >
                         </form>
                     </td>
                     <td>
@@ -47,10 +47,27 @@
                     </td>
                 </tr>
             @endforeach
-          </table>
+        </table>
     </div>
     
 </div>
 
 @endsection
 
+@section('footer-scripts')
+    <script>
+        const deleteFormButton = document.querySelectorAll('.crud-delete-form');
+        console.log(deleteFormButton);
+        deleteFormButton.forEach(element => {
+            element.addEventListener('submit', function(event){
+                const foodItemName = this.getAttribute('food-item-name');
+                console.log(foodItemName);
+                event.preventDefault();
+                const result = window.confirm(`Do you REALLY want to delete ${foodItemName} ?`);
+                if (result) {
+                    this.submit();
+                }
+            })
+        });
+    </script>
+@endsection
