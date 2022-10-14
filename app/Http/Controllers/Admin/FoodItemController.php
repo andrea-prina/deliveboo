@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Auth;
 
 class FoodItemController extends Controller
 {
+    protected $validationArray = [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'image_path' => 'required|string|max:255',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -41,7 +47,9 @@ class FoodItemController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $foodItem = new FoodItem();
+        $validatedData = $request->validate($this->validationArray);
+
+        $foodItems = new FoodItem();
         $data['user_id'] = Auth::id();
         $foodItem->fill($data);
         $foodItem->save();
@@ -84,7 +92,8 @@ class FoodItemController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $foodItem = FoodItem::findOrFail($id);
+        $validatedData = $request->validate($this->validationArray);
+        $foodItems = FoodItem::findOrFail($id);
         $data['user_id'] = Auth::id();
         $foodItem->update($data);
 
