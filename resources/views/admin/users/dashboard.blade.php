@@ -33,37 +33,18 @@
                 <span class="form-control">
                     {{ $user->free_delivery ? 'FREE' : '€ ' . $user->delivery_fee }}
                 </span>
-                <div class="form-check form-switch">
-                    <input type="checkbox" data-id="{{$user->id}}" class="form-check-input" data-onstyle='success' data-offstyle='danger' data-toggle="toggle" data-on='Active' data-off='Inactive' role="switch"
-                    {{$user->free_delivery ? 'checked' : ''}}>
-                </div>
+                <form action="{{ route('admin.toggleFree', ["id" => Auth::id()]) }}" method="POST" class="crud-delete-form">
+                    @csrf
+                    @method('PUT')
+                    <label class="form-check-label" for="inlineCheckbox1">Free Delivery</label>
+                    <input type='hidden' value='0' name='free_delivery'>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="free_delivery" value="1" name="free_delivery" onchange="this.form.submit()" {{$user->free_delivery == "1" ? 'checked' : ''}}>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-
-        $(function() {
-            $('.form-check-input').change(function() {
-                var status = $(this).prop('checked') == true ? 1 : 0;
-                var id = $(this).data('id');
-                $.ajax({
-                    type: "GET",
-                    dataType: "json",
-                    url: '/changeFreeDeliveryStatus',
-                    data: {
-                        'status': status,
-                        'id': id
-                    },
-                    success: function(data) {
-                        console.log(data.success)
-                    }
-                });
-            })
-        })
-
-  
-</script>
 
 @endsection
