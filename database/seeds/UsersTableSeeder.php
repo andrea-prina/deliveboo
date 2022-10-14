@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         $testUser->surname = "Petricca";
         $testUser->email = "rp@email.com";
         $testUser->address = $faker->address();
-        $testUser->password = "password";
+        $testUser->password = Hash::make("password");
         $testUser->restaurant_name = "Petricca's restaurant ";
         $testUser->delivery_fee = $faker->randomFloat(2, 0, 10);
         $testUser->vat_number = "12345678910";
