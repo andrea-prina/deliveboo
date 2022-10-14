@@ -2,7 +2,7 @@
   <footer>
     <div class="top-footer container">
         <div class="row justify-content-between py-4">
-            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mb-lg-0 text-white">
+            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Scopri Deliveboo</h5>
                     <li>Investitori</li>
@@ -17,7 +17,7 @@
                 </ul>
             </div>
 
-            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mb-lg-0 text-white">
+            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Note legali</h5>
                     <li>Termini & Condizioni</li>
@@ -26,7 +26,7 @@
                 </ul>
             </div>
 
-            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mb-lg-0 text-white">
+            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Aiuto</h5>
                     <li>Contatti</li>
@@ -35,7 +35,7 @@
                 </ul>
             </div>
 
-            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mb-lg-0 text-white">
+            <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Porta Deliveboo con te</h5>
                     <img class="w-50" src="../../../public/assets/img/download.png" alt="download">
@@ -77,7 +77,7 @@ footer{
     .ms_footer-card{
         background-color: $footer-secondary;
         padding: 20px 0;
-        margin: 0 10px;
+        // margin: 0 10px;
         /* flex-basis: calc(100% / 4 - 20px); */
         border-radius: 5px;
         flex-grow: 1;

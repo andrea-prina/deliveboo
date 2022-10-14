@@ -64,16 +64,19 @@ export default {
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 55%;
+  //position: absolute;
+  //top: 50%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
 }
 .jumbotron {
     height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: $brand-white;
-    position: relative;
+    //position: relative;//
     background-image: url('https://thumbs.dreamstime.com/b/balanced-diet-food-background-balanced-diet-food-background-organic-food-healthy-nutrition-superfoods-meat-fish-legumes-nuts-121936796.jpg');
     background-repeat: no-repeat;
     background-size: cover;
