@@ -14,8 +14,8 @@
         <div class="alert alert-warning">{{ session('update') }}</div>
     @endif
 
-    <div class="table-responsive">
-        <table class="table table-hover table-dark">
+    <div class="table-responsive ">
+        <table class="table table-hover bg-brand-secondary">
             <thead>
                 <tr>
                     <th scope="col">User ID</th>
