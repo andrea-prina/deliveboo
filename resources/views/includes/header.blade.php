@@ -45,15 +45,16 @@
                             </form>
                         </div>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.foodItems.index') }}">Index</a>
+                    </li>
+    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.foodItems.create')}}">Insert new food</a>
+                    </li>
                 @endguest
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.foodItems.index') }}">Index</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.foodItems.create')}}">Insert new food</a>
-                </li>
             </ul>
         </div>
     </div>
