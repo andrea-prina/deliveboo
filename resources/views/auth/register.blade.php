@@ -29,7 +29,7 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname*') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="name" autofocus maxlength="255">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus maxlength="255">
 
                                 @error('surname')
                                     <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
                             <label for="restaurant_name" class="col-md-4 col-form-label text-md-right">{{ __("Restaurant's name*") }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="name" autofocus maxlength="255">
+                                <input id="restaurant_name" type="text" class="form-control @error('restaurant_name') is-invalid @enderror" name="restaurant_name" value="{{ old('restaurant_name') }}" required autocomplete="off" autofocus maxlength="255">
 
                                 @error('restaurant_name')
                                     <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                             <label for="vat_number" class="col-md-4 col-form-label text-md-right">{{ __('Vat number*') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="vat_number" type="text" class="form-control @error('vat_number') is-invalid @enderror" name="vat_number" value="{{ old('vat_number') }}" required autocomplete="name" autofocus minlength="11" maxlength="11">
+                                <input id="vat_number" type="text" class="form-control @error('vat_number') is-invalid @enderror" name="vat_number" value="{{ old('vat_number') }}" required autocomplete="off" autofocus minlength="11" maxlength="11">
 
                                 @error('vat_number')
                                     <span class="invalid-feedback" role="alert">
@@ -85,7 +85,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label> 
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password*') }}</label>
 
                             <div class="col-md-6 my-2">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -107,7 +107,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="name" autofocus maxlength="255">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" autocomplete="off" autofocus maxlength="255" required>
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -121,7 +121,7 @@
                             <label for="delivery_fee" class="col-md-4 col-form-label text-md-right">{{ __('Delivery fee') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="delivery_fee" type="number" class="form-control @error('delivery_fee') is-invalid @enderror" name="delivery_fee" value="{{ old('delivery_fee') }}" autocomplete="name" autofocus min="0" max="99.99">
+                                <input id="delivery_fee" type="number" class="form-control @error('delivery_fee') is-invalid @enderror" name="delivery_fee" value="{{ old('delivery_fee') }}" autofocus min="0" max="99.99" autocomplete="off" required>
 
                                 @error('delivery_fee')
                                     <span class="invalid-feedback" role="alert">
@@ -135,7 +135,7 @@
                             <label for="image_path" class="col-md-4 col-form-label text-md-right">{{ __('Image upload') }}</label>
 
                             <div class="col-md-6 my-2">
-                                <input id="image_path" type="text" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value="{{ old('image_path') }}" autocomplete="name" autofocus max="255">
+                                <input id="image_path" type="text" class="form-control @error('image_path') is-invalid @enderror" name="image_path" value="{{ old('image_path') }}" autofocus max="255" autocomplete="off">
 
                                 @error('image_path')
                                     <span class="invalid-feedback" role="alert">
