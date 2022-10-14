@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::middleware('auth')
     // Update the folder containing the Controllers
     ->namespace('Admin')
@@ -29,6 +30,7 @@ Route::middleware('auth')
     // Group all the routes in that folder
     ->group(function() {
         Route::resource('/foodItems', 'FoodItemController');
+        Route::get('/user', 'UserController@show');
     });
 
 Route::get('/home', 'HomeController@index')->name('home');
