@@ -22,9 +22,17 @@ class FoodItemController extends Controller
      */
     public function index()
     {
-       $foodItems = FoodItem::all();
-       $foodItems = FoodItem::paginate(10);
-      return view('admin.foodItems.index', compact('foodItems'));
+        $user = Auth::user();
+        $foodItems = FoodItem::where('user_id', $user->id)->paginate(10);
+    //    dd($foodItems);
+        // $foodItems = FoodItem::paginate(10);
+
+        return view('admin.foodItems.index', compact('foodItems'));
+
+
+
+    //    $foodItems = Auth::user()->foodItems;
+    //   return view('admin.foodItems.index', compact('foodItems'));
     }
 
     /**
