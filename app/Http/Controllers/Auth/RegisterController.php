@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -36,6 +38,16 @@ class RegisterController extends Controller
      *
      * @return void
      */
+
+    
+    public function showRegistrationForm()
+    {
+        $types = Type::all();
+
+        return view('auth.register', compact('types'));
+    }
+
+
     public function __construct()
     {
         $this->middleware('guest');
@@ -59,7 +71,6 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'delivery_fee' => ['required', 'numeric', 'between:0.00,99.99'],
             'free_delivery' => ['boolean'],
-            'image_path' => ['string', 'max:255']
         ]);
     }
 
@@ -71,7 +82,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'restaurant_name' => $data['restaurant_name'],
@@ -80,7 +92,11 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'delivery_fee' => $data['delivery_fee'],
-            'image_path' => $data['image_path'],
+            'image_path' => Storage::put('restaurant_images', $data['image_path']),
         ]);
+
+        $user->types()->attach($data['types']);
+
+        return $user;
     }
 }
