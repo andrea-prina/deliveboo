@@ -23,10 +23,14 @@ class UserController extends Controller
      * Allow the logged user to modify its information (except for log in credentials)
      */
 
-    //TODO edit only on the free delivery
-    public function edit()
+
+    public function toggleFree(Request $request)
     {
+        $data = $request->all();
         $user = User::where('id', Auth::id())->first();
-        return view('admin.users.edit', compact('user'));
+        $user->free_delivery = $data['free_delivery'];
+        $user->save();
+        return redirect()->route('admin.show');
+
     }
 }

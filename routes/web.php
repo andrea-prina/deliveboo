@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,8 @@ Route::middleware('auth')
     ->prefix('admin')
     // Group all the routes in that folder
     ->group(function() {
-        Route::resource('/foodItems', 'FoodItemController');
-        Route::get('/user', 'UserController@show');
+        Route::get('/user', 'UserController@show')->name('show');
+        Route::put('/user/{id}', 'UserController@toggleFree')->name('toggleFree');
     });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -40,4 +41,3 @@ Route::resource('food','Admin\FoodItemController');
 Route::get("{any?}", function() {
     return view("guest.home");
 })->where("any", ".*");
-

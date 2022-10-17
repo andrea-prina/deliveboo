@@ -33,10 +33,18 @@
                 <span class="form-control">
                     {{ $user->free_delivery ? 'FREE' : '€ ' . $user->delivery_fee }}
                 </span>
+                <form action="{{ route('admin.toggleFree', ["id" => Auth::id()]) }}" method="POST" class="crud-delete-form">
+                    @csrf
+                    @method('PUT')
+                    <label class="form-check-label" for="inlineCheckbox1">Free Delivery</label>
+                    <input type='hidden' value='0' name='free_delivery'>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="free_delivery" value="1" name="free_delivery" onchange="this.form.submit()" {{$user->free_delivery == "1" ? 'checked' : ''}}>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
 
 @endsection
