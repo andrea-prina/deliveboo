@@ -5,51 +5,27 @@
 @section('content')
 
 
-<div class="container d-flex p-5 text-center">
+<div class="container d-flex p-5 bg-white rounded border-violet my-5">
     <div class="row justify-content-center w-100">
         <div class="col-6">
 
-          @if($errors->any())
-          <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-              @endif
+            @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                @endif
 
-            <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST">
-                @csrf
-                @method('POST')
-                <!-- Name input -->
-                <div class="form-outline mb-4">
-                  <input type="text" required max='255'id="form4Example1" class="form-control" name="name"/>
-                  <label class="form-label" for="form4Example1">Name *</label>
-                </div>
+                <form action="{{ route('admin.foodItems.store', $food->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
 
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="text" required id="form4Example2" class="form-control" name="image_path" />
-                  <label class="form-label" for="form4Example2">Image *</label>
-                </div>
+                    @include('admin.foodItems.includes.form')
 
-                 <!-- Email input -->
-                 <div class="form-outline mb-4">
-                    <input type="text" required id="form4Example2" class="form-control" name="description" />
-                    <label class="form-label" for="form4Example2">Description *</label>
-                  </div>
-
-                <!-- Message input -->
-                <div class="form-outline mb-4">
-                    <input type="number" step="0.01" min="0.01" required id="form4Example2" class="form-control" name="price" />
-                    <label class="form-label" for="form4Example2">Price *</label>
-                  </div>
-
-
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
-              </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection
