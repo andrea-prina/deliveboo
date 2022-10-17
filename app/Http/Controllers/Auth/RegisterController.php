@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -36,6 +37,16 @@ class RegisterController extends Controller
      *
      * @return void
      */
+
+    
+    public function showRegistrationForm()
+    {
+        $types = Type::all();
+
+        return view('auth.register', compact('types'));
+    }
+
+
     public function __construct()
     {
         $this->middleware('guest');
@@ -71,7 +82,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $user = User::create([
             'name' => $data['name'],
             'surname' => $data['surname'],
             'restaurant_name' => $data['restaurant_name'],
@@ -82,5 +94,9 @@ class RegisterController extends Controller
             'delivery_fee' => $data['delivery_fee'],
             'image_path' => $data['image_path'],
         ]);
+
+        $user->types()->attach($data['types']);
+
+        return $user;
     }
 }

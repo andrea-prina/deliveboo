@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -178,19 +180,18 @@
                                     @enderror
                                 </div>
                             </div>
-                             {{-- TODO: CONTROLLER --}}
+
                             <div class="form-group row">
-                                <label for="image_path"
+                                <label for="types"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Select type') }}</label>
 
                                 <div class="col-md-6 my-2">
-                                    <div class="form-check form-check-inline">
-                                        <input type="checkbox" name="tags[]" class="form-check-input" id="input-tags"
-                                            {{-- value="{{ $tag->id }}"
-                                            {{-- {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
-                                        <label for="input-tags" class="m-0">{{ $tag->name }}</label>
-                                    </div> --}}
-                                    TODO: CONTROLLER --}}
+                                    @foreach ($types as $type)
+                                    <div class="form-check form-check-inline" id="types-form">
+                                        <input type="checkbox" name="types[]" class="form-check-input" id="types"                                         value="{{ $type->id}}">
+                                        <label for="types">{{ $type->type_name }}</label>
+                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
 
