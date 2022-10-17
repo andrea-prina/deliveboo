@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm brand-title navbar-back ">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="images/logo-white.png" alt="DeliveBoo" height="50">
+            <img src="{{asset('assets/img/logo-white.png')}}" alt="DeliveBoo" height="50">
             {{--  {{ config('app.name', 'DeliveBoo') }} --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -9,7 +9,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
 
