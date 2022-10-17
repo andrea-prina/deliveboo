@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -70,7 +71,6 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'delivery_fee' => ['required', 'numeric', 'between:0.00,99.99'],
             'free_delivery' => ['boolean'],
-            'image_path' => ['string', 'max:255']
         ]);
     }
 
@@ -92,7 +92,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'delivery_fee' => $data['delivery_fee'],
-            'image_path' => $data['image_path'],
+            'image_path' => Storage::put('restaurant_images', $data['image_path']),
         ]);
 
         $user->types()->attach($data['types']);

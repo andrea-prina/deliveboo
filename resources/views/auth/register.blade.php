@@ -10,7 +10,7 @@
                     <div class="card-header bg-brand-secondary">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -169,7 +169,7 @@
                                     class="col-md-4 col-form-label text-md-right">{{ __('Image upload') }}</label>
 
                                 <div class="col-md-6 my-2">
-                                    <input id="image_path" type="text"
+                                    <input id="image_path" type="file"
                                         class="form-control @error('image_path') is-invalid @enderror" name="image_path"
                                         value="{{ old('image_path') }}" autofocus max="255" autocomplete="off">
 
@@ -188,7 +188,7 @@
                                 <div class="col-md-6 my-2">
                                     @foreach ($types as $type)
                                     <div class="form-check form-check-inline" id="types-form">
-                                        <input type="checkbox" name="types[]" class="form-check-input" id="types"                                        value="{{ $type->id}}">
+                                        <input type="checkbox" name="types[]" class="form-check-input" id="{{ $type->type_name }}" value="{{ $type->id}}">
                                         <label for="types">{{ $type->type_name }}</label>
                                     </div>
                                     @endforeach

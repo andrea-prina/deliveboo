@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <img src="{{$user->image_path}}" alt="You restourant image" class="w-100">
+            <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100">
         </div>
         <div class="col-6">
             <div class="mb-3">
