@@ -9,7 +9,7 @@
 
 <div class="d-flex p-5">
   <div class="row justify-content-center w-100">
-    <div class="col-4">
+    <div class="col-12">
       <div class="card">
         <img class="card-img-top p-2" src="{{asset('/storage/' . $food->image_path)}}" alt="{{$food->name}}">
 
