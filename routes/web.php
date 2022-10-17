@@ -32,11 +32,11 @@ Route::middleware('auth')
     ->group(function() {
         Route::get('/user', 'UserController@show')->name('show');
         Route::put('/user/{id}', 'UserController@toggleFree')->name('toggleFree');
+        Route::resource('foodItems','FoodItemController');
     });
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('food','Admin\FoodItemController');
 
 Route::get("{any?}", function() {
     return view("guest.home");
