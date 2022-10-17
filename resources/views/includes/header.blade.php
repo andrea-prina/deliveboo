@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm brand-title navbar-back ">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{asset('assets/img/logo-white.png')}}" alt="DeliveBoo" height="50">
+            <img src="{{ asset('assets/img/logo-white.png') }}" alt="DeliveBoo" height="50">
             {{--  {{ config('app.name', 'DeliveBoo') }} --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -9,10 +9,16 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.foodItems.index') }}">Index</a>
+                </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.foodItems.create') }}">Insert new food</a>
+                </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -45,14 +51,14 @@
                             </form>
                         </div>
                     </li>
-                    
-                    <li class="nav-item">
+
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.foodItems.index') }}">Index</a>
                     </li>
-    
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.foodItems.create')}}">Insert new food</a>
-                    </li>
+                        <a class="nav-link" href="{{ route('admin.foodItems.create') }}">Insert new food</a>
+                    </li> --}}
                 @endguest
 
             </ul>
