@@ -44,12 +44,12 @@
                 </form>
             </div>
 
-            <div class="">Category</div>
+            <div class="">Categories:</div>
             <ul class="p-0 my-2">
             @forelse ($user->types as $type)
             <li class="list-styling"> {{ $type->type_name }}</li>
             @empty
-            <div></div>   
+            <div></div>
             @endforelse
             </ul>
         </div>
