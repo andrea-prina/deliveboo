@@ -154,7 +154,7 @@
                                     <input id="delivery_fee" type="number"
                                         class="form-control @error('delivery_fee') is-invalid @enderror"
                                         name="delivery_fee" value="{{ old('delivery_fee') }}" autofocus min="0"
-                                        max="99.99" autocomplete="delivery_fee" required>
+                                        max="99.99" autocomplete="delivery_fee" required step="0.1">
 
                                     @error('delivery_fee')
                                         <span class="invalid-feedback" role="alert">
