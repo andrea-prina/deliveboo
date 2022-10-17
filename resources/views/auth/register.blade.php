@@ -10,7 +10,7 @@
                     <div class="card-header bg-brand-secondary">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" name="registration-form" onsubmit="return TagValidation();">
                             @csrf
 
                             <div class="form-group row">
@@ -197,7 +197,7 @@
 
                             <div class="form-group row mb-0 my-2">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-accent">
+                                    <button type="submit" class="btn btn-accent" id="submit-button">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
@@ -208,4 +208,34 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('footer-scripts')
+
+<script>
+
+ /*    const form = document.getElementById('form-submit').addEventListener('click', function(event){
+        TagValidation();
+        console.log('clicked');
+        event.preventDefault();
+
+    }); */
+
+    function TagValidation() {
+        console.log('button')
+        var types = document.getElementsByName('types[]');
+        var checked = false;
+        for (var i = 0; i < types.length; i++) {
+            if (types[i].checked) {
+                checked = true;
+            }
+        }
+        if (!checked) {
+            alert('Please select at least one type');
+            return false;
+        }
+    }
+
+</script>
+
 @endsection
