@@ -18,7 +18,6 @@
         <table class="table table-head ">
             <thead>
                 <tr class="bg-brand-secondary text-center">
-                    <th scope="col">User ID</th>
                     <th scope="col">Item Name</th>
                     <th scope="col" colspan="2">Description</th>
                     <th scope="col">Price</th>
@@ -31,7 +30,6 @@
             <tbody>
                 @foreach ($foodItems as $food)
                 <tr class="bg-white text-center">
-                    <td><a href="#">{{$food->user_id}}</a></th>
                     <td>{{$food->name}}</td>
                     <td colspan="2">{{$food->description}}</td>
                     <td>{{$food->price}}</td>

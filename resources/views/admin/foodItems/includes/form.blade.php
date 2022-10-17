@@ -1,25 +1,25 @@
 
 <div class="form-outline mb-4">
     <label class="form-label" for="name">Name *</label>
-    <input type="text" required max='255'id="name" class="form-control" name="name" />
+    <input type="text" required max='255'id="name" class="form-control" name="name" required value="{{ old('name') }}"/>
 </div>
 
 
 <div class="form-outline mb-4">
     <label class="form-label" for="description">Description *</label>
-    <input type="text" required id="description" class="form-control" name="description" />
+    <input type="text" required id="description" class="form-control" name="description" required value="{{ old('description') }}" />
 </div>
 
 <div class="form-outline mb-4">
     <label class="form-label" for="price">Price *</label>
     <input type="number" step="0.01" min="0.01" required id="price" class="form-control"
-        name="price" />
+        name="price" required value="{{ old('price') }}" />
 </div>
 
 {{-- TODO: to be fixed --}}
 <div class="form-outline mb-4">
     <label class="form-label" for="image_path">Image *</label>
-    <input class="form-control" type="file" id="image_path" name="image_path">
+    <input class="form-control" type="file" id="image_path" name="image_path" value="{{ old('image_path') }} required">
     
 </div>
 
