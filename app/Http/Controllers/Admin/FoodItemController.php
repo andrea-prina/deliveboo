@@ -69,7 +69,11 @@ class FoodItemController extends Controller
     public function show($id)
     {
         $food = FoodItem::findOrFail($id);
-        return view('admin.foodItems.show', compact('food'));
+        if($food->user_id == Auth::id()) {
+            return view('admin.foodItems.show' , compact('food'));
+        } else {
+            return redirect()->route('admin.foodItems.index');
+        }
     }
 
     /**
