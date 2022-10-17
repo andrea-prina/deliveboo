@@ -28,14 +28,14 @@ class UserController extends Controller
             $query->where('restaurant_name', 'LIKE', '%' . $restaurantName . '%');
 
             if($restaurantType) {
-                $query->where('type_name', '=', $restaurantType);
+                $query->whereIn('type_name', $restaurantType);
             }
         
         } else if ($restaurantType) {
-            $query->where('type_name', '=', $restaurantType);
+            $query->whereIn('type_name', $restaurantType);
         }
 
-        $result= $query->select('users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path', 'types.type_name')->get();
+        $result= $query->distinct()->get(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path']);
         
         if($result){
             return response()->json([

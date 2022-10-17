@@ -1,16 +1,13 @@
 <template>
 
     <div class="card position-relative">
-        <div class="position-absolute bg-style p-1">
+        <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
             <h1 class="text-white">Free Delivery</h1>
         </div>
-        <img :src='restaurant.image_path' class="card-img-top" alt="...">
+        <img :src='restaurant.image_path' class="card-img-top" :alt=restaurant.restaurant_name>
         <div class="card-body">
             <h5 class="card-title brand-title">{{ restaurant.restaurant_name }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's
-                content.</p>
-            <span>Consegna: € {{ restaurant.delivery_fee }}</span>
+            <span :class="{'text-decoration-line-through':checkFreeDelivery()}">Consegna: € {{ restaurant.delivery_fee }}</span>
         </div>
     </div>
 
@@ -21,6 +18,25 @@ export default {
     name: 'RestaurantCard',
     props: {
         restaurant: Object,
+    },
+    data() {
+        return {
+            isFreeActive:false
+        }
+    },
+    methods: {
+        checkFreeDelivery(){
+            if(this.restaurant.free_delivery == 1){
+                this.isFreeActive = true;
+                return true
+            }
+
+        }
+    },
+    mounted()
+    {
+        this.checkFreeDelivery();
+
     }
 
 }
@@ -38,9 +54,17 @@ export default {
         margin-bottom: 0;
     }
 }
-
+.card{
+    border-radius: 0 !important;
+}
 .card img{
-    height: 230px;
+    height: 150px;
+    width: 100%;
     object-fit: cover;
+    border-radius: 0 !important;
+}
+.free-delivery{
+    top:10%;
+    display: none;
 }
 </style>
