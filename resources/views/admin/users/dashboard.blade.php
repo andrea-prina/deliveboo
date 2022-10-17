@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container bg-white border-violet p-5">
     <div class="row">
         <div class="col-6">
             <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100">
