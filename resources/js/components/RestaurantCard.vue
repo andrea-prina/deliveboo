@@ -54,11 +54,14 @@ export default {
         margin-bottom: 0;
     }
 }
-
+.card{
+    border-radius: 0 !important;
+}
 .card img{
     height: 150px;
     width: 100%;
     object-fit: cover;
+    border-radius: 0 !important;
 }
 .free-delivery{
     top:10%;

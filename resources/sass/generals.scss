@@ -41,12 +41,13 @@
 
 .border-violet{
     border: 1px solid $brand-main;
+    border-radius: 5px;
 }
 
 .list-styling{
     list-style: none;
     display: inline-block;
-    padding: 10px;
+    padding: 4px;
     border: 2px solid $brand-main;
     border-radius: 5px;
     background-color: white;
