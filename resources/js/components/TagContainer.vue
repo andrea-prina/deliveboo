@@ -5,17 +5,7 @@
             <div class="slider p-3 col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 d-flex align-items-center scrollbar">
                 <!-- <TagCard v-for="tag in tags" :key="tag.id" :tag="tag"/> -->
                 <div class="slider_container">
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
-                    <div class="tag-card"><img src="https://picsum.photos/300/300" alt=""></div>
+                   <TagCard v-for="type in types" :key="type.id" :type="type" />
                 </div>
             </div>
         </div>
@@ -34,37 +24,36 @@ export default {
     },
     data() {
         return {
-            tags: []
+            types: []
         }
     },
-    mounted() {
-    /*     axios.get('/api/tags')
-            .then((response) => {
-                this.tags = response.data;
-            }) */
+   methods: {
+        getTypes() {
+        
+            axios.get("/api/types")
+                .then(response => {
+                this.types = response.data.results;
+                console.log(this.types);
+                
+            })
+                .catch(error => {
+                console.log(error);
+            });
+
+        },
+    },
+    created() {
+        this.getTypes()
+    }, 
     }
 
-}
+
 </script>
 
 <style lang="scss">
 @import "../../sass/app.scss";
 
-.tag-card{
-    display: inline-block;
-    height: 7vw;
-    width: 7vw;
-    background-color: $brand-white;
-    overflow: hidden;
-    border-radius: 50%;
-    margin-left: 1rem;
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
 
-}
 #tag-section{
     width: 100%;
     background-color: $brand-white;
