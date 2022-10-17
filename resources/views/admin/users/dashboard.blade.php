@@ -43,6 +43,15 @@
                     </div>
                 </form>
             </div>
+
+            <div>Category</div>
+            <ul>
+            @forelse ($user->types as $type)
+            <li> {{ $type->type_name }}</li>
+            @empty
+            <div></div>   
+            @endforelse
+            </ul>
         </div>
     </div>
 </div>

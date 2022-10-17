@@ -130,7 +130,7 @@
 
                             <div class="form-group row">
                                 <label for="address"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Address*') }}</label>
 
                                 <div class="col-md-6 my-2">
                                     <input id="address" type="text"
@@ -148,7 +148,7 @@
 
                             <div class="form-group row">
                                 <label for="delivery_fee"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Delivery fee') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Delivery fee*') }}</label>
 
                                 <div class="col-md-6 my-2">
                                     <input id="delivery_fee" type="number"
@@ -183,12 +183,12 @@
 
                             <div class="form-group row">
                                 <label for="types"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Select type') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Select type*') }}</label>
 
                                 <div class="col-md-6 my-2">
                                     @foreach ($types as $type)
                                     <div class="form-check form-check-inline" id="types-form">
-                                        <input type="checkbox" name="types[]" class="form-check-input" id="types"                                         value="{{ $type->id}}">
+                                        <input type="checkbox" name="types[]" class="form-check-input" id="types"                                        value="{{ $type->id}}">
                                         <label for="types">{{ $type->type_name }}</label>
                                     </div>
                                     @endforeach
