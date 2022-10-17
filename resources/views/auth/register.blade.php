@@ -183,12 +183,12 @@
 
                             <div class="form-group row">
                                 <label for="types"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Select at least one type') }}<span class="star">*</span></label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Select at least one category') }}<span class="star">*</span></label>
 
                                 <div class="col-md-6 my-2">
                                     @foreach ($types as $type)
                                     <div class="form-check form-check-inline" id="types-form">
-                                        <input type="checkbox" name="types[]" class="form-check-input" id="{{ $type->type_name }}" value="{{ old('$type->id')}}">
+                                        <input type="checkbox" name="types[]" class="form-check-input" id="{{ $type->type_name }}" value="{{$type->id}}" {{ $user->types->contains($type) ? 'checked' : '' }}>
                                         <label for="types">{{ $type->type_name }}</label>
                                     </div>
                                     @endforeach
@@ -224,7 +224,7 @@
             }
         }
         if (!checked) {
-            alert('Please select at least one type');
+            alert('Please select at least one category');
             return false;
         }
     }

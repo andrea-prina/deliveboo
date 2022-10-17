@@ -39,12 +39,12 @@ class RegisterController extends Controller
      * @return void
      */
 
-    
+
     public function showRegistrationForm()
-    {
+    {   $user = new User();
         $types = Type::all();
 
-        return view('auth.register', compact('types'));
+        return view('auth.register', compact('types','user'));
     }
 
 
