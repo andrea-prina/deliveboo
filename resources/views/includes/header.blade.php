@@ -13,11 +13,11 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Index</a>
+                    <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Your Menu</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">Insert new food</a>
+                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Item</a>
                 </li>
             </ul>
 
