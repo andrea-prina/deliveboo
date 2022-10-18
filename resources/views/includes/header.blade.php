@@ -13,15 +13,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Index</a>
+                    <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Your Menu</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">Insert new food</a>
+                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Item</a>
                 </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
+            
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
@@ -35,12 +36,13 @@
                     @endif
                 @else
                     <li class="nav-item dropdown">
+                        
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu ms-dropdown" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                             document.getElementById('logout-form').submit();">

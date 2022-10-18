@@ -166,7 +166,7 @@
 
                             <div class="form-group row">
                                 <label for="image_path"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Image upload') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Image upload') }}<span class="star">*</span></label>
 
                                 <div class="col-md-6 my-2">
                                     <input id="image_path" type="file"

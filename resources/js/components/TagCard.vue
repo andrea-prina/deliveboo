@@ -2,10 +2,10 @@
 <div class="col-5 m-2">
     <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']">
         <!-- <img class="card-img-top" :src="type.icon_path" :alt="type.type_name"> -->
-        
+
         <h5 class="card-title">{{type.type_name}}</h5>
     </button>
-            
+
 </div>
 
 </template>
@@ -21,10 +21,10 @@ export default {
                 required: true
             }
         },
-    
+
     data : function(){
         return {
-            selected : false, 
+            selected : false,
         }
     }
 }
@@ -35,7 +35,7 @@ export default {
 <style lang='scss'>
 @import "../../sass/app.scss";
 
-.tag-card{
+.tag-card {
     display: inline-block;
     height: 7vw;
     width: 7vw;
@@ -43,12 +43,14 @@ export default {
     overflow: hidden;
     border-radius: 50%;
     margin-left: 1rem;
-    img{
+
+    img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
-}
+
+
 
 .selected {
     background-color: green;

@@ -4,10 +4,10 @@
 
 <div class="container bg-white border-violet p-5">
     <div class="row">
-        <div class="col-6">
-            <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100">
+        <div class="col-7 d-flex">
+            <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100 rounded">
         </div>
-        <div class="col-6">
+        <div class="col-5">
             <div class="mb-3">
                 <span>Full Name</span>
                 <span class="form-control">{{$user->name}} {{ $user->surname }}</span>
