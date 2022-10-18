@@ -22,6 +22,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
+            
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
@@ -34,7 +35,13 @@
                         </li>
                     @endif
                 @else
+                    <li class="nav-item d-flex align-items-center">
+                        <div class="avatar-img ml-auto d-">
+                            <img src="{{asset('/storage/' . $user->image_path)}}" alt="avatar">
+                        </div>
+                    </li>
                     <li class="nav-item dropdown">
+                        
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
