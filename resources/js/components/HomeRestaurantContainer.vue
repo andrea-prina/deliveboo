@@ -23,10 +23,15 @@ export default {
 
     props : {
         typeNames : Array,
+        searchQuery : String,
     },
 
     watch : {
         typeNames : function(){
+            this.getRestaurants();
+        },
+
+        searchQuery : function(){
             this.getRestaurants();
         }
     },
@@ -34,19 +39,18 @@ export default {
     data: function(){
         return {
             restaurants: [],
-            searchedName: '',
         }
     },
     methods: {
         getRestaurants: function(){
-            axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
+            axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}`)
             .then((result) => {
                 this.restaurants = result.data.results.data;
             })
             .catch((err) => {
                 console.warn(err);
             })
-        }
+        },
     },
     created(){
         this.getRestaurants();

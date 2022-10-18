@@ -1,9 +1,9 @@
 <template>
     <div>
         <HeaderNav/>
-        <SearchComponent/>
+        <SearchComponent @search="saveQuery"/>
         <TagContainer @typeName="storeTypeNames"/>
-        <HomeRestaurantContainer :typeNames="typeNames"/>
+        <HomeRestaurantContainer :typeNames="typeNames" :searchQuery="searchQuery"/>
         <FooterComponent/>
     </div>
 </template>
@@ -27,7 +27,8 @@ export default {
     },
     data : function(){
         return {
-            typeNames : []
+            typeNames : [],
+            searchQuery : '',
         }
     },
     methods : {
@@ -37,7 +38,11 @@ export default {
             } else {
                 this.typeNames.push(id);
             }
-        }
+        },
+
+        saveQuery : function(query){
+            this.searchQuery = query;
+        },
     }
 }
 </script>
@@ -45,12 +50,3 @@ export default {
 <style lang="scss">
 @import "../../sass/app.scss";
 </style>
-
-
-
-
-// Header con login, register (riprendere quello dal Blade) - COMPONENT
-// Jumbotron con ricerca (searchbar - COMPONENT)
-// Elenco ristoranti "spotlight" (cardHomepage - COMPONENT)
-// Elenco categorie (solo nome)
-// Footer - COMPONENT
