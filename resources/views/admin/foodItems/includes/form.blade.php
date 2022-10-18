@@ -15,15 +15,23 @@
         name="price" min="0" max="99.99"required value="{{ old('price', $food->price) }}" />
 </div>
 
-@if ($request_image)
-    <div class="form-outline mb-4">
-        <label class="form-label" for="image_path">Image *</label>
-        <input class="form-control" type="file" id="image_path" name="image_path">
+<div class="form-outline mb-4">
+    @if ($request_image)
+    <label class="form-label" for="image_path">Image *</label>
+    <input class="form-control" type="file" id="image_path" name="image_path">
+    
+    @else
+    <div class="row">
+        <label class="form-label" for="image_path">Current image</label>
+        <div class="col-4">
+            <img src="{{asset('/storage/' . $food->image_path)}}" alt="" class="w-100">
+        </div>
+        <div class="col-8">
+            <input class="form-control" type="file" id="image_path" name="image_path">
+        </div>
     </div>
-@else
-    <img src="{{asset('/storage/' . $food->image_path)}}" alt="">
-
-@endif
+    @endif
+</div>
 
 
 <input type='hidden' value='0' name='availability'>

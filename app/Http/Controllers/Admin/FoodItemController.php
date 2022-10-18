@@ -100,7 +100,9 @@ class FoodItemController extends Controller
         $data = $request->all();
         $validatedData = $request->validate($this->validationArray);
         $foodItem = FoodItem::findOrFail($id);
-        $data['image_path'] =  Storage::put('food_images', $data['image_path']);
+        if(isset($data['image_path'])){
+            $data['image_path'] =  Storage::put('food_images', $data['image_path']);
+        }
         $data['user_id'] = Auth::id();
         $foodItem->update($data);
 
