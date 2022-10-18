@@ -27,7 +27,7 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer></script>
 </head>
 
-<body class="brand-text bg-brand-accent-secondary">
+<body class="brand-text">
 @include('includes.header')
 
     <div id="app">
