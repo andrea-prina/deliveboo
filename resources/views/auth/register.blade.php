@@ -171,7 +171,7 @@
                                 <div class="col-md-6 my-2">
                                     <input id="image_path" type="file"
                                         class="form-control @error('image_path') is-invalid @enderror" name="image_path"
-                                        value="{{ old('image_path') }}" autofocus max="255" autocomplete="image_path">
+                                        value="{{ old('image_path') }}" autofocus autocomplete="image_path" required >
 
                                     @error('image_path')
                                         <span class="invalid-feedback" role="alert">

@@ -71,6 +71,8 @@ class RegisterController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'delivery_fee' => ['required', 'numeric', 'between:0.00,99.99'],
             'free_delivery' => ['boolean'],
+            'image_path' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
+
         ]);
     }
 
