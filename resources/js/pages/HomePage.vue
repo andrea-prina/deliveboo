@@ -1,6 +1,5 @@
 <template>
     <div>
-        <HeaderNav/>
         <SearchComponent/>
         <TagContainer @typeName="storeTypeNames"/>
         <HomeRestaurantContainer :typeNames="typeNames"/>
@@ -9,7 +8,6 @@
 </template>
 
 <script>
-import HeaderNav from '../components/HeaderNav.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 import SearchComponent from '../components/SearchComponent.vue'
 import TagContainer from '../components/TagContainer.vue'
@@ -18,7 +16,6 @@ import HomeRestaurantContainer from '../components/HomeRestaurantContainer.vue'
 export default {
     name: 'HomePage',
     components: {
-        HeaderNav,
         FooterComponent,
         SearchComponent,
         TagContainer,

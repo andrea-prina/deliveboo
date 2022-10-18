@@ -1,6 +1,6 @@
 <template>
 <div class="col-5 m-2">
-    <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']">
+    <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']" class="tag-card">
         <!-- <img class="card-img-top" :src="type.icon_path" :alt="type.type_name"> -->
 
         <h5 class="card-title">{{type.type_name}}</h5>
