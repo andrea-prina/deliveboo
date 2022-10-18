@@ -35,11 +35,6 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item d-flex align-items-center">
-                        <div class="avatar-img ml-auto d-">
-                            <img src="{{asset('/storage/' . $user->image_path)}}" alt="avatar">
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         
                         <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
