@@ -4,40 +4,42 @@
         <div class="row justify-content-between py-4">
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
-                    <h5 class="fw-bold">Scopri Deliveboo</h5>
-                    <li>Investitori</li>
-                    <li>Chi siamo</li>
-                    <li>Ristoranti</li>
-                    <li>Altro</li>
-                    <li>Pressroom</li>
-                    <li>Programmazione</li>
+                    <h5 class="fw-bold">Discover Deliveboo</h5>
+                    <li>Investors</li>
+                    <li>About us</li>
+                    <li>Takeaway</li>
+                    <li>More</li>
+                    <li>Newsroom</li>
+                    <li>Engineering</li>
                     <li>Design</li>
-                    <li>Lavora con noi</li>
-                    <li>Diventa nostro partner</li>
+                    <li>Become a Rider</li>
+                    <li>Careers</li>
                 </ul>
             </div>
 
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
-                    <h5 class="fw-bold">Note legali</h5>
-                    <li>Termini & Condizioni</li>
-                    <li>Informativa sulla Privacy</li>
-                    <li>Ristoranti</li>
+                    <h5 class="fw-bold">Legal</h5>
+                    <li>Terms and conditions</li>
+                    <li>Privacy</li>
+                    <li>Cookies</li>
+                    <li>Tax Strategy</li>
                 </ul>
             </div>
 
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
-                    <h5 class="fw-bold">Aiuto</h5>
-                    <li>Contatti</li>
+                    <h5 class="fw-bold">Help</h5>
+                    <li>Contact</li>
                     <li>FAQ</li>
-                    <li>Tipi di Cucina</li>
+                    <li>Cuisines</li>
+                    <li>Brands</li>
                 </ul>
             </div>
 
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
-                    <h5 class="fw-bold">Porta Deliveboo con te</h5>
+                    <h5 class="fw-bold">Take Deliveroo with you</h5>
                     <img class="w-50" src="../../../public/assets/img/download.png" alt="download">
                 </ul>
             </div>
