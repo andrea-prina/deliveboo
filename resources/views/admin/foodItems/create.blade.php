@@ -22,7 +22,7 @@
                     @csrf
                     @method('POST')
 
-                    @include('admin.foodItems.includes.form')
+                    @include('admin.foodItems.includes.form', ['request_image' => '1'])
 
                 </form>
             </div>

@@ -12,7 +12,7 @@
                 @csrf
                 @method('PUT')
                 
-                @include('admin.foodItems.includes.form')
+                @include('admin.foodItems.includes.form', ['request_image' => '0'])
 
         </div>
     </div>
