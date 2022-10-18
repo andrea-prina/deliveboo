@@ -1,13 +1,13 @@
 <template>
 <div class="jumbotron">
-        <div class="wrap">
-            <div class="search">
-                <input type="text" class="searchTerm" placeholder="What are you hungry for?">
-                <button type="submit" class="searchButton">
-                    <i class="fa fa-search"></i>
-                </button>
-            </div>
-        </div>
+      <div class="wrap">
+          <div class="search">
+              <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery">
+              <button type="submit" class="searchButton" @click="$emit('search', searchQuery)">
+                  <i class="fa fa-search"></i>
+              </button>
+          </div>
+      </div>
 </div>
 
 </template>
@@ -17,7 +17,7 @@ export default {
     name: 'SearchComponent',
     data: function () {
         return {
-            search: '',
+            searchQuery: '',
         }
     },
 }
