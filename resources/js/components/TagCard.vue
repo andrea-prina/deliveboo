@@ -1,22 +1,19 @@
 <template>
-<div class="tag-card col-5 m-2">
+    <div class="tag-card col-5 m-2">
         <img class="card-img-top" :src="type.icon_path" :alt="type.type_name">
-        
-            <h5 class="card-title">{{type.type_name}}</h5>
-            
-        </div>
+        <h5 class="card-title">{{type.type_name}}</h5>
     </div>
 </template>
 
 <script>
 export default {
-     name: "TagCard",
-        props: {
-            type: {
-                type: Object,
-                required: true
-            }
-        },
+    name: "TagCard",
+    props: {
+        type: {
+            type: Object,
+            required: true
+        }
+    },
 
 
 }
@@ -25,7 +22,7 @@ export default {
 <style lang='scss'>
 @import "../../sass/app.scss";
 
-.tag-card{
+.tag-card {
     display: inline-block;
     height: 7vw;
     width: 7vw;
@@ -33,13 +30,14 @@ export default {
     overflow: hidden;
     border-radius: 50%;
     margin-left: 1rem;
-    img{
+
+    img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    
+
 
 }
 </style>
