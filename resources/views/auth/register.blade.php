@@ -215,7 +215,6 @@
 <script>
 
     function TagValidation() {
-        console.log('button')
         var types = document.getElementsByName('types[]');
         var checked = false;
         for (var i = 0; i < types.length; i++) {
@@ -225,6 +224,13 @@
         }
         if (!checked) {
             alert('Please select at least one category');
+            return false;
+        }
+    },
+    function VatValidation() {
+        var vat = document.getElementById('vat');
+        if (vat.value.length != 11) {
+            alert('VAT number must be 11 digits');
             return false;
         }
     }
