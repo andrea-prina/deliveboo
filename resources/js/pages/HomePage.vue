@@ -2,8 +2,8 @@
     <div>
         <HeaderNav/>
         <SearchComponent/>
-        <TagContainer/>
-        <HomeRestaurantContainer/>
+        <TagContainer @typeName="storeTypeNames"/>
+        <HomeRestaurantContainer :typeNames="typeNames"/>
         <FooterComponent/>
     </div>
 </template>
@@ -24,6 +24,20 @@ export default {
         TagContainer,
         HomeRestaurantContainer,
 
+    },
+    data : function(){
+        return {
+            typeNames : []
+        }
+    },
+    methods : {
+        storeTypeNames : function(id){
+            if(this.typeNames.includes(id)){
+                this.typeNames = this.typeNames.filter(e => e !== id)
+            } else {
+                this.typeNames.push(id);
+            }
+        }
     }
 }
 </script>
