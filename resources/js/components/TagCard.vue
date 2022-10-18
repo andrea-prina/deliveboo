@@ -1,11 +1,11 @@
 <template>
 <div class="tag-card col-5 m-2">
-        <img class="card-img-top" :src="type.icon_path" :alt="type.type_name">
+    <img class="card-img-top" :src="type.icon_path" :alt="type.type_name">
         
-            <h5 class="card-title">{{type.type_name}}</h5>
+    <h5 class="card-title">{{type.type_name}}</h5>
             
-        </div>
-    </div>
+</div>
+
 </template>
 
 <script>

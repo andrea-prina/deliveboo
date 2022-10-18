@@ -5,7 +5,8 @@
             <div class="slider p-3 col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 d-flex align-items-center scrollbar">
                 <!-- <TagCard v-for="tag in tags" :key="tag.id" :tag="tag"/> -->
                 <div class="slider_container">
-                   <TagCard v-for="type in types" :key="type.id" :type="type" />
+                    <div v-for="type in ['Pizzeria', 'American', 'Poke', 'Grill', 'Chinese', 'Italian', 'Mexican', 'Japanese', 'Healthy', 'Vegan', 'Kebab', 'Greek']" :key="type" @click="$emit('typeIds', type)">{{ type }}</div>
+                    <!-- <TagCard v-for="(type, index) in types" :key="type.id" :type="type" @click="console.log(index)"/> -->
                 </div>
             </div>
         </div>
@@ -27,13 +28,12 @@ export default {
             types: []
         }
     },
-   methods: {
+    methods: {
         getTypes() {
         
             axios.get("/api/types")
                 .then(response => {
                 this.types = response.data.results;
-                console.log(this.types);
                 
             })
                 .catch(error => {
@@ -41,11 +41,13 @@ export default {
             });
 
         },
+
     },
+
     created() {
         this.getTypes()
     }, 
-    }
+}
 
 
 </script>

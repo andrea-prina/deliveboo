@@ -5,8 +5,6 @@
                 <div v-for="restaurant in restaurants" :key="restaurant.id"  class="col-12 col-md-6 col-lg-4">
                     <RestaurantCard :restaurant="restaurant" />
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -22,6 +20,23 @@ export default {
         RestaurantCard,
 
     },
+
+    props : {
+        typeIds : Array,
+    },
+
+    watch : {
+        typeIds : function(){
+            axios.get(`/api/restaurants?${this.typeIds.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
+            .then((result) => {
+                this.restaurants = result.data.results.data;
+            })
+            .catch((err) => {
+                console.warn(err);
+            })
+        }
+    },
+
     data: function(){
         return {
             restaurants: [],
@@ -31,7 +46,7 @@ export default {
     },
     methods: {
         getRestaurants: function(){
-            axios.get(`/api/restaurants?${this.selectedTypes.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
+            axios.get(`/api/restaurants?${this.typeIds.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
             .then((result) => {
                 this.restaurants = result.data.results.data;
             })
