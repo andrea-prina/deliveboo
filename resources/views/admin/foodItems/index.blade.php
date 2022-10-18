@@ -15,21 +15,21 @@
     @endif
 
     <div class="table-responsive rounded">
-       
-            @forelse ($foodItems as $food)
-            <table class="table table-head ">
-                <thead>
-                    <tr class="bg-brand-secondary text-center">
-                        <th scope="col">Item Name</th>
-                        <th scope="col" colspan="2">Description</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Availability</th>
-                        <th scope="col">Edit Item</th>
-                        <th scope="col">Delete Item</th>
-                        <th scope="col">Show Item</th>
-                    </tr>
-                </thead>
-                <tbody>
+
+        <table class="table table-head ">
+            <thead>
+                <tr class="bg-brand-secondary text-center">
+                    <th scope="col">Item Name</th>
+                    <th scope="col" colspan="2">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Availability</th>
+                    <th scope="col">Edit Item</th>
+                    <th scope="col">Delete Item</th>
+                    <th scope="col">Show Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($foodItems as $food)
             <tr class="bg-white text-center">
                 <td>{{$food->name}}</td>
                 <td colspan="2">{{$food->description}}</td>
@@ -53,8 +53,8 @@
                     </a>
                 </td>
             </tr>
-        </table>
             @empty
+        </table>
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-6">
@@ -62,25 +62,25 @@
                             <h3 class="text-center">No Food Items Found</h3>
                         <div>
                                 <img class="w-100" src="https://pbs.twimg.com/media/EXTDb5TWAAA-7jX.jpg" alt="">
-                        </div>    
+                        </div>
                         <div class="text-center mt-4">
                             Click <a class="text-primary text-decoration-none" href="{{route('admin.foodItems.create')}}">HERE</a> to add a new food item
                         </div>
-                        
+
                     </div>
                         </div>
                     </div>
                 </div>
-                   
+
             @endforelse
-       
+
     </div>
 
 </div>
 
 
 
-             
+
 
 @endsection
 

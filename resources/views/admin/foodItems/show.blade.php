@@ -11,7 +11,12 @@
   <div class="row justify-content-center w-100">
     <div class="col-12">
       <div class="card">
-        <img class="card-img-top p-2" src="{{asset('/storage/' . $food->image_path)}}" alt="{{$food->name}}">
+        @if (filter_var($food->image_path , FILTER_VALIDATE_URL))
+        <img src="{{ $food->image_path }}" class="card-img-top p-2" alt="image of food: {{ $food->name}}">
+    @else
+        <img src="{{ asset('/storage' . '/' . $food->image_path) }}" class="card-img-top p-2" alt="image of food: {{ $food->name}}">
+    @endif                                   {{-- '/storage/' . --}}
+        {{-- <img class="card-img-top p-2" src="{{asset($food->image_path)}}" alt="{{$food->name}}"> --}}
 
         <div class="card-body">
           <h5 class="card-title">{{$food->name}}</h5>
