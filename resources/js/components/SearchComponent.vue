@@ -2,8 +2,8 @@
 <div class="jumbotron">
       <div class="wrap">
           <div class="search">
-              <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery">
-              <button type="submit" class="searchButton" @click="$emit('search', searchQuery)">
+              <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery" @keyup.enter="$emit('search', searchQuery)">
+              <button type="submit" class="searchButton" @click="$emit('search', searchQuery)" >
                   <i class="fa fa-search"></i>
               </button>
           </div>
@@ -42,13 +42,11 @@ export default {
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9DBFAF;
+  color: $footer-main;
   min-width: 190px;
 }
 
-.searchTerm:focus{
-  color: $accent-main;
-}
+
 
 .searchButton {
   width: 40px;
