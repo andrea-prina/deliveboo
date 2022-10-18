@@ -35,8 +35,8 @@ export default {
         validateImagePath(){
             if(this.restaurant.image_path.includes('http')){
                 return this.restaurant.image_path
-            } else{
-                return this.restaurant.image_path = 'storage/' + this.restaurant.image_path
+            } else {
+                return 'storage/' + this.restaurant.image_path
             }
         }
     },
