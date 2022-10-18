@@ -50,8 +50,7 @@ export default {
         object-fit: contain;
     }
 
-
-
+}
 .selected {
     background-color: green;
 }
