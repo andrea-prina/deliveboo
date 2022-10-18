@@ -22,31 +22,24 @@ export default {
     },
 
     props : {
-        typeIds : Array,
+        typeNames : Array,
     },
 
     watch : {
-        typeIds : function(){
-            axios.get(`/api/restaurants?${this.typeIds.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
-            .then((result) => {
-                this.restaurants = result.data.results.data;
-            })
-            .catch((err) => {
-                console.warn(err);
-            })
+        typeNames : function(){
+            this.getRestaurants();
         }
     },
 
     data: function(){
         return {
             restaurants: [],
-            selectedTypes: [],
             searchedName: '',
         }
     },
     methods: {
         getRestaurants: function(){
-            axios.get(`/api/restaurants?${this.typeIds.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
+            axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchedName}`)
             .then((result) => {
                 this.restaurants = result.data.results.data;
             })
