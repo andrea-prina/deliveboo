@@ -4,7 +4,7 @@
             <div class="row">
 
                 <!-- menu side dishes -->
-                <div class="col-12 col-md-8 bg-danger">
+                <div class="col-12 col-md-7 bg-danger">
 
                     <div class="row ">
                         <div class="col-12 col-md-6 my-1">
@@ -15,8 +15,8 @@
                 </div>
 
                 <!-- catt side  -->
-                <div class="col-12 col-md-4 bg-dark">
-                    <div class="col-12 bg-primary">
+                <div class="col-12 col-md-5 ">
+                    <div class="col-12">
                         <RestaurantMenuCart :cart="cart"/>
                     </div>
                 </div>
@@ -47,10 +47,6 @@ export default {
     height: 600px;
 }
 
-.bg-dark{
-    height: 600px;
-}
-
 .bg-white{
     height: 100px;
 }
@@ -59,12 +55,5 @@ export default {
     height: 100px;
 }
 
-.bg-primary{
-    height: 300px;
 
-}
-
-.column-try{
-    flex-direction: row;
-}
 </style>
