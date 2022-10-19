@@ -18,6 +18,7 @@
         
         
         <table class="table table-head ">
+
             @if ($foodItems->isNotEmpty())
             <thead>
                 <tr class="bg-brand-secondary text-center">
@@ -31,7 +32,9 @@
                 </tr>
             </thead>
             @else
+        
             @endif
+
             <tbody>
                 @forelse ($foodItems as $food)
                 <tr class="bg-white text-center">
@@ -58,27 +61,31 @@
                         </a>
                     </td>
                 </tr>
-        </table>
 
-        @empty
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-6">
-                    <div class="alert alert-warning">
-                        <h3 class="text-center">No Food Items Found</h3>
-                        <div>
-                            <img class="w-100" src="https://pbs.twimg.com/media/EXTDb5TWAAA-7jX.jpg" alt="">
+                @empty
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <div class="alert alert-warning">
+                                <h3 class="text-center">No Food Items Found</h3>
+                                <div>
+                                    <img class="w-100" src="https://pbs.twimg.com/media/EXTDb5TWAAA-7jX.jpg" alt="">
+                                </div>
+                                <div class="text-center mt-4">
+                                    Click <a class="text-primary text-decoration-none"
+                                        href="{{route('admin.foodItems.create')}}">HERE</a> to add a new food item
+                                </div>
+        
+                            </div>
                         </div>
-                        <div class="text-center mt-4">
-                            Click <a class="text-primary text-decoration-none"
-                                href="{{route('admin.foodItems.create')}}">HERE</a> to add a new food item
-                        </div>
-
                     </div>
                 </div>
-            </div>
-        </div>
-        @endforelse
+
+                @endforelse
+                
+            </tbody>
+
+        </table>
 
     </div>
 
