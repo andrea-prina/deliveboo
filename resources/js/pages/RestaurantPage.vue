@@ -12,7 +12,7 @@ import RestaurantMenuContainer from '../components/RestaurantMenuContainer.vue'
 import FooterComponent from '../components/FooterComponent.vue'
 
 export default {
-    name: 'RestaurantMenu',
+    name: 'RestaurantPage',
     components: {
         FooterComponent,
         RestaurantMenuJumbo,
