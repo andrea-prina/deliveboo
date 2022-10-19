@@ -1,21 +1,19 @@
 <template>
     <div>
-        <HomePage/>
-        <RestaurantPage/>
+        <router-view></router-view>
+
     </div>
 </template>
 
 <script>
-import HomePage from '../pages/HomePage.vue'
-import RestaurantPage from '../pages/RestaurantPage.vue'
+
 
 
 export default {
 
     name: "App",
     components: {
-        HomePage,
-        RestaurantPage,
+      
     }
 }
 </script>
