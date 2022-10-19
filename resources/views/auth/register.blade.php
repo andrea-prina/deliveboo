@@ -20,7 +20,7 @@
                                 <div class="col-md-6 my-2">
                                     <input id="name" type="text"
                                         class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autocomplete="name" autofocus maxlength="255">
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus maxlength="255" placeholder="Insert your name">
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                                     <input id="surname" type="text"
                                         class="form-control @error('surname') is-invalid @enderror" name="surname"
                                         value="{{ old('surname') }}" required autocomplete="surname" autofocus
-                                        maxlength="255">
+                                        maxlength="255" placeholder="Insert your last name">
 
                                     @error('surname')
                                         <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                                     <input id="restaurant_name" type="text"
                                         class="form-control @error('restaurant_name') is-invalid @enderror"
                                         name="restaurant_name" value="{{ old('restaurant_name') }}" required
-                                        autocomplete="restaurant_name" autofocus maxlength="255">
+                                        autocomplete="restaurant_name" autofocus maxlength="255" placeholder="Insert the restaurant name">
 
                                     @error('restaurant_name')
                                         <span class="invalid-feedback" role="alert">
@@ -74,7 +74,7 @@
                                     <input id="vat_number" type="text"
                                         class="form-control @error('vat_number') is-invalid @enderror" name="vat_number"
                                         value="{{ old('vat_number') }}" required autocomplete="vat_number" autofocus
-                                        minlength="11" maxlength="11">
+                                        minlength="11" maxlength="11" placeholder="Insert the Vat Number (Only number)">
 
                                     @error('vat_number')
                                         <span class="invalid-feedback" role="alert">
@@ -91,7 +91,7 @@
                                 <div class="col-md-6 my-2">
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required autocomplete="email" maxlength="255">
+                                        value="{{ old('email') }}" required autocomplete="email" maxlength="255" placeholder="examplem@mail.com">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -108,7 +108,7 @@
                                 <div class="col-md-6 my-2">
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="off">
+                                        required autocomplete="off" r>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -124,7 +124,7 @@
 
                                 <div class="col-md-6 my-2">
                                     <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
+                                        name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password">
                                 </div>
                             </div>
 
@@ -136,7 +136,7 @@
                                     <input id="address" type="text"
                                         class="form-control @error('address') is-invalid @enderror" name="address"
                                         value="{{ old('address') }}" autocomplete="address" autofocus maxlength="255"
-                                        required>
+                                        required placeholder="Insert an addressm">
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -154,7 +154,7 @@
                                     <input id="delivery_fee" type="number"
                                         class="form-control @error('delivery_fee') is-invalid @enderror"
                                         name="delivery_fee" value="{{ old('delivery_fee') }}" autofocus min="0"
-                                        max="99.99" autocomplete="delivery_fee" required step="0.1">
+                                        max="99.99" autocomplete="delivery_fee" required step="0.1" placeholder="Insert a price for your delivery feer">
 
                                     @error('delivery_fee')
                                         <span class="invalid-feedback" role="alert">
