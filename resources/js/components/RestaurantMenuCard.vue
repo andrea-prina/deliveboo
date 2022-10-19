@@ -1,17 +1,17 @@
 <template>
-    <div class="card my-card" style="width: 18rem;">
+    <div class="card my-card w-100" style="width: 18rem;">
         <div class="row">
             <div class="col-4 p-0">
-                <div class="card-body">
+                <div class="card-body p-1">
                     <img src="https://www.scattidigusto.it/wp-content/uploads/2018/04/carbonara-ricetta-spaghetti.jpg"
-                        class="card-img-top" alt="..."/>
+                        class="card-img-top w-75" alt="..."/>
                 </div>
 
             </div>
             <div class="col-8 p-0">
-                <div class="card-body">
+                <div class="card-body p-2">
                     <h5 class="card-title mt-1">Carbonara</h5>
-                    <p class="card-text my-1">Descrizione: Some quick example text to build on the card title and make up the
+                    <p class="card-text m-1">Descrizione: Some quick example text to build on the card title and make up the
                         bulk of
                         the card's content.</p>
                     <p class="card-text mt-1">Prezzo:</p>
@@ -47,8 +47,9 @@ export default {
 }
 
 img {
-    width: 100% !important;
     margin: 4px !important;
+    margin-left: 10px !important;
+    
 }
 
 p {
