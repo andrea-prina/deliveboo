@@ -1,11 +1,9 @@
 <template>
-<div class="col-5 m-2">
+<div class="col-2 m-2">
     <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']" class="tag-card">
-        <!-- <img class="card-img-top" :src="type.icon_path" :alt="type.type_name"> -->
-
-        <h5 class="card-title">{{type.type_name}}</h5>
+        <img class="card-img-top test" :src="type.icon_path" :alt="type.type_name">
+        <span class="card-title">{{type.type_name}}</span>
     </button>
-
 </div>
 
 </template>
@@ -51,7 +49,20 @@ export default {
     }
 
 }
+
 .selected {
-    background-color: green;
+
+    .test {
+        filter: grayscale(0);
+    }
 }
+
+.test {
+    filter: grayscale(100);
+
+    &:hover {
+        filter: grayscale(0);
+    }
+}
+
 </style>
