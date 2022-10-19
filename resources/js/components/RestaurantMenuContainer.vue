@@ -4,7 +4,7 @@
             <div class="row">
 
                 <!-- menu side dishes -->
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-7 py-3">
 
                     <div class="row ">
                         <div class="col-12 col-md-6 my-1">
