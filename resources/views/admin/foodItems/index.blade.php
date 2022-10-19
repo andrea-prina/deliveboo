@@ -38,7 +38,7 @@
                     <td>{{$food->name}}</td>
                     <td colspan="2">{{$food->description}}</td>
                     <td>{{$food->price}}</td>
-                    <td>{{$food->availability}}</td>
+                    <td><i class="{{ $food->availability ? 'fa-solid fa-check' : 'fa-solid fa-xmark' }}"></i></td>
                     <td>
                         <a href="{{route('admin.foodItems.edit', $food->id)}}">
                             <button type="button" class="btn btn-sm btn-accent">Edit</button>
