@@ -8,17 +8,8 @@
 
                     <div class="row ">
                         <div class="col-12 col-md-6 my-1">
-                            <div class="bg-white"></div>
+                            <RestaurantMenuCard :menu="menu"/>
                         </div>  
-                        <div class="col-12 col-md-6 my-1">
-                            <div class="bg-white"></div>
-                        </div>  
-                        <div class="col-12 col-md-6 my-1">
-                            <div class="bg-white"></div>
-                        </div>  
-                        <div class="col-12 col-md-6 my-1">
-                            <div class="bg-white"></div>
-                        </div>                                              
                     </div>
 
                 </div>
@@ -26,7 +17,7 @@
                 <!-- catt side  -->
                 <div class="col-12 col-md-4 bg-dark">
                     <div class="col-12 bg-primary">
-
+                        <RestaurantMenuCart :cart="cart"/>
                     </div>
                 </div>
 
@@ -36,8 +27,16 @@
 </template>
 
 <script>
-export default {
+import RestaurantMenuCard from './RestaurantMenuCard.vue'
+import RestaurantMenuCart from './RestaurantMenuCart.vue'
 
+export default {
+    name: 'RestaurantMenuContainer',
+    components: {
+        RestaurantMenuCard,
+        RestaurantMenuCart,
+
+    },
 }
 </script>
 
