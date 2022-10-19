@@ -3,13 +3,13 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-//importo le singole pagine
+
 import HomePage from './pages/HomePage';
 import RestaurantPage from './pages/RestaurantPage';
 
 const router = new VueRouter({
     mode: 'history',
-    //per ogni rotta inserisco
+
     routes: [
         {
                 path: '/',
@@ -17,7 +17,7 @@ const router = new VueRouter({
                 component: HomePage
         },
         {
-                path:'restaurant/:id',
+                path:'/restaurantPage',
                 name: 'RestaurantPage',
                 component: RestaurantPage
         },

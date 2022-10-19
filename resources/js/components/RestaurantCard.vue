@@ -1,7 +1,8 @@
 <template>
 
     <div class="card position-relative">
-    <router-link :to="" >
+    <router-link to="/restaurantPage">
+
         <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
             <h1 class="text-white">Free Delivery</h1>
         </div>
@@ -10,6 +11,7 @@
             <h5 class="card-title brand-title">{{ restaurant.restaurant_name }}</h5>
             <span :class="{'text-decoration-line-through':checkFreeDelivery()}">Consegna: € {{ restaurant.delivery_fee }}</span>
         </div>
+
     </router-link>
     </div>
 
