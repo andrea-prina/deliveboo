@@ -1,13 +1,17 @@
 <template>
-    <div class="jumbotron">
+    <div class="jumbotronn">
         <div class="wrap">
+            <div class="text-center text-white">
+                <h1>Ristorante Il Villino</h1>
+                <p>C.da San Carlo 25, 62010, Treia(MC)</p>
+            </div>
 
         </div>
     </div>
 </template>
 <script>
 export default {
-    name: 'RestaurantMenu',
+    name: 'RestaurantMenuJumbo',
     data: function () {
         return {
 
@@ -19,7 +23,7 @@ export default {
 @import "../../sass/app.scss";
 @import "../../sass/_variables.scss";
 
-.jumbotron {
+.jumbotronn {
     height: 50vh;
     display: flex;
     justify-content: center;
