@@ -17,7 +17,7 @@
 
 <div class="form-outline mb-4">
     @if ($request_image)
-    <label class="form-label" for="image_path">Image *</label>
+    <label class="form-label" for="image_path">Image <span class="star">*</span></label>
     <input class="form-control" type="file" id="image_path" name="image_path">
     
     @else
