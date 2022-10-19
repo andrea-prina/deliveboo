@@ -31,6 +31,7 @@ export default {
     background-color: $brand-white;
     //position: relative;//
     background-image: url('http://www.ilvillinoristorante.it/images/mainimage4.jpg');
+    filter: brightness(0.4);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
