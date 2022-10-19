@@ -12,7 +12,7 @@
 
 <script>
 import axios from 'axios'
-import RestaurantCard from '../components/RestaurantCard.vue'
+import RestaurantCard from './RestaurantCard.vue'
 
 export default {
     name: 'HomeRestaurantContainer',
