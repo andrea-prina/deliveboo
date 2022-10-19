@@ -4,9 +4,18 @@
             <div class="row">
 
                 <!-- menu side dishes -->
-                <div class="col-12 col-md-7 bg-danger">
+                <div class="col-12 col-md-7">
 
                     <div class="row ">
+                        <div class="col-12 col-md-6 my-1">
+                            <RestaurantMenuCard :menu="menu"/>
+                        </div>  
+                        <div class="col-12 col-md-6 my-1">
+                            <RestaurantMenuCard :menu="menu"/>
+                        </div>  
+                        <div class="col-12 col-md-6 my-1">
+                            <RestaurantMenuCard :menu="menu"/>
+                        </div>  
                         <div class="col-12 col-md-6 my-1">
                             <RestaurantMenuCard :menu="menu"/>
                         </div>  
@@ -42,18 +51,6 @@ export default {
 
 <style lang="scss">
 @import "../../sass/app.scss";
-
-.bg-danger{
-    height: 600px;
-}
-
-.bg-white{
-    height: 100px;
-}
-
-.bg-secondary{
-    height: 100px;
-}
 
 
 </style>
