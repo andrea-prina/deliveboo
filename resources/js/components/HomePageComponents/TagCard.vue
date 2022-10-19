@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang='scss'>
-@import "../../sass/app.scss";
+@import "../../../sass/app.scss";
 
 .tag-card {
     display: inline-block;

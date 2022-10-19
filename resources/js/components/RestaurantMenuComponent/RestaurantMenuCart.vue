@@ -3,11 +3,9 @@
         <div class="container h-100 py-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12">
-
                     <div class="d-flex justify-content-between align-items-center mb-4 text-center">
                         <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     </div>
-
                     <div class="card rounded mb-4">
                         <div class="card-body p-4">
                             <div class="row d-flex justify-content-between align-items-center">
@@ -57,13 +55,14 @@ export default {
 
     name: 'RestaurantMenuCart',
     props: {
-        cart: Object,
+        items:Array
     },
+
 }
 </script>
-    
+
 <style lang="scss">
-@import "../../sass/app.scss";
+@import "../../../sass/app.scss";
 
 
 </style>

@@ -2,19 +2,18 @@
     <div>
         <RestaurantMenuJumbo/>
         <RestaurantMenuContainer/>
-        <FooterComponent/>
     </div>
 </template>
 
 <script>
-import RestaurantMenuJumbo from '../components/RestaurantMenuJumbo.vue'
-import RestaurantMenuContainer from '../components/RestaurantMenuContainer.vue'
-import FooterComponent from '../components/FooterComponent.vue'
+import RestaurantMenuJumbo from '../components/RestaurantMenuComponent/RestaurantMenuJumbo.vue'
+import RestaurantMenuContainer from '../components/RestaurantMenuComponent/RestaurantMenuContainer.vue'
+
+
 
 export default {
     name: 'RestaurantPage',
     components: {
-        FooterComponent,
         RestaurantMenuJumbo,
         RestaurantMenuContainer,
 

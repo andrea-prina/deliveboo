@@ -20,8 +20,8 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "../../sass/app.scss";
-@import "../../sass/_variables.scss";
+@import "../../../sass/app.scss";
+@import "../../../sass/_variables.scss";
 
 .jumbotronn {
     height: 50vh;
