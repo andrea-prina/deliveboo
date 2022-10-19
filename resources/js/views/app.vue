@@ -1,13 +1,13 @@
 <template>
     <div>
         <HomePage/>
-        <RestaurantMenu/>
+        <RestaurantPage/>
     </div>
 </template>
 
 <script>
 import HomePage from '../pages/HomePage.vue'
-import RestaurantMenu from '../pages/RestaurantMenu.vue'
+import RestaurantPage from '../pages/RestaurantPage.vue'
 
 
 export default {
@@ -15,7 +15,7 @@ export default {
     name: "App",
     components: {
         HomePage,
-        RestaurantMenu,
+        RestaurantPage,
     }
 }
 </script>
