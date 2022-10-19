@@ -48,6 +48,7 @@ export default {
         }
     },
     methods: {
+        
         getRestaurants: function(page){
             axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}&page=${page}`)
             .then((result) => {
@@ -57,8 +58,9 @@ export default {
             })
             .catch((err) => {
                 console.warn(err);
-            })
+            });
         },
+
         getNextPage(){
             axios.get(this.nextPage)
             .then((result) => {
@@ -83,7 +85,9 @@ export default {
             .catch((err) => {
                 console.warn(err);
             })
-        }
+        },
+
+    }
 
 </script>
 
