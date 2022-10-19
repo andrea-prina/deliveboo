@@ -6,6 +6,8 @@
                     <RestaurantCard :restaurant="restaurant" />
                 </div>
             </div>
+            <button id="prev-btn" @click="logValue(currentPage)">PREV</button>
+            <button id="next-btn" @click="getRestaurants(currentPage+1)">NEXT</button>
         </div>
     </section>
 </template>
@@ -28,32 +30,40 @@ export default {
 
     watch : {
         typeNames : function(){
-            this.getRestaurants();
+            this.getRestaurants(this.currentPage);
         },
 
         searchQuery : function(){
-            this.getRestaurants();
+            this.getRestaurants(this.currentPage);
         }
     },
 
     data: function(){
         return {
             restaurants: [],
+            currentPage : 1,
+            lastPage : null,
         }
     },
     methods: {
-        getRestaurants: function(){
-            axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}`)
+        getRestaurants: function(page){
+            axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}&page=${page}`)
             .then((result) => {
-                this.restaurants = result.data.results.data;
+                this.restaurants = result.data.results.data.data;
+                this.currentPage = result.data.results.currentPage;
+                this.lastPage = result.data.results.data.lastPage;
             })
             .catch((err) => {
                 console.warn(err);
             })
         },
+
+        logValue : function(value){
+            console.log(value);
+        }
     },
     created(){
-        this.getRestaurants();
+        this.getRestaurants(this.currentPage);
     }
 }
 

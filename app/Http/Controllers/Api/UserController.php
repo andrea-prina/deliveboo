@@ -35,7 +35,7 @@ class UserController extends Controller
             $query->whereIn('type_name', $restaurantType);
         }
 
-        $result= $query->distinct()->get(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path']);
+        $result= $query->distinct()->select(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path'])->paginate(2);
         
         if($result){
             return response()->json([
