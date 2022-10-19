@@ -10,7 +10,7 @@
                     <div class="card-header bg-brand-secondary">{{ __('Register') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" name="registration-form" onsubmit="return TagValidation();">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" name="registration-form" {{-- onsubmit="return TagValidation()" --}}>
                             @csrf
 
                             <div class="form-group row">
@@ -213,22 +213,45 @@
 @section('footer-scripts')
 
 <script>
+    const element = document.querySelector('form');
+    element.addEventListener('submit', event => {
+    const types = document.getElementsByName('types[]');
+        const checked = false;
 
-    function TagValidation() {
-        var types = document.getElementsByName('types[]');
-        var checked = false;
-        for (var i = 0; i < types.length; i++) {
+
+        for (let i = 0; i < types.length; i++) {
             if (types[i].checked) {
                 checked = true;
             }
         }
         if (!checked) {
+            event.preventDefault();
+            alert('Please select at least one category');
+        }else{
+           this.submit();
+        }
+    console.log('Form submission cancelled.');
+    });
+   /*  function TagValidation(event) {
+        event.preventDefault();
+        alert('allorabasta');
+        const types = document.getElementsByName('types[]');
+        const checked = false;
+
+        for (let i = 0; i < types.length; i++) {
+            if (types[i].checked) {
+                checked = true;
+
+            }
+            return true
+        }
+        if (!checked) {
             alert('Please select at least one category');
             return false;
         }
-    },
+    } */
     function VatValidation() {
-        var vat = document.getElementById('vat');
+        const vat = document.getElementById('vat');
         if (vat.value.length != 11) {
             alert('VAT number must be 11 digits');
             return false;
