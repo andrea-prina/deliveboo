@@ -6,8 +6,9 @@
                     <RestaurantCard :restaurant="restaurant" />
                 </div>
             </div>
-            <button id="prev-btn" @click="logValue(currentPage)">PREV</button>
-            <button id="next-btn" @click="getRestaurants(currentPage+1)">NEXT</button>
+           <div class="btn btn-primary" @click="getPrevPage()">Prev Page</div>
+                <h5>{{currentPage}}</h5>
+                <div class="btn btn-primary" @click="getNextPage()">Next Page</div>
         </div>
     </section>
 </template>
@@ -41,8 +42,9 @@ export default {
     data: function(){
         return {
             restaurants: [],
-            currentPage : 1,
-            lastPage : null,
+             currentPage: 1,
+            nextPage: null,
+            prevPage: null,
         }
     },
     methods: {
@@ -50,22 +52,38 @@ export default {
             axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}&page=${page}`)
             .then((result) => {
                 this.restaurants = result.data.results.data.data;
-                this.currentPage = result.data.results.currentPage;
-                this.lastPage = result.data.results.data.lastPage;
+                this.nextPage = result.data.results.data.next_page_url;
+                this.prevPage = result.data.results.data.prev_page_url;
+            })
+            .catch((err) => {
+                console.warn(err);
+            })
+        },
+        getNextPage(){
+            axios.get(this.nextPage)
+            .then((result) => {
+                this.restaurants = result.data.results.data.data;
+                this.nextPage = result.data.results.data.next_page_url;
+                this.prevPage = result.data.results.data.prev_page_url;
+                this.currentPage++;
             })
             .catch((err) => {
                 console.warn(err);
             })
         },
 
-        logValue : function(value){
-            console.log(value);
+        getPrevPage(){
+            axios.get(this.prevPage)
+            .then((result) => {
+                this.restaurants = result.data.results.data.data;
+                this.nextPage = result.data.results.data.next_page_url;
+                this.prevPage = result.data.results.data.prev_page_url;
+                this.currentPage--;
+            })
+            .catch((err) => {
+                console.warn(err);
+            })
         }
-    },
-    created(){
-        this.getRestaurants(this.currentPage);
-    }
-}
 
 </script>
 
