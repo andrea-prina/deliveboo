@@ -14,16 +14,16 @@
                                 </div>
 
                                 <div class="col-4 col-md-4 col-lg-4 d-flex">
-                                   <!--  <button class="btn btn-link px-2" onclick="emit$">
+                                    <button class="btn btn-link px-2" onclick="emit$">
                                         <i class="fas fa-minus"></i>
-                                    </button> -->
+                                    </button>
 
                                     <p>{{item.quantity}}</p>
 
-                                   <!--  <button class="btn btn-link px-2"
+                                    <button class="btn btn-link px-2"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                         <i class="fas fa-plus"></i>
-                                    </button> -->
+                                    </button>
                                 </div>
                                 <div class="col-3 col-md-3 col-lg-2 offset-lg-1">
                                     <h5 class="mb-0 ms_font-size">{{item.price}}</h5>
