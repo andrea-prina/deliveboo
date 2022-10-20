@@ -6,6 +6,13 @@
                     <RestaurantCard :restaurant="restaurant" />
                 </div>
             </div>
+            <div class="row text-center mt-3">
+                <div class="col-2"><button class="btn btn-primary" @click="getPrevPage()" :disabled="currentPage === 1">Prev Page</button></div>
+                <div class="col-8">
+                    <h5>{{currentPage}} out of {{ lastPage }}</h5>
+                </div>
+                <div class="col-2"><button class="btn btn-primary" @click="getNextPage()" :disabled="currentPage === lastPage">Next Page</button></div>
+            </div>
         </div>
     </section>
 </template>
@@ -39,19 +46,59 @@ export default {
     data: function(){
         return {
             restaurants: [],
+            currentPage: 1,
+            nextPage: null,
+            prevPage: null,
+            lastPage: null,
         }
     },
     methods: {
+        
         getRestaurants: function(){
             axios.get(`/api/restaurants?${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}`)
             .then((result) => {
-                this.restaurants = result.data.results.data;
+                this.currentPage = 1;
+                this.restaurants = result.data.results.data.data;
+                this.nextPage = result.data.results.data.next_page_url; 
+                this.prevPage = result.data.results.data.prev_page_url;
+                this.lastPage = result.data.results.data.last_page;
             })
             .catch((err) => {
                 console.warn(err);
-            })
+            });
+        },
+
+        getNextPage(){
+            if (this.currentPage < this.lastPage){
+                axios.get(this.nextPage + '&' + `${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}`)
+                .then((result) => {
+                    this.restaurants = result.data.results.data.data;
+                    this.nextPage = result.data.results.data.next_page_url;
+                    this.prevPage = result.data.results.data.prev_page_url;
+                    this.currentPage++;
+                })
+                .catch((err) => {
+                    console.warn(err);
+                })
+            }
+        },
+
+        getPrevPage(){
+            if (this.currentPage > 1){
+                axios.get(this.prevPage + '&' + `${this.typeNames.map(n => `type[]=${n}`).join('&')}&name=${this.searchQuery}`)
+                .then((result) => {
+                    this.restaurants = result.data.results.data.data;
+                    this.nextPage = result.data.results.data.next_page_url;
+                    this.prevPage = result.data.results.data.prev_page_url;
+                    this.currentPage--;
+                })
+                .catch((err) => {
+                    console.warn(err);
+                })
+            }
         },
     },
+
     created(){
         this.getRestaurants();
     }
