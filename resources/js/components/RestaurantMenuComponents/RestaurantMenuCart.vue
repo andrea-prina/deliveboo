@@ -6,15 +6,15 @@
                     <div class="d-flex justify-content-between align-items-center mb-4 text-center">
                         <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     </div>
-                    <div class="card rounded mb-4" v-for="item in cart" :key="item.id">
+                    <div class="card rounded mb-4">
                         <div class="card-body p-4">
-                            <div class="row d-flex justify-content-between align-items-center">
+                            <div class="row d-flex justify-content-between align-items-center" v-for="item in cart" :key="item.id">
                                 <div class="col-4 col-md-4 col-lg-4">
                                     <p class="lead fw-normal mb-2 ms_font-size">{{item.name}}</p>
                                 </div>
 
                                 <div class="col-4 col-md-4 col-lg-4 d-flex">
-                                    <button class="btn btn-link px-2" onclick="emit$">
+                                    <button class="btn btn-link px-2" @click="$emit('remove1food',item.id)">
                                         <i class="fas fa-minus"></i>
                                     </button>
 

@@ -17,6 +17,7 @@
                         :cart="cart"
                         :storageKey="storageKey"
                         @faistoreset="resetCart"
+                        @remove1food="removeItem"
                         @test="test" />
                     </div>
                 </div>
@@ -182,6 +183,7 @@ export default {
         },
         //diminuisce di uno la quantity del item all'indice fornito o lo rimuove se era l'ultimo elemento
         removeItem(id){
+            console.log({funziona:id})
             const itemIndex = this.findById(id)
             if(itemIndex === -1) return
            this.cart[itemIndex].quantity--
