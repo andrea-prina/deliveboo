@@ -18,6 +18,7 @@
                         :storageKey="storageKey"
                         @faistoreset="resetCart"
                         @remove1food="removeItem"
+                        @add1food="addItem"
                         @test="test" />
                     </div>
                 </div>
@@ -172,7 +173,7 @@ export default {
            return this.cart.findIndex((item) => item.id == id)
         },
         addItem(item){
-            console.log({funziona:item})
+            console.log({aggiunge:item})
             const itemIndex = this.findById(item.id)
             if(itemIndex >= 0){
                 this.cart[itemIndex].quantity++
@@ -183,7 +184,7 @@ export default {
         },
         //diminuisce di uno la quantity del item all'indice fornito o lo rimuove se era l'ultimo elemento
         removeItem(id){
-            console.log({funziona:id})
+            console.log({rimuove:id})
             const itemIndex = this.findById(id)
             if(itemIndex === -1) return
            this.cart[itemIndex].quantity--

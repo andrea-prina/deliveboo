@@ -21,18 +21,18 @@
                                     <p>{{item.quantity}}</p>
 
                                     <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                        @click="$emit('add1food', item)">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
                                 <div class="col-3 col-md-3 col-lg-2 offset-lg-1">
                                     <h5 class="mb-0 ms_font-size">{{item.price}}</h5>
                                 </div>
+                            </div>
+                        </div>
                                 <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
                                     <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                                 </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="card">
