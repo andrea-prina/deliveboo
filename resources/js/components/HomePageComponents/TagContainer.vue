@@ -1,6 +1,6 @@
 <template>
     <div class="row slider-bg-cont" id="tag-section">
-        <div class="slider p-3 col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 scrollbar m-0">
+        <div class="slider p-2 col-12 col-md-10 col-lg-10 offset-md-1 offset-lg-2 scrollbar m-0">
             <div class="slider_container">
                 <TagCard v-for="type in types" :key="type.id" :type="type" @typeName="passEmitToParent"/>
             </div>
@@ -66,6 +66,7 @@ export default {
     overflow-x:scroll ;
     box-sizing: border-box;
     width: 80vw;
+    
 }
 
 

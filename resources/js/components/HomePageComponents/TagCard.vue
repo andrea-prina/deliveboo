@@ -1,6 +1,6 @@
 <template>
-<div class="col-2 m-2">
-    <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']" class="tag-card">
+<div class="col-4 col-md-3 col-lg-2 md-m2 ">
+    <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']" class="tag-card m-0">
         <img class="card-img-top test" :src="type.icon_path" :alt="type.type_name">
         <span class="card-title">{{type.type_name}}</span>
     </button>
@@ -35,8 +35,8 @@ export default {
 
 .tag-card {
     display: inline-block;
-    height: 7vw;
-    width: 7vw;
+    height: 5rem;
+    width: 5rem;
     background-color: $brand-white;
     overflow: hidden;
     border-radius: 50%;
@@ -45,7 +45,7 @@ export default {
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
 
 }
