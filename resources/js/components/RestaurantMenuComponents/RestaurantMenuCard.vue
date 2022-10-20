@@ -1,12 +1,8 @@
 <template>
-    <div class="card my-card w-100" style="width: 18rem;" @click="$emit('addToCart', menuitem)">
-        <div class="row">
-            <div class="col-4 p-0">
-                <div class="card-body p-1">
-                    <img src="https://www.scattidigusto.it/wp-content/uploads/2018/04/carbonara-ricetta-spaghetti.jpg"
-                        class="card-img-top w-75" alt="..." />
-                </div>
-
+    <div class="row my-card" @click="$emit('addToCart', menuitem)">
+            <div class="col-4 p-1">
+                    <img src="https://www.scattidigusto.it/wp-content/uploads/2018/04/carbonara-ricetta-spaghetti.jpg" alt="..."
+                    class="w-100"/>
             </div>
             <div class="col-8 p-0">
                 <div class="card-body p-2">
@@ -16,7 +12,7 @@
                     <a href="#" class="btn btn-primary my-1">Go somewhere id:{{menuitem.id}}</a>
                 </div>
             </div>
-        </div>
+
 
 
     </div>
@@ -42,7 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../sass/app.scss";
-
 .my-card {
     background-color: $brand-white !important;
     border-radius: 5px !important;
@@ -54,14 +49,17 @@ export default {
         cursor: pointer;
     }
 
-
+    .col-4{
+        padding: 0px !important;
+        img{
+          object-fit: cover;
+          height: 100%;
+        }
+    }
 }
 
-img {
-    margin: 4px !important;
-    margin-left: 10px !important;
 
-}
+
 
 p {
     font-size: 10px !important;

@@ -1,21 +1,18 @@
 <template>
     <section>
-        <div class="container">
-            <div class="row">
-
-                <!-- menu side dishes -->
+        <div class="container py-4">
+            <div class="row py-4">
                 <div class="col-12 col-md-7">
-                    <div class="row">
-                            <RestaurantMenuCard class="col-12 col-md-6 my-1" v-for="menuitem in menu" :key="menuitem.id" :menuitem="menuitem"
-                            @addToCart="addItem" />
+                    <div class="row g-5 my-4">
+                    <div class="col-12 col-lg-6 my-2" v-for="menuitem in menu" :key="menuitem.id">
+                        <RestaurantMenuCard :menuitem="menuitem" />
                     </div>
-                    <!-- catt side  -->
-                    <div class="col-12 col-md-5 ">
-                        <div class="col-12">
-                            <RestaurantMenuCart
-
-                             />
-                        </div>
+                </div>
+                </div>
+            <!-- catt side  -->
+                <div class="col-12 col-md-5 ">
+                    <div class="col-12">
+                        <RestaurantMenuCart :cart="cart" />
                     </div>
                 </div>
             </div>
