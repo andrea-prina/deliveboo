@@ -8,13 +8,9 @@
                 <div class="card-body p-2">
                     <h5 class="card-title mt-1">{{menuitem.name}}</h5>
                     <p class="card-text my-1">{{menuitem.description}}</p>
-                    <p class="card-text mt-1">Price:{{menuitem.price}}</p>
-                    <a href="#" class="btn btn-primary my-1">Go somewhere id:{{menuitem.id}}</a>
+                    <h6 class="card-text mt-1">Price: €{{menuitem.price}}</h6>
                 </div>
             </div>
-
-
-
     </div>
 </template>
 

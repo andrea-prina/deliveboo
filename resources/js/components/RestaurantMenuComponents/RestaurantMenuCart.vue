@@ -6,37 +6,47 @@
                     <div class="d-flex justify-content-between align-items-center mb-4 text-center">
                         <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     </div>
-                    <div class="card rounded mb-4">
+                    <div class="card rounded mb-4 position-relative">
                         <div class="card-body p-4">
-                            <div class="row d-flex justify-content-between align-items-center" v-for="item in cart" :key="item.id">
-                                <div class="col-4 col-md-4 col-lg-4">
-                                    <p class="lead fw-normal mb-2 ms_font-size">{{item.name}}</p>
-                                </div>
-
-                                <div class="col-4 col-md-4 col-lg-4 d-flex">
-                                    <button class="btn btn-link px-2" @click="$emit('remove1food',item.id)">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-
-                                    <p>{{item.quantity}}</p>
-
-                                    <button class="btn btn-link px-2"
-                                        @click="$emit('add1food', item)">
-                                        <i class="fas fa-plus"></i>
-                                    </button>
-                                </div>
-                                <div class="col-3 col-md-3 col-lg-2 offset-lg-1">
-                                    <h5 class="mb-0 ms_font-size">{{item.price}}</h5>
-                                </div>
+                            <div class="position-absolute top-right" @click="$emit('resetCart')">
+                                <a href="#" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                            </div>
+                            <table class="table my-2">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th colspan="2" class="text-center">Quantity</th>
+                                        <th>Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="item in cart" :key="item.id">
+                                        <td>{{item.name}}</td>
+                                        <td colspan="2" class="text-center">
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-link p-0 px-2" @click="$emit('removeItem',item.id)">
+                                                    <i class="fas fa-minus"></i>
+                                                </button>
+                                                <span>{{item.quantity}}</span>
+                                                <button class="btn btn-link p-0 px-2"
+                                                    @click="$emit('addItem', item)">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td>{{item.price + ' €'}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3">Delivery Fee</td>
+                                        <td> {{freeDelivery ? 'FREE' : deliveryFee + ' €'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="fw-bolder fs-5 p-2">
+                                Total <span class="ms-1">{{'€ ' + total }}</span></td>
                             </div>
                         </div>
-                            <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
-                                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-                            </div>
-                            <div>
-                                <p class="lead fw-normal mb-2 ms_font-size">Total: {{total}}</p>
-                            </div>
-                         </div>
+                    </div>
 
                     <div class="card">
                         <div class="card-body text-center">
@@ -55,9 +65,12 @@ export default {
 
     name: 'RestaurantMenuCart',
     props: {
-        cart:Array,
-        storageKey:String,
-        total:Number,
+
+        cart : Array,
+        storageKey : String,
+        total : Number,
+        deliveryFee : Number,
+        freeDelivery : Number,
     },
     methods: {
 
@@ -68,6 +81,11 @@ export default {
 
 <style lang="scss">
 @import "../../../sass/app.scss";
+
+.top-right {
+    top: 0.5rem;
+    right: 0.5rem;
+}
 
 
 </style>

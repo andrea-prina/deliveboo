@@ -10,16 +10,18 @@
                     </div>
                 </div>
                 </div>
-            <!-- catt side  -->
+            <!-- cart side  -->
                 <div class="col-12 col-lg-4 ">
                     <div class="col-12">
                         <RestaurantMenuCart
                         v-if="cart.length"
                         :cart="cart"
-                        :total="getTotal()"
-                        @faistoreset="resetCart"
-                        @remove1food="removeItem"
-                        @add1food="addItem"
+                        :deliveryFee="restaurantInfo.delivery_fee"
+                        :freeDelivery="restaurantInfo.free_delivery"
+                        :total="getTotal(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)"
+                        @resetCart="resetCart"
+                        @removeItem="removeItem"
+                        @addItem="addItem"
                         />
                     </div>
                 </div>
@@ -43,6 +45,8 @@ export default {
     props : {
         
         menuItems : Array,
+        restaurantInfo : Object,
+
 
     },
 
@@ -110,8 +114,16 @@ export default {
             this.syncCart()
         },
         //ritorna il totale del carrello
-        getTotal(){
-            return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+        getTotal(delivery_fee, free){
+
+            let total = this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+            if (!free){
+                total += delivery_fee;
+            }
+
+            total = Math.round((total + Number.EPSILON) * 100) / 100
+            
+            return total;
         },
 
     },

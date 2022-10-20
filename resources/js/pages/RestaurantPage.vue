@@ -1,7 +1,7 @@
 <template>
     <div>
         <RestaurantMenuJumbo :restaurantInfo="restaurantInfo"/>
-        <RestaurantMenuContainer :menuItems="restaurantMenu"/>
+        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo"/>
     </div>
 </template>
 
