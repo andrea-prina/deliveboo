@@ -2,7 +2,7 @@
     <section>
         <div class="container py-4">
             <div class="row py-4">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-lg-7">
                     <div class="row g-5 my-4">
                     <div class="col-12 col-lg-6 my-2" v-for="menuitem in menu" :key="menuitem.id">
                         <RestaurantMenuCard :menuitem="menuitem" />
@@ -10,7 +10,7 @@
                 </div>
                 </div>
             <!-- catt side  -->
-                <div class="col-12 col-md-5 ">
+                <div class="col-12 col-lg-5 ">
                     <div class="col-12">
                         <RestaurantMenuCart :cart="cart" />
                     </div>
