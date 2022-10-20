@@ -78,7 +78,19 @@ class UserController extends Controller
     
     public function show($id)
     {
-        // TODO
+        
+        $user = DB::table('users')
+        ->select(['restaurant_name', 'delivery_fee', 'free_delivery', 'image_path'])
+        ->where('id', $id)
+        ->get();
+
+        if($user){
+            return response()->json([
+                'response' => true,
+                'results' => [
+                    'data' => $user
+                ]]);
+        } else return response('', 404);
     }
 
 }
