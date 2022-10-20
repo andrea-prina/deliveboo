@@ -9,9 +9,6 @@
 
             </div>
             <div class="col-8 p-0">
-                <div class="button btn-primary" >
-                    add
-                </div>
                 <div class="card-body p-2">
                     <h5 class="card-title mt-1">{{menuitem.name}}</h5>
                     <p class="card-text my-1">{{menuitem.description}}</p>

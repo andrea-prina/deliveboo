@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import RestaurantMenuJumbo from '../components/RestaurantMenuComponent/RestaurantMenuJumbo.vue'
-import RestaurantMenuContainer from '../components/RestaurantMenuComponent/RestaurantMenuContainer.vue'
+import RestaurantMenuJumbo from '../components/RestaurantMenuComponents/RestaurantMenuJumbo.vue'
+import RestaurantMenuContainer from '../components/RestaurantMenuComponents/RestaurantMenuContainer.vue'
 
 
 
