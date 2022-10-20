@@ -5,7 +5,8 @@
                 <div class="col-12 col-lg-7">
                     <div class="row g-5 my-4">
                     <div class="col-12 col-lg-6 my-2" v-for="menuitem in menu" :key="menuitem.id">
-                        <RestaurantMenuCard :menuitem="menuitem" />
+                        <RestaurantMenuCard :menuitem="menuitem"
+                        @addToCart='addItem'/>
                     </div>
                 </div>
                 </div>
@@ -166,6 +167,7 @@ export default {
            return this.cart.findIndex((item) => item.id == id)
         },
         addItem(item){
+            console.log({funziona:item})
             const itemIndex = this.findById(item.id)
             if(itemIndex >= 0){
                 this.cart[itemIndex].quantity++
