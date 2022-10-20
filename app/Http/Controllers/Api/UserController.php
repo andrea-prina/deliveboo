@@ -6,37 +6,64 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Psy\Command\WhereamiCommand;
 
 class UserController extends Controller
 {
     /**
      * Display the list of all restaurants. If no params are passed, it is a index of all restaurants.
-     * It is possible to pass as one, both or none of the parameters in the request 
+     * The possible query strings parameters for apply a filter search are:
+     * type[] : one or more restaurant type
+     * name : name (or portion of) of the restaurant
+     * 
      * @param  Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
     {
         $restaurantName = $request->query('name'); // String parameter
-        $restaurantType = $request->query('type'); // String parameter
+        $restaurantTypes = $request->query('type'); // String parameter
 
         $query = DB::table('users')
-                    ->join('type_user', 'users.id', '=', 'type_user.user_id')
-                    ->join('types', 'type_user.type_id', '=', 'types.id');
+                    ->select(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path']);
         
-        if($restaurantName) {
-            $query->where('restaurant_name', 'LIKE', '%' . $restaurantName . '%');
+        if($restaurantTypes){
+            
+            $restaurantIds = []; //array to contain all arrays of id for each specific restaurant type
 
-            if($restaurantType) {
-                $query->whereIn('type_name', $restaurantType);
+            foreach ($restaurantTypes as $type)
+            {
+                $ids = DB::table('users')
+                ->join('type_user', 'users.id', '=', 'type_user.user_id')
+                ->join('types', 'type_user.type_id', '=', 'types.id')
+                ->where('type_name', $type)
+                ->pluck('users.id')->toArray();
+                array_push($restaurantIds, $ids);
+            }
+            
+            if (count($restaurantIds) === 1){
+                $query = $query->whereIn('users.id', $restaurantIds[0]);
+            }
+            
+            else if (count($restaurantIds) >= 2){
+                // intersect the id arrays to keep only those ids appearing in each type (INTERSECTION)
+                $restaurantIds = array_intersect(...$restaurantIds);
+                $query = $query->whereIn('users.id', $restaurantIds);
+            }
+
+            if($restaurantName) {
+                // add a filter for the name (if passed)
+                $query->where('restaurant_name', 'LIKE', '%' . $restaurantName . '%');
             }
         
-        } else if ($restaurantType) {
-            $query->whereIn('type_name', $restaurantType);
+        } else if ($restaurantName) {
+            // filter for name if there is no filter for type
+            $query->where('restaurant_name', 'LIKE', '%' . $restaurantName . '%');
         }
 
-        $result= $query->distinct()->select(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path'])->paginate(6);
-        
+        // complete the query by returning 6 elements per page
+        $result = $query->paginate(6);
+
         if($result){
             return response()->json([
                 'response' => true,
@@ -46,6 +73,9 @@ class UserController extends Controller
         } else return response('', 404);
     }
 
+
+
+    
     public function show($id)
     {
         // TODO
