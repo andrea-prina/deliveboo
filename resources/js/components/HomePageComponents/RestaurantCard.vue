@@ -54,7 +54,7 @@ export default {
 // passare a restaurantCard un props che sarà l'oggetto ristorante che recupero con la chiamata api nel component parent
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../../sass/app.scss";
 
 .bg-style{
@@ -67,6 +67,10 @@ export default {
 }
 .card{
     border-radius: 0 !important;
+    a{
+        text-decoration: none !important;
+        color: black !important;
+    }
 }
 .card img{
     height: 150px;

@@ -1,21 +1,24 @@
 <template>
     <section>
-        <div class="container">
-            <div class="row">
-
-                <!-- menu side dishes -->
-                <div class="col-12 col-md-7">
-                    <div class="row">
-                            <RestaurantMenuCard class="col-12 col-md-6 my-1" v-for="menuitem in menu" :key="menuitem.id" :menuitem="menuitem"
-                            @addToCart="addItem" />
+        <div class="container-lg py-4">
+            <div class="row py-4">
+                <div class="col-12 col-lg-8">
+                    <div class="row g-5 my-4">
+                    <div class="col-12 col-lg-6 my-2" v-for="menuitem in menu" :key="menuitem.id">
+                        <RestaurantMenuCard :menuitem="menuitem"
+                        @addToCart='addItem'/>
                     </div>
-                    <!-- catt side  -->
-                    <div class="col-12 col-md-5 ">
-                        <div class="col-12">
-                            <RestaurantMenuCart
-
-                             />
-                        </div>
+                </div>
+                </div>
+            <!-- catt side  -->
+                <div class="col-12 col-lg-4 ">
+                    <div class="col-12">
+                        <RestaurantMenuCart
+                        :cart="cart"
+                        :storageKey="storageKey"
+                        @faistoreset="resetCart"
+                        @remove1food="removeItem"
+                        @test="test" />
                     </div>
                 </div>
             </div>
@@ -169,6 +172,7 @@ export default {
            return this.cart.findIndex((item) => item.id == id)
         },
         addItem(item){
+            console.log({funziona:item})
             const itemIndex = this.findById(item.id)
             if(itemIndex >= 0){
                 this.cart[itemIndex].quantity++
@@ -179,6 +183,7 @@ export default {
         },
         //diminuisce di uno la quantity del item all'indice fornito o lo rimuove se era l'ultimo elemento
         removeItem(id){
+            console.log({funziona:id})
             const itemIndex = this.findById(id)
             if(itemIndex === -1) return
            this.cart[itemIndex].quantity--
@@ -186,6 +191,14 @@ export default {
                 this.cart.splice(itemIndex,1)
             }
             this.syncCart()
+        },
+        resetCart(){
+            console.log(this.cart)
+            this.cart = []
+            this.syncCart()
+        },
+        test(){
+            console.log({'dio':this.cart})
         }
 
     },

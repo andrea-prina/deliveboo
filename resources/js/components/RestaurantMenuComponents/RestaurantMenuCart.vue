@@ -8,30 +8,27 @@
                     </div>
                     <div class="card rounded mb-4">
                         <div class="card-body p-4">
-                            <div class="row d-flex justify-content-between align-items-center">
-
-                                <div class="col-md-4 col-lg-4">
-                                    <p class="lead fw-normal mb-2 ms_font-size">Pizza Margherita</p>
+                            <div class="row d-flex justify-content-between align-items-center" v-for="item in cart" :key="item.id">
+                                <div class="col-4 col-md-4 col-lg-4">
+                                    <p class="lead fw-normal mb-2 ms_font-size">{{item.name}}</p>
                                 </div>
 
-                                <div class="col-md-4 col-lg-4 d-flex">
-                                    <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                <div class="col-4 col-md-4 col-lg-4 d-flex">
+                                    <button class="btn btn-link px-2" @click="$emit('remove1food',item.id)">
                                         <i class="fas fa-minus"></i>
                                     </button>
 
-                                    <input id="form1" min="0" name="quantity" value="2" type="number"
-                                        class="form-control form-control-sm" />
+                                    <p>{{item.quantity}}</p>
 
                                     <button class="btn btn-link px-2"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
-                                <div class="col-md-3 col-lg-2 offset-lg-1">
-                                    <h5 class="mb-0 ms_font-size">€499.00</h5>
+                                <div class="col-3 col-md-3 col-lg-2 offset-lg-1">
+                                    <h5 class="mb-0 ms_font-size">{{item.price}}</h5>
                                 </div>
-                                <div class="col-md-1 col-lg-1 text-end">
+                                <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
                                     <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                                 </div>
                             </div>
@@ -55,8 +52,12 @@ export default {
 
     name: 'RestaurantMenuCart',
     props: {
-        items:Array
+        cart:Array,
+        storageKey:String,
     },
+    methods: {
+
+    }
 
 }
 </script>
