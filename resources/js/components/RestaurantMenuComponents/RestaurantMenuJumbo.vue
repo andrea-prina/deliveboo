@@ -32,7 +32,7 @@ export default {
     justify-content: center;
     align-items: center;
     //position: relative;//
-    filter: brightness(0.4);
+    
     
     
     img {
@@ -41,11 +41,12 @@ export default {
         object-fit: cover;
         position: absolute;
         top: 0;
+        filter: brightness(0.4);
         left: 0;
-        z-index: -1;
     }
 
     .my-text{
+        z-index: 2;
         position: absolute;
         top: 50%;
         left: 50%;
