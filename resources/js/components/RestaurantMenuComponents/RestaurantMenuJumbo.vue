@@ -1,7 +1,8 @@
 <template>
     <div class="jumbotron">
+        <img src="http://www.ilvillinoristorante.it/images/mainimage4.jpg" alt="">
         <div class="wrap">
-            <div class="text-center text-white">
+            <div class="text-center my-text">
                 <h1>Ristorante Il Villino</h1>
                 <p>C.da San Carlo 25, 62010, Treia(MC)</p>
             </div>
@@ -24,24 +25,42 @@ export default {
 @import "../../../sass/_variables.scss";
 
 .jumbotron {
-    height: 50vh;
+    widows: 100%;
+    height: 80vh;
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
-    background-color: $brand-white;
     //position: relative;//
-    background-image: url('http://www.ilvillinoristorante.it/images/mainimage4.jpg');
-    filter: brightness(0.4);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-
-    .wrap {
-        width: 55%;
-        //position: absolute;
-        //top: 50%;
-        //left: 50%;
-        //transform: translate(-50%, -50%);
+    
+    
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        filter: brightness(0.4);
+        left: 0;
     }
+
+    .my-text{
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        h1{
+            font-size: 3rem;
+            color: white;
+        }
+        p{
+            font-size: 1.5rem;
+            color: white;
+        }
+    }
+
 }
 </style>

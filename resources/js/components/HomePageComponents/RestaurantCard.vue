@@ -1,18 +1,19 @@
 <template>
 
     <div class="card position-relative">
-    <router-link to="/restaurantPage">
+        <router-link to="/restaurantPage">
 
-        <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
-            <h1 class="text-white">Free Delivery</h1>
-        </div>
-        <img :src='validateImagePath()' class="card-img-top" :alt=restaurant.restaurant_name>
-        <div class="card-body">
-            <h5 class="card-title brand-title">{{ restaurant.restaurant_name }}</h5>
-            <span :class="{'text-decoration-line-through':checkFreeDelivery()}">Consegna: € {{ restaurant.delivery_fee }}</span>
-        </div>
+            <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
+                <h1 class="text-white">Free Delivery</h1>
+            </div>
+            <img :src='validateImagePath()' class="card-img-top" :alt=restaurant.restaurant_name>
+            <div class="card-body">
+                <h5 class="card-title brand-title">{{ restaurant.restaurant_name }}</h5>
+                <span :class="{'text-decoration-line-through':checkFreeDelivery()}">Consegna: € {{
+                restaurant.delivery_fee }}</span>
+            </div>
 
-    </router-link>
+        </router-link>
     </div>
 
 </template>
@@ -25,27 +26,26 @@ export default {
     },
     data() {
         return {
-            isFreeActive:false
+            isFreeActive: false
         }
     },
     methods: {
-        checkFreeDelivery(){
-            if(this.restaurant.free_delivery == 1){
+        checkFreeDelivery() {
+            if (this.restaurant.free_delivery == 1) {
                 this.isFreeActive = true;
                 return true
             }
 
         },
-        validateImagePath(){
-            if(this.restaurant.image_path.includes('http')){
+        validateImagePath() {
+            if (this.restaurant.image_path.includes('http')) {
                 return this.restaurant.image_path
             } else {
                 return 'storage/' + this.restaurant.image_path
             }
         }
     },
-    mounted()
-    {
+    mounted() {
         this.checkFreeDelivery();
 
     }
@@ -57,29 +57,41 @@ export default {
 <style lang="scss" scoped>
 @import "../../../sass/app.scss";
 
-.bg-style{
+.bg-style {
     top: 10px;
     background-color: $brand-main;
-    h1{
+
+    h1 {
         font-size: 14px;
         margin-bottom: 0;
     }
 }
-.card{
-    border-radius: 0 !important;
-    a{
+
+.card {
+    
+
+    a {
         text-decoration: none !important;
         color: black !important;
+        box-shadow: rgba(0, 0, 0, 0.50) 0px 3px 8px !important;
+        transition: transform 0.2s ease-in-out !important;
+
+        &:hover {
+            transform: translateY(-0.5rem);
+            cursor: pointer;
+        }
     }
 }
-.card img{
+
+.card img {
     height: 150px;
     width: 100%;
     object-fit: cover;
     border-radius: 0 !important;
 }
-.free-delivery{
-    top:10%;
+
+.free-delivery {
+    top: 10%;
     display: none;
 }
 </style>
