@@ -96,7 +96,7 @@
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" maxlength="255"
-                                        placeholder="examplem@mail.com">
+                                        placeholder="example@mail.com">
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -145,7 +145,7 @@
                                     <input id="address" type="text"
                                         class="form-control @error('address') is-invalid @enderror" name="address"
                                         value="{{ old('address') }}" autocomplete="address" autofocus maxlength="255"
-                                        required placeholder="Insert an addressm">
+                                        required placeholder="Insert an address">
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
@@ -165,7 +165,7 @@
                                         class="form-control @error('delivery_fee') is-invalid @enderror"
                                         name="delivery_fee" value="{{ old('delivery_fee') }}" autofocus min="0"
                                         max="99.99" autocomplete="delivery_fee" required step="0.1"
-                                        placeholder="Insert a price for your delivery feer">
+                                        placeholder="Insert a price for your delivery fee">
 
                                     @error('delivery_fee')
                                         <span class="invalid-feedback" role="alert">
@@ -201,7 +201,7 @@
                                 <div class="col-md-6 my-2">
                                     @foreach ($types as $type)
                                         <div class="form-check form-check-inline" id="types-form">
-                                            <input type="checkbox" name="types[]" class="form-check-input"
+                                            <input type="checkbox"  name="types[]" class="form-check-input"
                                                 id="{{ $type->type_name }}" value="{{ $type->id }}"
                                                 {{ $user->types->contains($type) ? 'checked' : '' }}>
                                             <label for="types">{{ $type->type_name }}</label>
@@ -230,30 +230,32 @@
         const password = document.getElementById('password');
         const passwordConfirm = document.getElementById('password-confirm');
 
-        const element = document.querySelector('form');
-        element.addEventListener('submit', event => {
-                const types = document.getElementsByName('types[]');
-                let checked = false;
-                const passwordMatch = password.value == passwordConfirm.value;
+        passwordConfirm.addEventListener('keyup', () => {
+            if (password.value !== passwordConfirm.value) {
+                passwordConfirm.setCustomValidity('Passwords do not match');
+            } else {
+                passwordConfirm.setCustomValidity('');
+            }
+        });
 
-                for (let i = 0; i < types.length; i++) {
-                    if (types[i].checked) {
-                        checked = true;
-                    }
-                }
-                if (!checked) {
-                    event.preventDefault();
-                    alert('Please select at least one category');
-
-                } else if (!passwordMatch) {
-                    event.preventDefault();
-                    passwordConfirm.setCustomValidity('Passwords do not match');
-
-                } else {
-                    this.submit();
-                }
-            
-                });
+        // const element = document.querySelector('form');
+        // element.addEventListener('submit', event => {
+        //         const types = document.getElementsByName('types[]');
+        //         let checked = false;
+        //         for (let i = 0; i < types.length; i++) {
+        //             if (types[i].checked) {
+        //                 checked = true;
+        //             }
+        //         }
+        //         if (!checked) {
+        //             event.preventDefault();
+        //             types[i].setCustomValidity('seleziona qualcosa')
+        //         } else {
+        //             this.submit();
+        //         }
+        //         });
+        
+                
 
         function VatValidation() {
             const vat = document.getElementById('vat');
