@@ -16,7 +16,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th colspan="2" class="text-center">Quantity</th>
-                                        <th>Price</th>
+                                        <th class="text-end">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -34,16 +34,16 @@
                                                 </button>
                                             </div>
                                         </td>
-                                        <td>{{item.price + ' €'}}</td>
+                                        <td class="text-end">{{item.price + ' €'}}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">Delivery Fee</td>
-                                        <td> {{freeDelivery ? 'FREE' : deliveryFee + ' €'}}</td>
+                                        <td class="text-end"> {{freeDelivery ? 'FREE' : deliveryFee + ' €'}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <div class="fw-bolder fs-5 p-2">
-                                Total <span class="ms-1">{{'€ ' + total }}</span></td>
+                                Total € {{ total }}</td>
                             </div>
                         </div>
                     </div>
