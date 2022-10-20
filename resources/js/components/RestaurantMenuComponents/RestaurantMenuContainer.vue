@@ -14,6 +14,7 @@
                 <div class="col-12 col-lg-4 ">
                     <div class="col-12">
                         <RestaurantMenuCart
+                        v-if="cart.length"
                         :cart="cart"
                         :storageKey="storageKey"
                         :total="getTotal()"
