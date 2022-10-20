@@ -1,7 +1,8 @@
 <template>
-<div class="col-4 col-md-3 col-lg-2 md-m2 ">
+<div class="col-4 col-md-2 col-lg-1 md-m2 ">
     <button @click="$emit('typeName', type.type_name), selected=!selected" :class="[selected ? 'selected' : '']" class="tag-card m-0">
         <img class="card-img-top test" :src="type.icon_path" :alt="type.type_name">
+        <br>
         <span class="card-title">{{type.type_name}}</span>
     </button>
 </div>
@@ -39,13 +40,23 @@ export default {
     width: 5rem;
     background-color: $brand-white;
     overflow: hidden;
-    border-radius: 50%;
+    // border-radius: 50%;
     margin-left: 1rem;
+    border: none;
 
     img {
-        width: 100%;
-        height: 100%;
+        width: 75%;
+        height: 75%;
         object-fit: contain;
+    }
+
+    &:hover {
+        // border: 2px solid $brand-main;
+        transform: scale(105%);
+    }
+
+    span{
+        font-size: 0.6rem;
     }
 
 }
@@ -54,14 +65,17 @@ export default {
 
     .test {
         filter: grayscale(0);
+        transform: scale(140%);
+
     }
 }
 
 .test {
-    filter: grayscale(100);
+    filter: grayscale(100%);
 
     &:hover {
         filter: grayscale(0);
+        transform: scale(140%);
     }
 }
 

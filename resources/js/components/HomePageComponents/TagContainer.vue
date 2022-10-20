@@ -65,8 +65,6 @@ export default {
     display: block;
     overflow-x:scroll ;
     box-sizing: border-box;
-    // width: 80vw;
-    
 }
 
 
@@ -74,7 +72,6 @@ export default {
     display:flex;
     white-space: nowrap;
     width: 100%;
-
 }
 
 .slider-bg-cont{
