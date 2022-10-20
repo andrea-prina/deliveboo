@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
 
 
 
-        for ($i=0; $i < 10; $i++) {
+        for ($i=0; $i < 100; $i++) {
             $newUser = new User();
             $newUser->name = $faker->name();
             $newUser->surname = $faker->lastName();
