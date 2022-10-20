@@ -25,7 +25,7 @@ class UserController extends Controller
         $restaurantTypes = $request->query('type'); // String parameter
 
         $query = DB::table('users')
-                    ->select(['users.restaurant_name', 'users.delivery_fee', 'users.free_delivery', 'users.image_path']);
+                    ->select(['id', 'restaurant_name', 'delivery_fee', 'free_delivery', 'image_path']);
         
         if($restaurantTypes){
             
@@ -78,7 +78,19 @@ class UserController extends Controller
     
     public function show($id)
     {
-        // TODO
+        
+        $user = DB::table('users')
+        ->select(['restaurant_name', 'delivery_fee', 'free_delivery', 'image_path', 'address'])
+        ->where('id', $id)
+        ->get();
+
+        if($user){
+            return response()->json([
+                'response' => true,
+                'results' => [
+                    'data' => $user
+                ]]);
+        } else return response('', 404);
     }
 
 }

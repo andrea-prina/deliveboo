@@ -17,9 +17,10 @@ const router = new VueRouter({
                 component: HomePage
         },
         {
-                path:'/restaurantPage',
+                path:'/restaurantPage/:restaurantId',
                 name: 'RestaurantPage',
-                component: RestaurantPage
+                component: RestaurantPage,
+                props: true,
         },
     ]
 });

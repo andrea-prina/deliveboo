@@ -2,8 +2,8 @@
     <div class="jumbotron">
         <div class="wrap">
             <div class="text-center text-white">
-                <h1>Ristorante Il Villino</h1>
-                <p>C.da San Carlo 25, 62010, Treia(MC)</p>
+                <h1>{{ restaurantInfo.restaurant_name }}</h1>
+                <p>{{ restaurantInfo.address }}</p>
             </div>
 
         </div>
@@ -17,6 +17,10 @@ export default {
 
         }
     },
+
+    props : {
+        restaurantInfo : Object,
+    }
 }
 </script>
 <style lang="scss" scoped>

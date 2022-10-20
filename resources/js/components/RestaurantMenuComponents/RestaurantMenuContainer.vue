@@ -4,8 +4,8 @@
             <div class="row py-4">
                 <div class="col-12 col-lg-8">
                     <div class="row g-5 my-4">
-                    <div class="col-12 col-lg-6 my-2" v-for="menuitem in menu" :key="menuitem.id">
-                        <RestaurantMenuCard :menuitem="menuitem"
+                    <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id">
+                        <RestaurantMenuCard :menuitem="menuItem"
                         @addToCart='addItem'/>
                     </div>
                 </div>
@@ -39,38 +39,15 @@ export default {
         RestaurantMenuCart,
 
     },
+
+    props : {
+        
+        menuItems : Array,
+
+    },
+
     data() {
         return {
-            menu: [
-                    {
-                    id:1,
-                    name: 'food1',
-                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-                    price: 100,
-                    image: 'https://picsum.photos/200/300',
-                    },
-                    {
-                    id:2,
-                    name: 'food2',
-                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-                    price: 200,
-                    image: 'https://picsum.photos/200/300',
-                    },
-                    {
-                        id:3,
-                    name: 'food3',
-                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-                    price: 300,
-                    image: 'https://picsum.photos/200/300',
-                    },
-                    {
-                    id:4,
-                    name: 'food4',
-                    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
-                    price: 400,
-                    image: 'https://picsum.photos/200/300',
-                    },
-                ],
             cart:[],
             storageKey:'deliveboo'
         }
