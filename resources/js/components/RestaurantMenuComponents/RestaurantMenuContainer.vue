@@ -16,7 +16,6 @@
                         <RestaurantMenuCart
                         v-if="cart.length"
                         :cart="cart"
-                        :storageKey="storageKey"
                         :total="getTotal()"
                         @faistoreset="resetCart"
                         @remove1food="removeItem"
