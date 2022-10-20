@@ -56,17 +56,19 @@ export default {
     methods: {
         //se l'utente ha un cerrello lo carica
         initCart(){
-             const data = this.getCart()
-             if(data){
-                this.cart = data
-             }else{
-                this.syncCart()
-             }
+            const data = this.getCart()
+            if(data){
+            this.cart = data
+            }else{
+            this.syncCart()
+            }
         },
+
         syncCart() {
             const localCartStorage = JSON.stringify(this.cart)
             localStorage.setItem(this.storageKey, localCartStorage)
         },
+
         getCart(){
             const stringResult= localStorage.getItem(this.storageKey)
             if(stringResult){
@@ -75,81 +77,12 @@ export default {
                 return null
             }
         },
-        testInitCart() {
-            this.cart = [{
-                    "id": 1,
-                    "name": "Pizza Margherita",
-                    "price": 499,
-                    "quantity": 2,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 2,
-                    "name": "Pizza Prosciutto",
-                    "price": 599,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 3,
-                    "name": "Pizza Funghi",
-                    "price": 699,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 4,
-                    "name": "Pizza Quattro Stagioni",
-                    "price": 799,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 5,
-                    "name": "Pizza Quattro Formaggi",
-                    "price": 899,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Pizza Marinara",
-                    "price": 999,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Pizza Capricciosa",
-                    "price": 1099,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 8,
-                    "name": "Pizza Diavola",
-                    "price": 1199,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Pizza Hawaii",
-                    "price": 1299,
-                    "quantity": 1,
-                    "image": "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                },
-                {
-                    "id": 10,
-                    "name": "Pizza Calzone",
-                    "price": 1399,
-                }];
-            this.syncCart();
-        },
+
         //ritorna l'oggetto se esiste nel carrello
         findById(id){
-           return this.cart.findIndex((item) => item.id == id)
+            return this.cart.findIndex((item) => item.id == id)
         },
+        
         addItem(item){
             console.log({aggiunge:item})
             const itemIndex = this.findById(item.id)
@@ -165,7 +98,7 @@ export default {
             console.log({rimuove:id})
             const itemIndex = this.findById(id)
             if(itemIndex === -1) return
-           this.cart[itemIndex].quantity--
+            this.cart[itemIndex].quantity--
             if(this.cart[itemIndex].quantity<= 0){
                 this.cart.splice(itemIndex,1)
             }

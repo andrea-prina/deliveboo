@@ -18,7 +18,7 @@ class FoodItemController extends Controller
     public function show($id)
     {
         $foodItems = DB::table('food_items')
-                        ->select('name', 'description', 'image_path','price', 'availability')
+                        ->select('id', 'name', 'description', 'image_path','price', 'availability')
                         ->where('food_items.user_id', $id)
                         ->get();
         
