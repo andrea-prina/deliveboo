@@ -30,10 +30,13 @@
                                 </div>
                             </div>
                         </div>
-                                <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
-                                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-                                </div>
-                    </div>
+                            <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
+                                <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                            </div>
+                            <div>
+                                <p class="lead fw-normal mb-2 ms_font-size">Total: {{total}}</p>
+                            </div>
+                         </div>
 
                     <div class="card">
                         <div class="card-body text-center">
@@ -54,6 +57,7 @@ export default {
     props: {
         cart:Array,
         storageKey:String,
+        total:Number,
     },
     methods: {
 

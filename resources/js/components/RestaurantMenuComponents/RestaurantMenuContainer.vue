@@ -16,10 +16,11 @@
                         <RestaurantMenuCart
                         :cart="cart"
                         :storageKey="storageKey"
+                        :total="getTotal()"
                         @faistoreset="resetCart"
                         @remove1food="removeItem"
                         @add1food="addItem"
-                        @test="test" />
+                        />
                     </div>
                 </div>
             </div>
@@ -198,9 +199,10 @@ export default {
             this.cart = []
             this.syncCart()
         },
-        test(){
-            console.log({'dio':this.cart})
-        }
+        //ritorna il totale del carrello
+        getTotal(){
+            return this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+        },
 
     },
     mounted() {
