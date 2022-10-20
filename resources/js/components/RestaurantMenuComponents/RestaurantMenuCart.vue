@@ -14,22 +14,21 @@
                                 </div>
 
                                 <div class="col-4 col-md-4 col-lg-4 d-flex">
-                                    <button class="btn btn-link px-2" onclick="emit$">
+                                   <!--  <button class="btn btn-link px-2" onclick="emit$">
                                         <i class="fas fa-minus"></i>
-                                    </button>
+                                    </button> -->
 
-                                    <input id="form1" min="0" name="quantity" :value="item.quantity" type="number"
-                                        class="form-control form-control-sm" />
+                                    <p>{{item.quantity}}</p>
 
-                                    <button class="btn btn-link px-2"
+                                   <!--  <button class="btn btn-link px-2"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                         <i class="fas fa-plus"></i>
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <div class="col-3 col-md-3 col-lg-2 offset-lg-1">
                                     <h5 class="mb-0 ms_font-size">{{item.price}}</h5>
                                 </div>
-                                <div class="col-1 col-md-1 col-lg-1 text-end">
+                                <div class="col-1 col-md-1 col-lg-1 text-end" @click="$emit('faistoreset')">
                                     <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                                 </div>
                             </div>
@@ -53,8 +52,12 @@ export default {
 
     name: 'RestaurantMenuCart',
     props: {
-        cart:Array
+        cart:Array,
+        storageKey:String,
     },
+    methods: {
+
+    }
 
 }
 </script>
