@@ -1,5 +1,5 @@
 <template>
-    <div class="jumbotronn">
+    <div class="jumbotron">
         <div class="wrap">
             <div class="text-center text-white">
                 <h1>Ristorante Il Villino</h1>
@@ -19,11 +19,11 @@ export default {
     },
 }
 </script>
-<style lang="scss">
-@import "../../sass/app.scss";
-@import "../../sass/_variables.scss";
+<style lang="scss" scoped>
+@import "../../../sass/app.scss";
+@import "../../../sass/_variables.scss";
 
-.jumbotronn {
+.jumbotron {
     height: 50vh;
     display: flex;
     justify-content: center;

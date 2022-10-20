@@ -9,9 +9,9 @@
 
 <script>
 import FooterComponent from '../components/FooterComponent.vue'
-import SearchComponent from '../components/SearchComponent.vue'
-import TagContainer from '../components/TagContainer.vue'
-import HomeRestaurantContainer from '../components/HomeRestaurantContainer.vue'
+import SearchComponent from '../components/HomePageComponents/SearchComponent.vue'
+import TagContainer from '../components/HomePageComponents/TagContainer.vue'
+import HomeRestaurantContainer from '../components/HomePageComponents/HomeRestaurantContainer.vue'
 
 export default {
     name: 'HomePage',

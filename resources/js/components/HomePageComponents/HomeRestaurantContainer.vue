@@ -2,7 +2,7 @@
     <section>
         <div class="container py-3">
             <div class="row g-3">
-                
+
                 <div v-for="restaurant in restaurants" :key="restaurant.id"  class="col-12 col-md-6 col-lg-4">
                     <RestaurantCard :restaurant="restaurant" />
                 </div>
@@ -13,7 +13,7 @@
 
 <script>
 import axios from 'axios'
-import RestaurantCard from './RestaurantCard.vue'
+import RestaurantCard from '../HomePageComponents/RestaurantCard.vue'
 
 export default {
     name: 'HomeRestaurantContainer',
@@ -61,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../sass/app.scss";
+@import "../../../sass/app.scss";
 
 
 </style>

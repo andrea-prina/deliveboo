@@ -1,5 +1,5 @@
 <template>
-    <div class="card my-card w-100" style="width: 18rem;">
+    <div class="card my-card w-100" style="width: 18rem;" @click="$emit('addToCart', menuitem)">
         <div class="row">
             <div class="col-4 p-0">
                 <div class="card-body p-1">
@@ -10,13 +10,10 @@
             </div>
             <div class="col-8 p-0">
                 <div class="card-body p-2">
-                    <h5 class="card-title mt-1">Carbonara</h5>
-                    <p class="card-text my-1">Descrizione: Some quick example text to build on the card title and make
-                        up the
-                        bulk of
-                        the card's content.</p>
-                    <p class="card-text mt-1">Prezzo:</p>
-                    <a href="#" class="btn btn-primary my-1">Go somewhere</a>
+                    <h5 class="card-title mt-1">{{menuitem.name}}</h5>
+                    <p class="card-text my-1">{{menuitem.description}}</p>
+                    <p class="card-text mt-1">Prezzo:{{menuitem.price}}</p>
+                    <a href="#" class="btn btn-primary my-1">Go somewhere id:{{menuitem.id}}</a>
                 </div>
             </div>
         </div>
@@ -28,15 +25,23 @@
 <script>
 export default {
 
-    name: 'RestaurantMenuCard',
+    name: 'RestaurantMenuitemCard',
     props: {
-        menu: Object,
+        menuitem: Object,
     },
+    data() {
+        return {
+            cart:[],
+            storageKey:'delivebooCart',
+        }
+    },
+
+
 }
 </script>
-    
+
 <style lang="scss" scoped>
-@import "../../sass/app.scss";
+@import "../../../sass/app.scss";
 
 .my-card {
     background-color: $brand-white !important;
