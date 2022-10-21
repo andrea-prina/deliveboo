@@ -1,7 +1,7 @@
 <template>
     <div class="row my-card" @click="$emit('addToCart', menuitem)">
             <div class="col-4 p-1">
-                    <img src="https://www.scattidigusto.it/wp-content/uploads/2018/04/carbonara-ricetta-spaghetti.jpg" alt="..."
+                    <img :src="menuitem.image_path" alt="..."
                     class="w-100"/>
             </div>
             <div class="col-8 p-0">
