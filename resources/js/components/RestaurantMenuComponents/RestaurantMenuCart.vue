@@ -43,7 +43,7 @@
                                 </tbody>
                             </table>
                             <div class="fw-bolder fs-5 p-2">
-                                Total € {{ total }}</td>
+                                Total € {{ total }}
                             </div>
                         </div>
                     </div>
