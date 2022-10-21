@@ -24,11 +24,11 @@ export default {
     },
     methods: {
         getTypes() {
-        
+
             axios.get("/api/types")
                 .then(response => {
                 this.types = response.data.results;
-                
+
             })
                 .catch(error => {
                 console.log(error);
@@ -44,14 +44,14 @@ export default {
 
     created() {
         this.getTypes()
-    }, 
+    },
 }
 
 
 </script>
 
 <style lang="scss">
-@import "../../sass/app.scss";
+@import "../../../sass/app.scss";
 
 
 #tag-section{
