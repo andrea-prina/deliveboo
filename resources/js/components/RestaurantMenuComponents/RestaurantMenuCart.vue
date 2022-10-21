@@ -9,7 +9,7 @@
                     <div class="card rounded mb-4 position-relative">
                         <div class="card-body p-4">
                             <div class="position-absolute top-right" @click="$emit('resetCart')">
-                                <a href="#" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                                <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                             </div>
                             <table class="table my-2">
                                 <thead>

@@ -43,7 +43,7 @@ export default {
     },
 
     props : {
-        
+
         menuItems : Array,
         restaurantInfo : Object,
 
@@ -86,7 +86,7 @@ export default {
         findById(id){
             return this.cart.findIndex((item) => item.id == id)
         },
-        
+
         addItem(item){
             console.log({aggiunge:item})
             const itemIndex = this.findById(item.id)
@@ -110,8 +110,10 @@ export default {
         },
         resetCart(){
             console.log(this.cart)
-            this.cart = []
-            this.syncCart()
+            if(window.confirm('Do you really want to empty your cart?')){
+                this.cart = []
+                this.syncCart()
+            }
         },
         //ritorna il totale del carrello
         getTotal(delivery_fee, free){
@@ -122,7 +124,7 @@ export default {
             }
 
             total = Math.round((total + Number.EPSILON) * 100) / 100
-            
+
             return total;
         },
 
