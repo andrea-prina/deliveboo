@@ -5,7 +5,12 @@
 <div class="container bg-white border-violet p-5">
     <div class="row">
         <div class="col-7 d-flex">
-            <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100 rounded">
+            @if (filter_var($user->image_path , FILTER_VALIDATE_URL))
+                 <img src="{{ $user->image_path }}" class="w-100 rounded" alt="image of food: {{ $user->name}}">
+                 @else
+                <img src="{{ asset('/storage' . '/' . $user->image_path) }}" class="w-100 rounded" alt="image of food: {{ $user->name}}">
+                @endif
+            {{-- <img src="{{asset('/storage/' . $user->image_path)}}" alt="You restourant image" class="w-100 rounded"> --}}
         </div>
         <div class="col-5">
             <div class="mb-3">
