@@ -1,7 +1,7 @@
 <template>
     <div>
         <RestaurantMenuJumbo :restaurantInfo="restaurantInfo"/>
-        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo"/>
+        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId"/>
     </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
     },
 
     props : {
-        restaurantId : {type : Number, required : true},
+        restaurantId : {type : String, required : true},
     },
 
     methods : {
