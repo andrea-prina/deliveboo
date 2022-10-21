@@ -2,7 +2,6 @@
 
     <div class="card position-relative">
     <router-link :to="{'name':'RestaurantPage', 'params': {'restaurantId' : restaurant.id },}">
-    <!-- <router-link :to="{'path':`/restaurantPage/${restaurant.id}`}"> -->
 
             <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
                 <h1 class="text-white">Free Delivery</h1>
@@ -27,10 +26,11 @@ export default {
     },
     data() {
         return {
-            isFreeActive: false
+            isFreeActive: false,
         }
     },
     methods: {
+
         checkFreeDelivery() {
             if (this.restaurant.free_delivery == 1) {
                 this.isFreeActive = true;
@@ -38,14 +38,18 @@ export default {
             }
 
         },
+
         validateImagePath() {
             if (this.restaurant.image_path.includes('http')) {
                 return this.restaurant.image_path
             } else {
                 return 'storage/' + this.restaurant.image_path
             }
-        }
+        },
+
     },
+
+
     mounted() {
         this.checkFreeDelivery();
 
