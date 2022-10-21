@@ -1,15 +1,13 @@
 <template>
     <div class="jumbotron">
-        <img src="http://www.ilvillinoristorante.it/images/mainimage4.jpg" alt="">
-        <div class="wrap">
-            <div class="text-center text-white">
-                <h1>{{ restaurantInfo.restaurant_name }}</h1>
-                <p>{{ restaurantInfo.address }}</p>
-            </div>
-
+        <img :src="restaurantInfo.image_path" :alt="restaurantInfo.restaurant_name">
+        <div class="text-center text-white my-text">
+            <h1>{{ restaurantInfo.restaurant_name }}</h1>
+            <p>{{ restaurantInfo.address }}</p>
         </div>
     </div>
 </template>
+
 <script>
 export default {
     name: 'RestaurantMenuJumbo',
@@ -24,6 +22,7 @@ export default {
     }
 }
 </script>
+
 <style lang="scss" scoped>
 @import "../../../sass/app.scss";
 @import "../../../sass/_variables.scss";
@@ -35,9 +34,6 @@ export default {
     position: relative;
     justify-content: center;
     align-items: center;
-    //position: relative;//
-    
-    
     
     img {
         width: 100%;
