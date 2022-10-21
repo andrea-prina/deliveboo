@@ -16,7 +16,7 @@
                         <RestaurantMenuCart
                         :deliveryFee="restaurantInfo.delivery_fee"
                         :freeDelivery="restaurantInfo.free_delivery"
-                        :restaurantId="restaurantInfo.id"
+                        :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
                         :checkout="false"
@@ -44,6 +44,7 @@ export default {
 
         menuItems : Array,
         restaurantInfo : Object,
+        restaurantId : String,
 
     },
 
@@ -57,10 +58,15 @@ export default {
     },
 
     methods : { 
-        setItemToPass : function(id){
-            this.menuItem = id;
+        setItemToPass : function(item){
+            this.menuItem = item;
             this.click = !(this.click);
         },
+    },
+
+
+    mounted(){
+        console.log(this.restaurantInfo);
     }
 
 }

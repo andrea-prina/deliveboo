@@ -73,7 +73,7 @@ export default {
         checkout : Boolean,
         deliveryFee : Number,
         freeDelivery : Number,
-        restaurantId : Number,
+        restaurantId : String,
     },
 
     data: function(){
@@ -88,10 +88,10 @@ export default {
         // Initialize cart if there is none
         initCart(){
             const data = this.getCart()
-            if(data){
-            this.cart = data
-            }else{
-            this.syncCart()
+            if(data) {
+                this.cart = data
+            } else {
+                this.syncCart()
             }
         },
 
@@ -127,7 +127,7 @@ export default {
             } else {
                 // When you add an item to the cart add the "quantity" and "restaurantId" properties, then sync
                 // Quantity is defaulted to 1 and is incresed with further addItem() calls
-                this.cart.push({ quantity: 1, restaurantId : this.this.restaurantId, ...item })
+                this.cart.push({ quantity: 1, restaurantId : this.restaurantId, ...item })
             }
             this.syncCart()
         },
@@ -172,6 +172,7 @@ export default {
         this.initCart();
     },
 
+    
     watch : {
         click : function(){
             this.addItem(this.item);
