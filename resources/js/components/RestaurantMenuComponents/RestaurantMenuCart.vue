@@ -50,7 +50,10 @@
 
                     <div class="card">
                         <div class="card-body text-center">
+                            <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId },}">
                             <button type="button" class="btn bg-brand btn-block btn-lg w-100">Proceed to Pay</button>
+                            </router-link>
+
                         </div>
                     </div>
 
@@ -71,6 +74,7 @@ export default {
         total : Number,
         deliveryFee : Number,
         freeDelivery : Number,
+        restaurantId : Number,
     },
     methods: {
 
