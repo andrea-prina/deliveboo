@@ -21,6 +21,10 @@
         <div class="card-body">
           <h5 class="card-title">{{$food->name}}</h5>
           <p class="card-text">{{$food->description}}</p>
+          <span>
+            Availability: 
+            <i class="{{ $food->availability ? 'fa-solid fa-check' : 'fa-solid fa-xmark' }}"></i>
+            </span>
           <p class="card-text"><small class="text-muted">{{$food->price}}</small>$</p>
           <a href="{{route('admin.foodItems.index')}}" class="btn btn-primary w-100">Go back</a>
         </div>

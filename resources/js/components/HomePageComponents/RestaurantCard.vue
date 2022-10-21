@@ -1,7 +1,8 @@
 <template>
 
     <div class="card position-relative">
-    <router-link to="/restaurantPage">
+    <router-link :to="{'name':'RestaurantPage', 'params': {'restaurantId' : restaurant.id },}">
+    <!-- <router-link :to="{'path':`/restaurantPage/${restaurant.id}`}"> -->
 
         <div class="position-absolute bg-style p-2 free-delivery" :class="{'d-block':checkFreeDelivery()}">
             <h1 class="text-white">Free Delivery</h1>
