@@ -47,15 +47,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="card" v-if="!checkout">
-                        <div class="card-body text-center">
-                            <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId },}">
-                            <button type="button" class="btn bg-brand btn-block btn-lg w-100">Proceed to Pay</button>
-                            </router-link>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -70,7 +61,6 @@ export default {
 
         item : Object,
         click : Boolean,
-        checkout : Boolean,
         deliveryFee : Number,
         freeDelivery : Number,
         restaurantId : String,

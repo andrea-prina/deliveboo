@@ -19,8 +19,14 @@
                         :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
-                        :checkout="false"
                         />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body text-center">
+                        <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId , 'restaurantInfo' : restaurantInfo},}">
+                        <button type="button" class="btn bg-brand btn-block btn-lg w-100">Proceed to Pay</button>
+                        </router-link>
                     </div>
                 </div>
             </div>

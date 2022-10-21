@@ -63,95 +63,35 @@
 
         <!-- cart side  -->
         <div class="col-12 col-lg-4">
-
-          <h2 class="title-margin">Payment Summary</h2>
-
-          <div class="col-12 col-md-6 col-lg-12">
-            <div class="card rounded mb-4 position-relative">
-              <div class="card-body p-4">
-                <div class="position-absolute top-right" @click="$emit('resetCart')">
-                  <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
-                </div>
-                <table class="table my-2">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th colspan="2" class="text-center">Quantity</th>
-                      <th class="text-end">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="item in cart" :key="item.id">
-                      <td>{{item.name}}</td>
-                      <td colspan="2" class="text-center">
-                        <div class="d-flex justify-content-between">
-                          <button class="btn btn-link p-0 px-2" @click="$emit('removeItem',item.id)">
-                            <i class="fas fa-minus"></i>
-                          </button>
-                          <span>{{item.quantity}}</span>
-                          <button class="btn btn-link p-0 px-2" @click="$emit('addItem', item)">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                      </td>
-                      <td class="text-end">{{item.price + ' €'}}</td>
-                    </tr>
-                    <tr>
-                      <td colspan="3">Delivery Fee</td>
-                      <td class="text-end"> {{freeDelivery ? 'FREE' : deliveryFee + ' €'}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="fw-bolder fs-5 p-2">
-                  Total € {{ total }}
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col-12 col-md-6 col-lg-12">
-            <h2>Payment Method</h2>
-            <div class="col-12">
-              <div id="dropin-container"></div>
-              <button id="submit-button" class="button button--small button--green">Purchase</button>
-            </div>
-          </div>
-
+          <RestaurantMenuCart
+          :deliveryFee="restaurantInfo.delivery_fee"
+          :freeDelivery="restaurantInfo.free_delivery"
+          :restaurantId="restaurantId"
+          />
         </div>
-
       </div>
     </div>
+    
+
   </section>
 </template>
 
 <script>
+
+import RestaurantMenuCart from '../components/RestaurantMenuComponents/RestaurantMenuCart.vue'
+
 export default {
 
-  name: 'RestaurantMenuCart',
+  name: 'CheckoutPage',
     props: {
-
-        cart : Array,
-        storageKey : String,
-        total : Number,
-        deliveryFee : Number,
-        freeDelivery : Number,
         restaurantId : Number,
+        restaurantInfo : Object,
     },
 
-  // methods: {
-  //   var button = document.querySelector('#submit-button');
+    components : {
+      RestaurantMenuCart,
+    }
 
-  //   braintree.dropin.create({
-  //     authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-  //     selector: '#dropin-container'
-  //   }, function (err, instance) {
-  //     button.addEventListener('click', function () {
-  //       instance.requestPaymentMethod(function (err, payload) {
-  //         // Submit payload.nonce to your server
-  //       });
-  //     })
-  //   });
-  // }
 }
 
 </script>
