@@ -66,7 +66,7 @@
 
           <h2 class="title-margin">Payment Summary</h2>
 
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 col-lg-12">
             <div class="card rounded mb-4 position-relative">
               <div class="card-body p-4">
                 <div class="position-absolute top-right" @click="$emit('resetCart')">
@@ -109,7 +109,7 @@
             </div>
           </div>
   
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 col-lg-12">
             <h2>Payment Method</h2>
             <div class="col-12">
               <div id="dropin-container"></div>
@@ -165,7 +165,7 @@ export default {
 
 .title-margin{
   margin-bottom: 38px;
-  margin-top: 38px;
+  
 }
 
 .button {
