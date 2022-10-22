@@ -19,9 +19,11 @@
                         :deliveryFee="restaurantInfo.delivery_fee"
                         :freeDelivery="restaurantInfo.free_delivery"
                         :total="getTotal(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)"
+                        :restaurantId="restaurantInfo.id"
                         @resetCart="resetCart"
                         @removeItem="removeItem"
                         @addItem="addItem"
+
                         />
                     </div>
                 </div>

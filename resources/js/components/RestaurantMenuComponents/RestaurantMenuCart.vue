@@ -85,12 +85,15 @@
 
                     <div class="card">
                         <div class="card-body text-center">
+                            <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId },}">
                             <button
                                 type="button"
                                 class="btn bg-brand btn-block btn-lg w-100"
                             >
                                 Proceed to Pay
                             </button>
+                            </router-link>
+
                         </div>
                     </div>
                 </div>
@@ -103,11 +106,12 @@
 export default {
     name: "RestaurantMenuCart",
     props: {
-        cart: Array,
-        storageKey: String,
-        total: Number,
-        deliveryFee: Number,
-        freeDelivery: Number,
+
+        cart : Array,
+        storageKey : String,
+        total : Number,
+        deliveryFee : Number,
+        freeDelivery : Number,
     },
     methods: {},
 };
