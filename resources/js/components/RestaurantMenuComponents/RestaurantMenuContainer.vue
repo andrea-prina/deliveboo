@@ -14,7 +14,7 @@
                 <div class="col-12 col-lg-4 ">
                     <div class="col-12">
                         <RestaurantMenuCart
-                        v-if="cart.length"
+                       
                         :cart="cart"
                         :deliveryFee="restaurantInfo.delivery_fee"
                         :freeDelivery="restaurantInfo.free_delivery"
