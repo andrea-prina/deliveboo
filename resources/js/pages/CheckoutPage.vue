@@ -29,7 +29,7 @@
 
             <div class="col-12">
               <label for="customer_address" class="form-label">Address <span class="star">*</span></label>
-              <input type="text" class="form-control" placeholder="Via Roma 1" required name="customer_address" id="customer_address" >
+              <input type="text" class="form-control" placeholder="Via Roma 1, 20141 - Milano" required name="customer_address" id="customer_address" >
             </div>
 
             <div class="col-12">
