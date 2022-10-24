@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row" v-if="(typeNames.length > 0) || (searchQuery != '')">
             <div class="col-10">
-                Search Filters:
-                <ul>
+                <span>Search Filters:</span> 
+                <ul class="d-flex">
                     <li v-if="typeNames.length > 0"> Categories: <span v-for="(type, index) in typeNames" :key="index">"{{ type}}" </span></li>
                     <li v-if="searchQuery != ''"> Query: {{ searchQuery }} </li>
                 </ul>
