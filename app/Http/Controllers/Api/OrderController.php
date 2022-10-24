@@ -23,5 +23,9 @@ class OrderController extends Controller
         foreach ($foodItems as $foodItem) {
             $order->food_items()->attach($foodItem->id, ['food_quantity' => $foodItem->quantity]);
         }
+
+        $customerName = $order->customer_firstName;
+
+        return view('guest.completedOrder', compact('customerName'));
     }
 }
