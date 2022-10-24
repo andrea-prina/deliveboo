@@ -15,21 +15,20 @@
                 </div>
                 
             <!-- cart side  -->
-                <div class="col-12 col-lg-4 ">
-                    <div class="col-12">
+                <div class="col-12 col-lg-4 py-5">
+                    <div>
                         <RestaurantMenuCart
                         :deliveryFee="restaurantInfo.delivery_fee"
                         :freeDelivery="restaurantInfo.free_delivery"
                         :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
+                        @emptyCart="disableCheckoutBtn"
                         />
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body text-center">
+                    <div class="d-flex justify-content-center">
                         <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId , 'restaurantInfo' : restaurantInfo},}">
-                        <button type="button" class="btn bg-brand btn-block btn-lg w-100">Proceed to Pay</button>
+                            <button type="button" class="btn bg-brand btn-block btn-lg">Checkout</button>
                         </router-link>
                     </div>
                 </div>
@@ -63,6 +62,7 @@ export default {
         return {
             menuItem : {},
             click : false,
+            isCartNotEmpty : false,
         }
 
     },
@@ -72,12 +72,15 @@ export default {
             this.menuItem = item;
             this.click = !(this.click);
         },
+
+        disableCheckoutBtn : function(cartLength){
+            if(cartLength == 0){
+                this.isCartNotEmpty = false
+            } else {
+                this.isCartNotEmpty = true
+            }
+        }
     },
-
-
-    mounted(){
-        console.log(this.restaurantInfo);
-    }
 
 }
 
