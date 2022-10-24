@@ -8,9 +8,6 @@
                     <li v-if="searchQuery != ''"> Query: {{ searchQuery }} </li>
                 </ul>
             </div>
-            <div class="col-2">
-                <button class="btn btn-danger" @click="$emit('resetSearch')">RESET SEARCH</button>
-            </div>
         </div>
     </div>
 </template>
