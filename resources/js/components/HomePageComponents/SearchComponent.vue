@@ -4,10 +4,15 @@
       <div class="search">
         <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery"
           @keyup.enter="$emit('search', searchQuery)">
+
+        <button v-if="searchQuery !== ''" class="btn-disappear" @click="clearSearch()">
+          <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+
         <button type="submit" class="searchButton" @click="$emit('search', searchQuery)">
-          <button class="btn btn-danger" @click="$emit('resetSearch')">RESET SEARCH</button>
           <i class="fa fa-search"></i>
         </button>
+
       </div>
     </div>
   </div>
@@ -22,6 +27,14 @@ export default {
       searchQuery: '',
     }
   },
+
+  methods: {
+    clearSearch(){
+      this.searchQuery = '';
+      this.$emit('search', this.searchQuery);
+
+    }
+  }
 }
 </script>
 
@@ -82,6 +95,15 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+
+}
+
+.btn-disappear {
+  background-color: $accent-main;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  padding-right: 0;
 
 }
 </style>
