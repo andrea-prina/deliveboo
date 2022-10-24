@@ -53,6 +53,8 @@
         <!-- BraintreeDropIn -->
         <v-braintree
             authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
+            locale="it_IT"
+            btnText="Ordina"
             @success="onSuccess"
             @error="onError"
         ></v-braintree>
