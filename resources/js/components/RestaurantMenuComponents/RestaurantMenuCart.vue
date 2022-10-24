@@ -12,52 +12,57 @@
                     </div>
                     <div class="card rounded mb-4 position-relative">
                         <div class="card-body p-4">
-                            <div class="position-absolute bottom-right" @click="resetCart()">
-                                <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                            <div v-if="cart.length">
+                                <div class="position-absolute bottom-right" @click="resetCart()">
+                                    <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                                </div>
+                                <table class="table my-2">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th colspan="2" class="text-center">
+                                                Quantity
+                                            </th>
+                                            <th class="text-end">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="item in cart" :key="item.id">
+                                            <td>{{ item.name }}</td>
+                                            <td colspan="2" class="text-center">
+                                                <div class="d-flex justify-content-between">
+                                                    <button class="btn btn-link p-0 px-2" @click="removeItem(item.id)">
+                                                        <i class="fas fa-minus"></i>
+                                                    </button>
+                                                    <span>{{item.quantity}}</span>
+                                                    <button class="btn btn-link p-0 px-2"
+                                                        @click="addItem(item)">
+                                                        <i class="fas fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                            <td class="text-end">
+                                                {{ item.price + " €" }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3">Delivery Fee</td>
+                                            <td class="text-end">
+                                                {{
+                                                    freeDelivery
+                                                        ? "FREE"
+                                                        : deliveryFee + " €"
+                                                }}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="fw-bolder fs-5 p-2">
+                                    Total € {{ getTotal(deliveryFee, freeDelivery) }}
+                                </div>
                             </div>
-                            <table v-if="cart.length" class="table my-2">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th colspan="2" class="text-center">
-                                            Quantity
-                                        </th>
-                                        <th class="text-end">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="item in cart" :key="item.id">
-                                        <td>{{ item.name }}</td>
-                                        <td colspan="2" class="text-center">
-                                            <div class="d-flex justify-content-between">
-                                                <button class="btn btn-link p-0 px-2" @click="removeItem(item.id)">
-                                                    <i class="fas fa-minus"></i>
-                                                </button>
-                                                <span>{{item.quantity}}</span>
-                                                <button class="btn btn-link p-0 px-2"
-                                                    @click="addItem(item)">
-                                                    <i class="fas fa-plus"></i>
-                                                </button>
-                                            </div>
-                                        </td>
-                                        <td class="text-end">
-                                            {{ item.price + " €" }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="3">Delivery Fee</td>
-                                        <td class="text-end">
-                                            {{
-                                                freeDelivery
-                                                    ? "FREE"
-                                                    : deliveryFee + " €"
-                                            }}
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="fw-bolder fs-5 p-2">
-                                Total € {{ getTotal(deliveryFee, freeDelivery) }}
+                            <div v-else class="text-center">
+                                <strong>Your cart is empty</strong><br>Start adding items by clicking on them
                             </div>
                         </div>
                     </div>
