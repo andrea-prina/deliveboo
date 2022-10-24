@@ -2,9 +2,8 @@
     <div class="container">
         <div class="row" v-if="(typeNames.length > 0) || (searchQuery != '')">
             <div class="col-10">
-                Search Filters:
-                <ul>
-                    <li v-if="typeNames.length > 0"> Categories: <span v-for="(type, index) in typeNames" :key="index">"{{ type}}" </span></li>
+                <ul class="d-flex category-list">
+                    <li v-if="typeNames.length > 0"> Filter for: <span v-for="(type, index) in typeNames" :key="index">{{ type}} </span></li>
                     <li v-if="searchQuery != ''"> Query: {{ searchQuery }} </li>
                 </ul>
             </div>
@@ -25,6 +24,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../../sass/app.scss";
 
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    li {
+        font-weight: bold;
+        color: $brand-main;
+        span{
+            margin-right: 10px
+        }
+    }
+}
 </style>
