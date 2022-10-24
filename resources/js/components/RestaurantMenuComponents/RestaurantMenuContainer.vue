@@ -3,12 +3,15 @@
         <div class="container-lg py-4">
             <div class="row py-4">
                 <div class="col-12 col-lg-8">
-                    <div class="row g-5 my-4">
-                    <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id">
-                        <RestaurantMenuCard :menuitem="menuItem"
-                        @addToCart='setItemToPass'/>
+                    <div class="d-flex justify-content-between align-items-center mb-4 text-center">
+                        <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     </div>
-                </div>
+                    <div class="row g-5 my-4">
+                        <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id">
+                            <RestaurantMenuCard :menuitem="menuItem"
+                            @addToCart='setItemToPass'/>
+                        </div>
+                    </div>
                 </div>
             <!-- cart side  -->
                 <div class="col-12 col-lg-4 ">

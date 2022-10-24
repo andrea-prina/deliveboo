@@ -5,7 +5,7 @@
 
         <!-- form side  -->
         <div class="col-12 col-lg-8">
-          <h2>Order Details</h2>
+          <h3>Order Details</h3>
           <form class="row g-3">
 
             <div class="col-12 col-md-6">
