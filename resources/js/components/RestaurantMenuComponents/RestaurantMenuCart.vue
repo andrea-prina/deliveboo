@@ -3,12 +3,12 @@
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
 
-                <div class="d-flex justify-content-between align-items-center mb-4 text-center">
-                    <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
-                </div>
+                
+                <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                
 
                 <div class="col-12 mt-2">
-                    <div class="card rounded mb-4 position-relative">
+                    <div class="card rounded my-4 position-relative">
                         <div class="card-body p-4">
                             <div class="position-absolute bottom-right" @click="resetCart()">
                                 <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
@@ -183,7 +183,7 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../../sass/app.scss";
 
 .bottom-right {
