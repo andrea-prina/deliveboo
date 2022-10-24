@@ -73,18 +73,18 @@ export default {
 }
 
 .card {
-    
 
+
+    box-shadow: rgba(0, 0, 0, 0.50) 0px 3px 8px !important;
+    transition: transform 0.2s ease-in-out !important;
+
+    &:hover {
+        transform: translateY(-0.5rem);
+        cursor: pointer;
+    }
     a {
         text-decoration: none !important;
         color: black !important;
-        box-shadow: rgba(0, 0, 0, 0.50) 0px 3px 8px !important;
-        transition: transform 0.2s ease-in-out !important;
-
-        &:hover {
-            transform: translateY(-0.5rem);
-            cursor: pointer;
-        }
     }
 }
 
