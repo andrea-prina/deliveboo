@@ -32,8 +32,8 @@
               <input type="text" class="form-control" placeholder="Via Roma 1" required name="customer_address" id="customer_address" >
             </div>
 
-            <div class="form-floating">
-              <label for="additional_notes">Additional Notes</label>
+            <div class="col-12">
+              <label for="additional_notes" class="form-label" >Additional Notes</label>
               <textarea class="form-control" placeholder="Any additional notes"
                 style="height: 100px" name="additional_notes" id="additional_notes" ></textarea>
             </div>
