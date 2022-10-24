@@ -65,9 +65,6 @@ export default {
     }
 }
 
-
-
-
 p {
     font-size: 10px !important;
 }
