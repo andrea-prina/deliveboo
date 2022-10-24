@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="container-lg py-4">
+    <div class="container-fluid py-4">
       <div class="row py-4">
 
         <!-- form side  -->
-        <div class="col-12 col-lg-8">
+        <div class="col-12 col-lg-8 mb-5">
           <h3>Order Details</h3>
           <form class="row g-3">
 
@@ -51,7 +51,7 @@
         </div>
 
         <!-- BraintreeDropIn -->
-        <v-braintree
+        <v-braintree class="col-12"
             authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
             @success="onSuccess"
             @error="onError"

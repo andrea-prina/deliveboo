@@ -1,11 +1,11 @@
 <template>
     <section class="h-100">
-        <div class="container h-100">
+        <div class="container-fluid h-100">
             <div class="row ">
 
                 <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                 
-                <div class="col-12 mt-2">
+                <div class="col-12 mt-2 p-0">
                     <div class="card rounded my-4 position-relative">
                         <div class="card-body p-4">
                             <div class="position-absolute bottom-right" @click="resetCart()">
