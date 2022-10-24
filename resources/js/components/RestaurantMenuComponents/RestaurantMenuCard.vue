@@ -1,5 +1,5 @@
 <template>
-    <div v-show="availability == true" class="row my-card" @click="$emit('addToCart', menuitem)">
+    <div v-if="menuitem.availability" class="row my-card" @click="$emit('addToCart', menuitem)">
             <div class="col-4 p-1">
                     <img :src='validateImagePath()' :alt="menuitem.name"
                     class="w-100"/>
@@ -20,7 +20,6 @@ export default {
     name: 'RestaurantMenuitemCard',
     props: {
         menuitem: Object,
-        availability: Boolean,
     },
     data() {
         return {
