@@ -1,9 +1,13 @@
 <template>
     <section class="h-100">
         <div class="container h-100 py-5">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div
+                class="row d-flex justify-content-center align-items-center h-100"
+            >
                 <div class="col-12">
-                    <div class="d-flex justify-content-between align-items-center mb-4 text-center">
+                    <div
+                        class="d-flex justify-content-between align-items-center mb-4 text-center"
+                    >
                         <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
                     </div>
                     <div class="card rounded mb-4 position-relative">
@@ -11,17 +15,19 @@
                             <div class="position-absolute bottom-right" @click="resetCart()">
                                 <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                             </div>
-                            <table class="table my-2">
+                            <table v-if="cart.length" class="table my-2">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th colspan="2" class="text-center">Quantity</th>
+                                        <th colspan="2" class="text-center">
+                                            Quantity
+                                        </th>
                                         <th class="text-end">Price</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="item in cart" :key="item.id">
-                                        <td>{{item.name}}</td>
+                                        <td>{{ item.name }}</td>
                                         <td colspan="2" class="text-center">
                                             <div class="d-flex justify-content-between">
                                                 <button class="btn btn-link p-0 px-2" @click="removeItem(item.id)">
@@ -34,11 +40,19 @@
                                                 </button>
                                             </div>
                                         </td>
-                                        <td class="text-end">{{item.price + ' €'}}</td>
+                                        <td class="text-end">
+                                            {{ item.price + " €" }}
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="3">Delivery Fee</td>
-                                        <td class="text-end"> {{freeDelivery ? 'FREE' : deliveryFee + ' €'}}</td>
+                                        <td class="text-end">
+                                            {{
+                                                freeDelivery
+                                                    ? "FREE"
+                                                    : deliveryFee + " €"
+                                            }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -55,8 +69,7 @@
 
 <script>
 export default {
-
-    name: 'RestaurantMenuCart',
+    name: "RestaurantMenuCart",
     props: {
 
         item : Object,
@@ -162,13 +175,13 @@ export default {
         this.initCart();
     },
 
-    
+
     watch : {
         click : function(){
             this.addItem(this.item);
         }
     }
-    
+
 }
 
 </script>
@@ -180,6 +193,4 @@ export default {
     bottom: 0.5rem;
     right: 0.5rem;
 }
-
-
 </style>

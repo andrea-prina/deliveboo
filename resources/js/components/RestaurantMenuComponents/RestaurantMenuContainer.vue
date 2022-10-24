@@ -60,10 +60,10 @@ export default {
             menuItem : {},
             click : false,
         }
-            
+
     },
 
-    methods : { 
+    methods : {
         setItemToPass : function(item){
             this.menuItem = item;
             this.click = !(this.click);
