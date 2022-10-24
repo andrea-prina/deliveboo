@@ -2,7 +2,6 @@
     <section>
         <div class="container py-3">
             <div class="row g-3">
-
                 <div v-for="restaurant in restaurants" :key="restaurant.id"  class="col-12 col-md-6 col-lg-4">
                     <RestaurantCard :restaurant="restaurant" />
                 </div>

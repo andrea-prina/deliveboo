@@ -6,6 +6,8 @@ Vue.use(VueRouter);
 
 import HomePage from './pages/HomePage';
 import RestaurantPage from './pages/RestaurantPage';
+import CheckoutPage from './pages/CheckoutPage';
+
 
 const router = new VueRouter({
     mode: 'history',
@@ -22,6 +24,12 @@ const router = new VueRouter({
                 component: RestaurantPage,
                 props: true,
         },
+        {
+            path:'/restaurantPage/:restaurantId/checkout',
+            name: 'CheckoutPage',
+            component: CheckoutPage,
+            props: true,
+        }
     ]
 });
 
