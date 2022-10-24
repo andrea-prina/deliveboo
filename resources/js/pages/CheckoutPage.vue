@@ -49,6 +49,13 @@
           :restaurantId="restaurantId"
           />
         </div>
+
+        <!-- BraintreeDropIn -->
+        <v-braintree
+            authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
+            @success="onSuccess"
+            @error="onError"
+        ></v-braintree>
       </div>
     </div>
 
@@ -70,7 +77,17 @@ export default {
 
     components : {
       RestaurantMenuCart,
+    },
+    methods: {
+    onSuccess (payload) {
+      let nonce = payload.nonce;
+         // Do something great with the nonce...
+    },
+    onError (error) {
+      let message = error.message;
+        // Whoops, an error has occured while trying to get the nonce
     }
+  }
 
 }
 
