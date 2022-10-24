@@ -9,53 +9,33 @@
           <form class="row g-3">
 
             <div class="col-12 col-md-6">
-              <label for="inputName" class="form-label">Name <span class="star">*</span></label>
-              <input type="text" class="form-control" aria-label="First name" required>
+              <label for="customer_firstName"  class="form-label">Name <span class="star">*</span></label>
+              <input type="text" class="form-control" aria-label="First name" name="customer_firstName" id="customer_firstName" required>
             </div>
             <div class="col-12 col-md-6">
-              <label for="inputSurname" class="form-label">Surname <span class="star">*</span></label>
-              <input type="text" class="form-control" aria-label="Last name" required>
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label for="inputEmail4" class="form-label">Email <span class="star">*</span></label>
-              <input type="email" class="form-control" id="inputEmail4" required>
+              <label for="customer_lastName" class="form-label">Surname <span class="star">*</span></label>
+              <input type="text" class="form-control" aria-label="Last name" required name="customer_lastName" id="customer_lastName">
             </div>
 
             <div class="col-12 col-md-6">
-              <label for="inputPhoneNumber" class="form-label">Phone Number <span class="star">*</span></label>
-              <input type="text" class="form-control" id="inputPhoneNumber" required>
+              <label for="customer_email" class="form-label">Email <span class="star">*</span></label>
+              <input type="email" class="form-control" required name="customer_email" id="customer_email" >
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="customer_phoneNumber" class="form-label">Phone Number <span class="star">*</span></label>
+              <input type="text" class="form-control" required name="customer_phoneNumber" id="customer_phoneNumber" >
             </div>
 
             <div class="col-12">
-              <label for="inputAddress" class="form-label">Address <span class="star">*</span></label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
-            </div>
-
-            <div class="col-12">
-              <label for="inputAddress2" class="form-label">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-            </div>
-
-            <div class="col-12 col-md-6">
-              <label for="inputCity" class="form-label">City <span class="star">*</span></label>
-              <input type="text" class="form-control" id="inputCity" required>
-            </div>
-
-            <div class="col-12 col-md-4">
-              <label for="inputState" class="form-label">State <span class="star">*</span></label>
-              <input type="text" class="form-control" id="inputState" required>
-            </div>
-
-            <div class="col-12 col-md-2">
-              <label for="inputZip" class="form-label">CAP <span class="star">*</span></label>
-              <input type="text" class="form-control" id="inputZip" required>
+              <label for="customer_address" class="form-label">Address <span class="star">*</span></label>
+              <input type="text" class="form-control" placeholder="Via Roma 1" required name="customer_address" id="customer_address" >
             </div>
 
             <div class="form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
-              <label for="floatingTextarea2">Comments</label>
+              <label for="additional_notes">Additional Notes</label>
+              <textarea class="form-control" placeholder="Any additional notes"
+                style="height: 100px" name="additional_notes" id="additional_notes" ></textarea>
             </div>
 
           </form>
@@ -71,7 +51,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </section>
 </template>
@@ -105,7 +85,7 @@ export default {
 
 .title-margin{
   margin-bottom: 38px;
-  
+
 }
 
 .button {
