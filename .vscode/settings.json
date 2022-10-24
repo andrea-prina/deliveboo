@@ -3,6 +3,7 @@
                 "UsersTable",
                 "Types",
                 "FoodItemsTable",
-                "API"
+                "API",
+                "OrdersTable"
         ]
 }

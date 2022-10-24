@@ -1,11 +1,11 @@
 <template>
   <section>
-    <div class="container-lg py-4">
+    <div class="container-fluid py-4">
       <div class="row py-4">
 
         <!-- form side  -->
-        <div class="col-12 col-lg-8">
-          <h2>Order Details</h2>
+        <div class="col-12 col-lg-8 mb-5">
+          <h3>Order Details</h3>
           <form class="row g-3">
 
             <div class="col-12 col-md-6">
@@ -29,7 +29,7 @@
 
             <div class="col-12">
               <label for="customer_address" class="form-label">Address <span class="star">*</span></label>
-              <input type="text" class="form-control" placeholder="Via Roma 1" required name="customer_address" id="customer_address" >
+              <input type="text" class="form-control" placeholder="Via Roma 1, 20141 - Milano" required name="customer_address" id="customer_address" >
             </div>
 
             <div class="col-12">
@@ -49,6 +49,13 @@
           :restaurantId="restaurantId"
           />
         </div>
+
+        <!-- BraintreeDropIn -->
+        <v-braintree class="col-12"
+            authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
+            @success="onSuccess"
+            @error="onError"
+        ></v-braintree>
       </div>
     </div>
 
@@ -70,7 +77,17 @@ export default {
 
     components : {
       RestaurantMenuCart,
+    },
+    methods: {
+    onSuccess (payload) {
+      let nonce = payload.nonce;
+         // Do something great with the nonce...
+    },
+    onError (error) {
+      let message = error.message;
+        // Whoops, an error has occured while trying to get the nonce
     }
+  }
 
 }
 

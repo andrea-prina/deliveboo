@@ -1,16 +1,12 @@
 <template>
     <section class="h-100">
-        <div class="container h-100 py-5">
-            <div
-                class="row d-flex justify-content-center align-items-center h-100"
-            >
-                <div class="col-12">
-                    <div
-                        class="d-flex justify-content-between align-items-center mb-4 text-center"
-                    >
-                        <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
-                    </div>
-                    <div class="card rounded mb-4 position-relative">
+        <div class="container-fluid h-100">
+            <div class="row ">
+
+                <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                
+                <div class="col-12 mt-2 p-0">
+                    <div class="card rounded my-4 position-relative">
                         <div class="card-body p-4">
                             <div class="position-absolute bottom-right" @click="resetCart()">
                                 <a href="#/" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
@@ -34,8 +30,7 @@
                                                     <i class="fas fa-minus"></i>
                                                 </button>
                                                 <span>{{item.quantity}}</span>
-                                                <button class="btn btn-link p-0 px-2"
-                                                    @click="addItem(item)">
+                                                <button class="btn btn-link p-0 px-2" @click="addItem(item)">
                                                     <i class="fas fa-plus"></i>
                                                 </button>
                                             </div>
@@ -48,9 +43,9 @@
                                         <td colspan="3">Delivery Fee</td>
                                         <td class="text-end">
                                             {{
-                                                freeDelivery
-                                                    ? "FREE"
-                                                    : deliveryFee + " €"
+                                            freeDelivery
+                                            ? "FREE"
+                                            : deliveryFee + " €"
                                             }}
                                         </td>
                                     </tr>
@@ -81,17 +76,17 @@ export default {
 
     data: function(){
         return {
-            cart:[],
-            storageKey:'deliveboo',
+            cart: [],
+            storageKey: 'deliveboo',
         }
     },
 
     methods: {
 
         // Initialize cart if there is none
-        initCart(){
+        initCart() {
             const data = this.getCart()
-            if(data) {
+            if (data) {
                 this.cart = data
             } else {
                 this.syncCart()
@@ -105,62 +100,62 @@ export default {
         },
 
         // Get cart from localstorage and parse it to an object
-        getCart(){
+        getCart() {
             const stringResult = localStorage.getItem(this.storageKey)
-            if(stringResult){
+            if (stringResult) {
                 return JSON.parse(stringResult)
-            }else{
+            } else {
                 return null
             }
         },
 
         // Return the object if the related id is in the cart
-        findById(id){
+        findById(id) {
             return this.cart.findIndex((item) => item.id == id)
         },
 
         // Add item to cart
-        addItem(item){
+        addItem(item) {
 
             const itemIndex = this.findById(item.id)
 
-            if(itemIndex >= 0) {
+            if (itemIndex >= 0) {
                 this.cart[itemIndex].quantity++
 
             } else {
                 // When you add an item to the cart add the "quantity" and "restaurantId" properties, then sync
                 // Quantity is defaulted to 1 and is incresed with further addItem() calls
-                this.cart.push({ quantity: 1, restaurantId : this.restaurantId, ...item })
+                this.cart.push({ quantity: 1, restaurantId: this.restaurantId, ...item })
             }
             this.syncCart()
         },
 
         // Reduce item quantity property in cart. Delete it if quantity = 0, then sync
-        removeItem(id){
+        removeItem(id) {
 
             const itemIndex = this.findById(id)
-            if(itemIndex === -1) return
+            if (itemIndex === -1) return
             this.cart[itemIndex].quantity--
-            if(this.cart[itemIndex].quantity<= 0){
-                this.cart.splice(itemIndex,1)
+            if (this.cart[itemIndex].quantity <= 0) {
+                this.cart.splice(itemIndex, 1)
             }
             this.syncCart()
         },
 
         // Delete cart by assigning it an empty array, then sync
-        resetCart(){
+        resetCart() {
 
-            if(window.confirm('Do you really want to empty your cart?')){
+            if (window.confirm('Do you really want to empty your cart?')) {
                 this.cart = []
                 this.syncCart()
             }
         },
 
         // Return total value of items in cart (price*quantity sum)
-        getTotal(delivery_fee, free){
+        getTotal(delivery_fee, free) {
 
             let total = this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
-            if (!free){
+            if (!free) {
                 total += delivery_fee;
             }
 
@@ -171,13 +166,13 @@ export default {
 
     },
 
-    mounted(){
+    mounted() {
         this.initCart();
     },
 
 
-    watch : {
-        click : function(){
+    watch: {
+        click: function () {
             this.addItem(this.item);
         }
     }
@@ -186,11 +181,12 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../../../sass/app.scss";
 
 .bottom-right {
     bottom: 0.5rem;
     right: 0.5rem;
 }
+
 </style>
