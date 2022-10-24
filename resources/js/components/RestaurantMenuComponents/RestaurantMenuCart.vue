@@ -101,12 +101,15 @@ export default {
             } else {
                 this.syncCart()
             }
+            this.$emit('emptyCart', this.cart.length);
         },
 
         // Sync local storage with cart variable
         syncCart() {
             const localCartStorage = JSON.stringify(this.cart)
             localStorage.setItem(this.storageKey, localCartStorage)
+            this.$emit('emptyCart', this.cart.length);
+
         },
 
         // Get cart from localstorage and parse it to an object

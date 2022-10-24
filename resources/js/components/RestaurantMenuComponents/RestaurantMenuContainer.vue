@@ -19,6 +19,7 @@
                         :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
+                        @emptyCart="disableCheckoutBtn"
                         />
                     </div>
                     <div class="d-flex justify-content-center">
@@ -57,6 +58,7 @@ export default {
         return {
             menuItem : {},
             click : false,
+            isCartNotEmpty : false,
         }
 
     },
@@ -66,6 +68,14 @@ export default {
             this.menuItem = item;
             this.click = !(this.click);
         },
+
+        disableCheckoutBtn : function(cartLength){
+            if(cartLength == 0){
+                this.isCartNotEmpty = false
+            } else {
+                this.isCartNotEmpty = true
+            }
+        }
     },
 
 }
