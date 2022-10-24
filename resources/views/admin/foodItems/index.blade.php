@@ -14,6 +14,12 @@
     <div class="alert alert-warning">{{ session('update') }}</div>
     @endif
 
+    @if (session()->has('notification'))
+    <div class="alert alert-success">
+        {!! session('notification') !!}
+    </div>
+    @endif
+
     <div class="table-responsive rounded">
         
         
