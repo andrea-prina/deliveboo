@@ -27,6 +27,9 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    {{-- Vue Braintree --}}
+    <script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script>
 </head>
 
 <body class="brand-text bg-brand-accent-secondary">
