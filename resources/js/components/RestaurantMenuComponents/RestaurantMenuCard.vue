@@ -6,9 +6,9 @@
             </div>
             <div class="col-8 p-0">
                 <div class="card-body p-2">
-                    <h5 class="card-title mt-1">{{menuitem.name}}</h5>
-                    <p class="card-text my-1">{{menuitem.description}}</p>
-                    <h6 class="card-text mt-1">Price: €{{menuitem.price}}</h6>
+                    <h5 class="card-title mt-1 fw-bold">{{menuitem.name}}</h5>
+                    <p class="card-text my-1 para-sizing">{{menuitem.description}}</p>
+                    <h6 class="card-text mt-1 fw-bold">Price: €{{menuitem.price}}</h6>
                 </div>
             </div>
     </div>
@@ -75,4 +75,11 @@ a {
     color: $brand-white !important;
     border: 1px solid $brand-secondary !important;
 }
+
+@media (min-width: 700px) and (max-width: 920px) { 
+    
+    .para-sizing{
+        font-size: 1.1rem !important;
+    }
+    }
 </style>
