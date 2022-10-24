@@ -47,4 +47,4 @@
         $food->availability == '1' ? 'checked' : '' }}>
 </div>
 
-<button type="submit" class="btn btn-accent btn-block mb-4">Send</button>
+<button type="submit" class="btn btn-accent btn-block my-4">Send</button>

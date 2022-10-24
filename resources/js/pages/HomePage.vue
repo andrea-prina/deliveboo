@@ -1,8 +1,8 @@
 <template>
     <div>
-        <SearchComponent @search="saveQuery"/>
+        <SearchComponent @search="saveQuery" @resetSearch="resetSearch"/>
         <TagContainer @typeName="storeTypeNames"/>
-        <SearchFilters :typeNames="typeNames" :searchQuery="searchQuery" @resetSearch="resetSearch"/>
+        <SearchFilters :typeNames="typeNames" :searchQuery="searchQuery" />
         <HomeRestaurantContainer :typeNames="typeNames" :searchQuery="searchQuery"/>
         <FooterComponent/>
     </div>

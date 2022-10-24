@@ -1,25 +1,27 @@
 <template>
-<div class="jumbotron">
-      <div class="wrap">
-          <div class="search">
-              <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery" @keyup.enter="$emit('search', searchQuery)">
-              <button type="submit" class="searchButton" @click="$emit('search', searchQuery)" >
-                  <i class="fa fa-search"></i>
-              </button>
-          </div>
+  <div class="jumbotron">
+    <div class="wrap">
+      <div class="search">
+        <input type="text" class="searchTerm" placeholder="Search your favorite restaurant" v-model.trim="searchQuery"
+          @keyup.enter="$emit('search', searchQuery)">
+        <button type="submit" class="searchButton" @click="$emit('search', searchQuery)">
+          <button class="btn btn-danger" @click="$emit('resetSearch')">RESET SEARCH</button>
+          <i class="fa fa-search"></i>
+        </button>
       </div>
-</div>
+    </div>
+  </div>
 
 </template>
 
 <script>
 export default {
-    name: 'SearchComponent',
-    data: function () {
-        return {
-            searchQuery: '',
-        }
-    },
+  name: 'SearchComponent',
+  data: function () {
+    return {
+      searchQuery: '',
+    }
+  },
 }
 </script>
 
@@ -61,24 +63,25 @@ export default {
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
+.wrap {
   width: 55%;
   //position: absolute;
   //top: 50%;
   //left: 50%;
   //transform: translate(-50%, -50%);
 }
+
 .jumbotron {
-    height: 40vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: $brand-white;
-    //position: relative;//
-    background-image: url('https://thumbs.dreamstime.com/b/balanced-diet-food-background-balanced-diet-food-background-organic-food-healthy-nutrition-superfoods-meat-fish-legumes-nuts-121936796.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $brand-white;
+  //position: relative;//
+  background-image: url('https://thumbs.dreamstime.com/b/balanced-diet-food-background-balanced-diet-food-background-organic-food-healthy-nutrition-superfoods-meat-fish-legumes-nuts-121936796.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
 }
 </style>
