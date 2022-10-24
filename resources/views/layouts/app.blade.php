@@ -32,7 +32,7 @@
     <script src="https://unpkg.com/vue-braintree/dist/vue-braintree.umd.min.js"></script>
 </head>
 
-<body class="brand-text bg-brand-accent-secondary">
+<body class="brand-text">
 @include('includes.header')
 
     <div id="app">

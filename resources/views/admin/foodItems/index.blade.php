@@ -22,7 +22,7 @@
 
     <div class="table-responsive rounded">
         
-        
+        <h3 class="my-4 text-center">Your Menu</h3>
         <table class="table table-head ">
 
             @if ($foodItems->isNotEmpty())
