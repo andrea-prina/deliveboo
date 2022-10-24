@@ -6,13 +6,14 @@
         <!-- form side  -->
         <div class="col-12 col-lg-8">
           <h2>Order Details</h2>
-          <form class="row g-3">
+          <form class="row g-3" action="/api/order" method="POST" @submit="submitOrder">
 
             <div class="col-12 col-md-6">
               <label for="customer_firstName"  class="form-label">Name <span class="star">*</span></label>
               <input type="text" class="form-control" aria-label="First name" name="customer_firstName" id="customer_firstName" required
               v-bind="customer_firstName">
             </div>
+
             <div class="col-12 col-md-6">
               <label for="customer_lastName" class="form-label">Surname <span class="star">*</span></label>
               <input type="text" class="form-control" aria-label="Last name" required name="customer_lastName" id="customer_lastName"
@@ -44,6 +45,10 @@
                 v-bind="additional_notes" ></textarea>
             </div>
 
+            <input type="hidden" :value="getTotalFromCart(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)" name="total">
+            <input type="hidden" name="foodItems" :value="foodItems">
+            <input type="submit" value="SUBMIT" id="submit-order">
+
           </form>
         </div>
 
@@ -57,20 +62,16 @@
         </div>
 
         <!-- BraintreeDropIn -->
-        <v-braintree
+        <!-- <v-braintree
             authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
             locale="it_IT"
             btnText="Ordina"
             @success="onSuccess"
             @error="onError"
-        ></v-braintree>
+        ></v-braintree> -->
 
       </div>
     </div>
-
-        <div class="btn btn-primary col-12" @click='getTotalFromCart(restaurantInfo.delivery_fee,restaurantInfo.free_delivery)'>
-            Get Total
-        </div>
 
   </section>
 </template>
@@ -78,7 +79,6 @@
 <script>
 
 import RestaurantMenuCart from '../components/RestaurantMenuComponents/RestaurantMenuCart.vue'
-import axios from 'axios'
 
 export default {
 
@@ -94,6 +94,7 @@ export default {
             customer_address: null,
             additional_notes: null,
             cart:[],
+            foodItems:'',
 
         }
 
@@ -107,49 +108,33 @@ export default {
       RestaurantMenuCart,
     },
     methods: {
-    onSuccess (payload) {
-      let nonce = payload.nonce;
-         // Do something great with the nonce...
-        console.log(nonce);
-        console.log({nonce: nonce, restaurantId: this.restaurantId, restaurantInfo: this.restaurantInfo});
-        axios.post('/api/order',
-            {
-                nonce: nonce,
-                restaurantId: this.restaurantId,
-                customer_firstName: this.customer_firstName,
-                customer_lastName: this.customer_lastName,
-                customer_email: this.customer_email,
-                customer_phoneNumber: this.customer_phoneNumber,
-                customer_address: this.customer_address,
-                additional_notes: this.additional_notes,
-                total:this.getTotalFromCart(this.restaurantInfo.delivery_fee,this.restaurantInfo.free_delivery),
-                cart: this.cart,
 
-            })
-            .then((response) => {
-                console.log(response);
-            })
-
-    },
-    onError (error) {
-        let message = error.message;
-        // Whoops, an error has occured while trying to get the nonce
-    },
     getTotalFromCart(delivery_fee, free){
-        let total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+
+        this.getCart();
+
+        let total = this.cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
             if (!free){
                 total += delivery_fee;
             }
 
             total = Math.round((total + Number.EPSILON) * 100) / 100
-            console.log(total);
 
             return total;
     },
+
     getCart(){
         this.cart = JSON.parse(localStorage.getItem(this.storageKey));
     },
-  }
+
+    submitOrder : function(){
+
+      this.foodItems = localStorage.getItem(this.storageKey);
+
+    },
+
+
+  },
 
 }
 
