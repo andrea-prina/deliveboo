@@ -2,6 +2,7 @@
     <div>
         <SearchComponent @search="saveQuery"/>
         <TagContainer @typeName="storeTypeNames"/>
+        <SearchFilters :typeNames="typeNames" :searchQuery="searchQuery" @resetSearch="resetSearch"/>
         <HomeRestaurantContainer :typeNames="typeNames" :searchQuery="searchQuery"/>
         <FooterComponent/>
     </div>
@@ -12,6 +13,7 @@ import FooterComponent from '../components/FooterComponent.vue'
 import SearchComponent from '../components/HomePageComponents/SearchComponent.vue'
 import TagContainer from '../components/HomePageComponents/TagContainer.vue'
 import HomeRestaurantContainer from '../components/HomePageComponents/HomeRestaurantContainer.vue'
+import SearchFilters from '../components/HomePageComponents/SearchFilters.vue'
 
 export default {
     name: 'HomePage',
@@ -19,6 +21,7 @@ export default {
         FooterComponent,
         SearchComponent,
         TagContainer,
+        SearchFilters,
         HomeRestaurantContainer,
 
     },
@@ -40,6 +43,11 @@ export default {
         saveQuery : function(query){
             this.searchQuery = query;
         },
+
+        resetSearch : function(){
+            this.typeNames = [];
+            this.searchQuery = "";
+        }
     }
 }
 </script>

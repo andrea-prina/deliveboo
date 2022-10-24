@@ -1,7 +1,7 @@
 <template>
     <div class="row my-card" @click="$emit('addToCart', menuitem)">
             <div class="col-4 p-1">
-                    <img src="https://www.scattidigusto.it/wp-content/uploads/2018/04/carbonara-ricetta-spaghetti.jpg" alt="..."
+                    <img :src='validateImagePath()' :alt="menuitem.name"
                     class="w-100"/>
             </div>
             <div class="col-8 p-0">
@@ -26,6 +26,17 @@ export default {
             cart:[],
             storageKey:'delivebooCart',
         }
+    },
+
+    methods : {
+
+        validateImagePath : function() {
+            if (this.menuitem.image_path.includes('http')) {
+                return this.menuitem.image_path
+            } else {
+                return 'storage/' + this.menuitem.image_path
+            }
+        },
     },
 
 

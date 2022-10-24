@@ -5,35 +5,35 @@
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Discover Deliveboo</h5>
-                    <li>Investors</li>
-                    <li>About us</li>
-                    <li>Takeaway</li>
-                    <li>More</li>
-                    <li>Newsroom</li>
-                    <li>Engineering</li>
-                    <li>Design</li>
-                    <li>Become a Rider</li>
-                    <li>Careers</li>
+                    <li><a href="">Investors</a></li>
+                    <li><a href="">About us</a></li>
+                    <li><a href="">Takeaway</a></li>
+                    <li><a href="">More</a></li>
+                    <li><a href="">Newsroom</a></li>
+                    <li><a href="">Engineering</a></li>
+                    <li><a href="">Design</a></li>
+                    <li><a href="">Become a Rider</a></li>
+                    <li><a href="">Careers</a></li>
                 </ul>
             </div>
 
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Legal</h5>
-                    <li>Terms and conditions</li>
-                    <li>Privacy</li>
-                    <li>Cookies</li>
-                    <li>Tax Strategy</li>
+                    <li><a href="">Terms and conditions</a></li>
+                    <li><a href="">Privacy</a></li>
+                    <li><a href="">Cookies</a></li>
+                    <li><a href="">Tax Strategy</a></li>
                 </ul>
             </div>
 
             <div class="ms_footer-card col-12 col-md-5 col-lg-2 mb-3 mx-md-2 mb-lg-0 text-white">
                 <ul>
                     <h5 class="fw-bold">Help</h5>
-                    <li>Contact</li>
-                    <li>FAQ</li>
-                    <li>Cuisines</li>
-                    <li>Brands</li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Cuisines</a></li>
+                    <li><a href="">Brands</a></li>
                 </ul>
             </div>
 
@@ -50,9 +50,9 @@
     <div class="btm-footer container">
         <div class="row justify-content-between text-white pb-2">
             <div class="col-12 col-md-6 ms_left-btm-footer">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-twitter"></i>
-                <i class="fa-brands fa-instagram"></i>
+                <a href=""><i class="fa-brands fa-facebook"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+                <a href=""><i class="fa-brands fa-instagram"></i></a>
             </div>
             <div class="col-12 col-md-6 ms_right-btm-footer">
                 <span>© 2022 Deliveboo</span>
@@ -102,6 +102,15 @@ footer{
         display: flex;
         justify-content: flex-end;
         color: $footer-secondary;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            color: lightgrey;
+        }
     }
 
 }

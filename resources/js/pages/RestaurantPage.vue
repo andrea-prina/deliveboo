@@ -1,7 +1,7 @@
 <template>
     <div>
         <RestaurantMenuJumbo :restaurantInfo="restaurantInfo"/>
-        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo"/>
+        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId"/>
     </div>
 </template>
 
@@ -24,11 +24,12 @@ export default {
         return {
             restaurantInfo : {},
             restaurantMenu : [],
+            storageKey:'deliveboo',
         }
     },
 
     props : {
-        restaurantId : {type : Number, required : true},
+        restaurantId : {type : String, required : true},
     },
 
     methods : {
@@ -50,11 +51,29 @@ export default {
                 console.warn(err);
             });
         },
+
+        checkRestaurantId : function(id){
+
+            const activeRestaurantId = JSON.parse(localStorage.getItem(this.storageKey))[0].restaurantId;
+            if(id != activeRestaurantId){
+                if(window.confirm('Accessing another restaurant will delete your cart. Are you sure?')){
+                    // Clear local storage. When cart component mounts it will be empty
+                    localStorage.clear();
+                } else {
+                    // Return to main page (previous one)
+                    history.back();
+                }
+            }
+        },
     },
 
     created(){
         this.getRestaurantInfo(this.restaurantId);
         this.getMenu(this.restaurantId);
+        this.checkRestaurantId(this.restaurantId)
+    },
+
+    mounted(){
     }
 
 }

@@ -238,24 +238,24 @@
             }
         });
 
-        // const element = document.querySelector('form');
-        // element.addEventListener('submit', event => {
-        //         const types = document.getElementsByName('types[]');
-        //         let checked = false;
-        //         for (let i = 0; i < types.length; i++) {
-        //             if (types[i].checked) {
-        //                 checked = true;
-        //             }
-        //         }
-        //         if (!checked) {
-        //             event.preventDefault();
-        //             types[i].setCustomValidity('seleziona qualcosa')
-        //         } else {
-        //             this.submit();
-        //         }
-        //         });
-        
-                
+        const element = document.querySelector('form');
+        element.addEventListener('submit', event => {
+                const types = document.getElementsByName('types[]');
+                let checked = false;
+                for (let i = 0; i < types.length; i++) {
+                    if (types[i].checked) {
+                        checked = true;
+                    }
+                }
+                if (!checked) {
+                    event.preventDefault();
+                    types[i].setCustomValidity('seleziona qualcosa')
+                } else {
+                    this.submit();
+                }
+                });
+
+
 
         function VatValidation() {
             const vat = document.getElementById('vat');
