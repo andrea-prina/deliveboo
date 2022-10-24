@@ -69,14 +69,14 @@ export default {
     name: "RestaurantMenuCart",
     props: {
 
-        item: Object,
-        click: Boolean,
-        deliveryFee: Number,
-        freeDelivery: Number,
-        restaurantId: String,
+        item : Object,
+        click : Boolean,
+        deliveryFee : Number,
+        freeDelivery : Number,
+        restaurantId : String,
     },
 
-    data: function () {
+    data: function(){
         return {
             cart: [],
             storageKey: 'deliveboo',
