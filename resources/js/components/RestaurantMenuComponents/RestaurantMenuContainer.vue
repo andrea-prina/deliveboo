@@ -8,7 +8,7 @@
                     
                     <div class="row g-5 my-4">
                         <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id">
-                            <RestaurantMenuCard :menuitem="menuItem"
+                            <RestaurantMenuCard :menuitem="menuItem" :availability="availability"
                             @addToCart='setItemToPass'/>
                         </div>
                     </div>
