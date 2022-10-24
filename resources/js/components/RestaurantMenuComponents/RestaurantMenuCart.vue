@@ -56,8 +56,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            <div class="fw-bolder fs-5 p-2">
-                                Total € {{ getTotal(deliveryFee, freeDelivery) }}
+                            <div class=" fs-5 p-2">
+                                <span class="fw-bolder">Total €{{ getTotal(deliveryFee, freeDelivery) }}</span>  , delivery fee included
                             </div>
                         </div>
                     </div>

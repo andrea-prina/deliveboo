@@ -1,7 +1,9 @@
 <?php
 
+use App\Mail\orderAcceptedMail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,12 @@ Route::middleware('auth')
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::get("{any?}", function() {
-    return view("guest.home");
-})->where("any", ".*");
+// Route::get("{any?}", function() {
+//     return view("guest.home");
+// })->where("any", ".*");
+
+//route for mailing
+Route::get('/email', function(){
+    Mail::to('stefano@caratozzolo.me')->send(new orderAcceptedMail());
+    return new orderAcceptedMail();
+});

@@ -47,7 +47,7 @@
 
             <input type="hidden" :value="getTotalFromCart(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)" name="total">
             <input type="hidden" name="foodItems" :value="foodItems">
-            <input type="submit" value="SUBMIT" id="submit-order">
+            <input type="submit" class="btn-success btn" value="SUBMIT" id="submit-order">
 
           </form>
         </div>
