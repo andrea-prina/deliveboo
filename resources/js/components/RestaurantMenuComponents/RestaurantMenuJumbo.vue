@@ -1,6 +1,6 @@
 <template>
     <div class="jumbotron">
-        <img :src="restaurantInfo.image_path" :alt="restaurantInfo.restaurant_name">
+        <img :src="validateImagePath()" :alt="restaurantInfo.restaurant_name">
         <div class="text-center text-white my-text">
             <h1>{{ restaurantInfo.restaurant_name }}</h1>
             <p>{{ restaurantInfo.address }}</p>
@@ -19,7 +19,18 @@ export default {
 
     props : {
         restaurantInfo : Object,
-    }
+    },
+
+    methods : {
+        validateImagePath : function() {
+            if (this.restaurantInfo.image_path.startsWith('http')) {
+                return this.restaurantInfo.image_path;
+            } else {
+                return '/storage/' + this.restaurantInfo.image_path;
+            }
+               
+        },
+    },
 }
 </script>
 
