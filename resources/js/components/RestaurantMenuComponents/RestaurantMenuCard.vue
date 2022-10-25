@@ -1,5 +1,5 @@
 <template>
-    <div v-if="menuitem.availability" class="row my-card" @click="$emit('addToCart', menuitem)">
+    <div class="row my-card" @click="$emit('addToCart', menuitem)">
             <div class="col-4 p-1">
                     <img :src='validateImagePath()' :alt="menuitem.name"
                     class="w-100"/>

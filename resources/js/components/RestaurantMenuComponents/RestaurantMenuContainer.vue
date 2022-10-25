@@ -7,7 +7,7 @@
                     <h3 class="fw-normal mb-0 text-black">Menu</h3>
 
                     <div class="row g-5 my-4">
-                        <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id" >
+                        <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id" v-if="menuItem.availability">
                             <RestaurantMenuCard
                             :menuitem="menuItem"
                             @addToCart='setItemToPass'/>
