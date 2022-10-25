@@ -61,15 +61,16 @@
                         <p class="py-1 px-2 rounded text-white bg-brand">Ordered</p>
                       </li>
                       <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded text-white bg-brand">Shipped</p
-                          class="py-1 px-2 rounded text-white bg-brand">
+                        <p class="py-1 px-2 rounded">Shipped</p
+                          class="py-1 px-2 rounded">
                       </li>
                       <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded text-white bg-brand">On the way
+                        <p class="py-1 px-2 rounded">On the way
                         </p>
                       </li>
-                      <li class="list-inline-item items-list text-end" >
-                        <p>Delivered</p>
+                      <li class="list-inline-item items-list">
+                        <p class="py-1 px-2 rounded">Delivered
+                        </p>
                       </li>
                     </ul>
   
