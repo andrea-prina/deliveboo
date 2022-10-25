@@ -24,18 +24,16 @@
     <div class="table-responsive rounded">
         
         <h3 class="my-4 text-center">Your Menu</h3>
-        <table class="table table-head ">
+        <table class="table table-head table-head-clmn">
 
             @if ($foodItems->isNotEmpty())
             <thead>
-                <tr class="bg-brand-secondary text-center">
+                <tr class="bg-brand text-center tr-flex-column">
                     <th scope="col">Item Name</th>
                     <th scope="col" colspan="2">Description</th>
                     <th scope="col">Price</th>
                     <th scope="col">Availability</th>
-                    <th scope="col">Edit Item</th>
-                    <th scope="col">Delete Item</th>
-                    <th scope="col">Show Item</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             @else
@@ -44,29 +42,30 @@
 
             <tbody>
                 @forelse ($foodItems as $food)
-                <tr class="bg-white text-center">
-                    <td>{{$food->name}}</td>
-                    <td colspan="2">{{$food->description}}</td>
-                    <td>{{$food->price}}</td>
+                <tr class="bg-white text-center align-middle tr-flex-column">
+                    <td class="fw-bold">{{$food->name}}</td>
+                    <td class="responsive-description width-custom" colspan="2">{{$food->description}}</td>
+                    <td class="fw-bold">€{{$food->price}}</td>
                     <td><i class="{{ $food->availability ? 'fa-solid fa-check' : 'fa-solid fa-xmark' }}"></i></td>
-                    <td>
+
+                    <td class="buttons-flex">
                         <a href="{{route('admin.foodItems.edit', $food->id)}}">
-                            <button type="button" class="btn btn-sm btn-accent">Edit</button>
+                            <button type="button" class="btn btn-sm btn-light-main">Edit</button>
                         </a>
-                    </td>
-                    <td>
+
                         <form action="{{route('admin.foodItems.destroy', $food->id)}}" method="POST"
-                            class="crud-delete-form" food-item-name="{{ $food->name }}">
+                            class="crud-delete-form my-1" food-item-name="{{ $food->name }}">
                             @csrf
                             @method('DELETE')
                             <input type="submit" class="btn btn-sm btn-accent" value="Delete">
                         </form>
-                    </td>
-                    <td>
+
                         <a href="{{route('admin.foodItems.show', $food->id)}}">
-                            <button type="button" class="btn btn-sm btn-accent">Show Food</button>
+                            <button type="button" class="btn btn-sm btn-light">Show Food</button>
                         </a>
+
                     </td>
+                   
                 </tr>
 
                 @empty

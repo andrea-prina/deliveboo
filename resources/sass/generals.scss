@@ -41,8 +41,23 @@
     font-weight: 600;
     width: 100px;
 }
+
 .btn-main {
     background-color: $brand-main !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    width: 100px;
+}
+
+.btn-light {
+    background-color: $accent-secondary !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    width: 100px;
+}
+
+.btn-light-main {
+    background-color: $brand-secondary !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     width: 100px;
@@ -91,4 +106,8 @@
 
 .ms_font-size{
     font-size: 0.8rem;
+}
+
+.width-custom{
+    width: 50%;
 }
