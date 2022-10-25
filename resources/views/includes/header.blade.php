@@ -21,7 +21,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Item</a>
+                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Dish</a>
                 </li>
                 @endauth
             </ul>
