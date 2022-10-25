@@ -4,32 +4,32 @@
             <div class="row py-4">
                 <div class="col-12 col-lg-8">
                     
-                    <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
+                    <h3 class="fw-normal mb-0 text-black">Menu</h3>
                     
                     <div class="row g-5 my-4">
                         <div class="col-12 col-lg-6 my-2" v-for="menuItem in menuItems" :key="menuItem.id" v-if="menuItem.availability">
-                            <RestaurantMenuCard  :menuitem="menuItem"
+                            <RestaurantMenuCard
+                            :menuitem="menuItem"
                             @addToCart='setItemToPass'/>
                         </div>
                     </div>
                 </div>
                 
             <!-- cart side  -->
-                <div class="col-12 col-lg-4 ">
-                    <div class="col-12">
+                <div class="col-12 col-lg-4">
+                    <div>
                         <RestaurantMenuCart
                         :deliveryFee="restaurantInfo.delivery_fee"
                         :freeDelivery="restaurantInfo.free_delivery"
                         :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
+                        @emptyCart="disableCheckoutBtn"
                         />
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body text-center">
-                        <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId , 'restaurantInfo' : restaurantInfo},}">
-                        <button type="button" class="btn bg-brand btn-block btn-lg w-100">Proceed to Pay</button>
+                    <div class="d-flex justify-content-center">
+                        <router-link :to="{'name':'CheckoutPage', 'params': {'restaurantId' : restaurantId , 'restaurantInfo' : restaurantInfo},} " :class="{ disabled: !isCartNotEmpty }">
+                            <button type="button" class="btn bg-brand btn-block btn-lg" :disabled="isCartNotEmpty === false">Checkout</button>
                         </router-link>
                     </div>
                 </div>
@@ -63,6 +63,7 @@ export default {
         return {
             menuItem : {},
             click : false,
+            isCartNotEmpty : false,
         }
 
     },
@@ -72,12 +73,15 @@ export default {
             this.menuItem = item;
             this.click = !(this.click);
         },
+
+        disableCheckoutBtn : function(cartLength){
+            if(cartLength == 0){
+                this.isCartNotEmpty = false
+            } else {
+                this.isCartNotEmpty = true
+            }
+        }
     },
-
-
-    mounted(){
-        console.log(this.restaurantInfo);
-    }
 
 }
 
@@ -86,5 +90,8 @@ export default {
 <style lang="scss" scoped>
 @import "../../../sass/app.scss";
 
+.disabled {
+    pointer-events: none;
+}
 
 </style>
