@@ -78,6 +78,7 @@ export default {
         deliveryFee : Number,
         freeDelivery : Number,
         restaurantId : String,
+        clearCart: Boolean,
     },
 
     data: function(){
@@ -202,7 +203,11 @@ export default {
     watch: {
         click: function () {
             this.addItem(this.item);
-        }
+        },
+        clearCart: function () {
+            console.warn('puliscing the cart');
+            this.resetCart();
+        },
     }
 
 }

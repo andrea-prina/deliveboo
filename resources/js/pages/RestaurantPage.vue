@@ -1,7 +1,7 @@
 <template>
     <div>
         <RestaurantMenuJumbo :restaurantInfo="restaurantInfo"/>
-        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId"/>
+        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId" :clearCart = 'clearCart'/>
     </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
             restaurantInfo : {},
             restaurantMenu : [],
             storageKey:'deliveboo',
+            clearCart:false,
         }
     },
 
@@ -57,7 +58,7 @@ export default {
             const activeRestaurantId = JSON.parse(localStorage.getItem(this.storageKey))[0].restaurantId;
             if(id != activeRestaurantId){
                 this.$swal({
-                        dangerMode: true,
+                        dangerMode:false,
                         title: 'Are you sure?',
                         text: 'Changing restaurant will clear your cart',
                         icon: 'warning',
@@ -68,11 +69,11 @@ export default {
                     })
                     .then((results) => {
                         if (results.isConfirmed) {
-                            localStorage.clear();
-
+                            this.clearCart = !this.clearCart;
                         } else {
                             history.back();
                         }
+
                     });
 
 

@@ -24,6 +24,7 @@
                         :restaurantId="restaurantId"
                         :item="menuItem"
                         :click="click"
+                        :clearCart="clearCart"
                         @emptyCart="disableCheckoutBtn"
                         />
                     </div>
@@ -55,6 +56,7 @@ export default {
         menuItems : Array,
         restaurantInfo : Object,
         restaurantId : String,
+        clearCart: Boolean,
 
     },
 
