@@ -38,7 +38,7 @@
                                                 </div>
                                             </td>
                                             <td class="text-end">
-                                                {{ item.price + " €" }}
+                                                {{ getTotalperItem(item) + " €" }} <!-- QUI INSERIRE MULTIPLO DI ITEM  -->
                                             </td>
                                         </tr>
                                         <tr>
@@ -190,6 +190,11 @@ export default {
 
             total = Math.round((total + Number.EPSILON) * 100) / 100
 
+            return total;
+        },
+        getTotalperItem(item) {
+            let total = item.price * item.quantity
+            total = Math.round((total + Number.EPSILON) * 100) / 100
             return total;
         },
 
