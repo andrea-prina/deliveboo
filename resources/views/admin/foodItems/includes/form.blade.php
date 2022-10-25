@@ -23,16 +23,16 @@
 
     @else
     <div class="row">
-        <div class="col-4">
-            <label class="form-label" for="image_path">Current image</label>
+        <div class="col-12 mb-3 text-center">
+            <label class="form-label d-block" for="image_path">Current image</label>
             @if (filter_var($food->image_path , FILTER_VALIDATE_URL))
-            <img src="{{ $food->image_path }}" class="w-100 rounded" alt="image of food: {{ $food->name}}">
+            <img src="{{ $food->image_path }}" class="w-75 rounded" alt="image of food: {{ $food->name}}">
             @else
-            <img src="{{ asset('/storage' . '/' . $food->image_path) }}" class="w-100 rounded"
+            <img src="{{ asset('/storage' . '/' . $food->image_path) }}" class="w-75 rounded"
                 alt="image of food: {{ $food->name}}">
             @endif
         </div>
-        <div class="col-8">
+        <div class="col-12">
             <input class="form-control" type="file" id="image_path" name="image_path">
         </div>
     </div>
