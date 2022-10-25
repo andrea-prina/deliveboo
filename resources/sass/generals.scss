@@ -8,6 +8,14 @@
 
 }
 
+.brand-main-color{
+    color: $brand-main;
+}
+
+.brand-accent-color{
+    color: $accent-main;
+}
+
 @mixin brand-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -47,6 +55,11 @@
 }
 
 .border-violet {
+    border: 1px solid $brand-main;
+    border-radius: 5px;
+}
+
+.border-orange {
     border: 1px solid $brand-main;
     border-radius: 5px;
 }
