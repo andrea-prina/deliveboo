@@ -1,7 +1,7 @@
 <template>
     <div>
         <RestaurantMenuJumbo :restaurantInfo="restaurantInfo"/>
-        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId"/>
+        <RestaurantMenuContainer :menuItems="restaurantMenu" :restaurantInfo="restaurantInfo" :restaurantId="restaurantId" :clearCart = 'clearCart'/>
     </div>
 </template>
 
@@ -25,6 +25,7 @@ export default {
             restaurantInfo : {},
             restaurantMenu : [],
             storageKey:'deliveboo',
+            clearCart:false,
         }
     },
 
@@ -56,13 +57,33 @@ export default {
 
             const activeRestaurantId = JSON.parse(localStorage.getItem(this.storageKey))[0].restaurantId;
             if(id != activeRestaurantId){
-                if(window.confirm('Accessing another restaurant will delete your cart. Are you sure?')){
+                this.$swal({
+                        dangerMode:false,
+                        title: 'Are you sure?',
+                        text: 'Changing restaurant will clear your cart',
+                        icon: 'warning',
+                        buttons: true,
+                        showDenyButton: true,
+                        confirmButtonText: 'Yes, change it',
+                        denyButtonText: 'No, take me back',
+                    })
+                    .then((results) => {
+                        if (results.isConfirmed) {
+                            this.clearCart = !this.clearCart;
+                        } else {
+                            history.back();
+                        }
+
+                    });
+
+
+                /* if(window.confirm('Changing restaurant will clear your cart')){
                     // Clear local storage. When cart component mounts it will be empty
                     localStorage.clear();
                 } else {
                     // Return to main page (previous one)
                     history.back();
-                }
+                } */
             }
         },
     },
