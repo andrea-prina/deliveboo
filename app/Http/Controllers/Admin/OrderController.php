@@ -54,12 +54,12 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
     
-    $ids = DB::table('orders')
-    ->join('order_food_item', 'orders.id', '=', 'order_food_item.order_id')
-    ->join('food_items', 'order_food_item.food_item_id', '=', 'food_items.id')
-    ->where('order_id', $id)
-    ->pluck('food_items.id')->toArray();
-    array_push($foodItemIds, $ids);
+    // $ids = DB::table('orders')
+    // ->join('order_food_item', 'orders.id', '=', 'order_food_item.order_id')
+    // ->join('food_items', 'order_food_item.food_item_id', '=', 'food_items.id')
+    // ->where('order_id', $id)
+    // ->pluck('food_items.id')->toArray();
+    // array_push($foodItemIds, $ids);
 
 
 
