@@ -31,20 +31,20 @@ export default {
     methods : {
 
         validateImagePath : function() {
-            if (this.menuitem.image_path.includes('http')) {
-                return this.menuitem.image_path
+            if (this.menuitem.image_path.startsWith('http')) {
+                return this.menuitem.image_path;
             } else {
-                return 'storage/' + this.menuitem.image_path
+                return '/storage/' + this.menuitem.image_path;
+            }
+               
             }
         },
-    },
-
-
-}
+    }
 </script>
 
 <style lang="scss" scoped>
 @import "../../../sass/app.scss";
+@import "../../../sass/_variables.scss";
 .my-card {
     background-color: $brand-white !important;
     border-radius: 5px !important;
