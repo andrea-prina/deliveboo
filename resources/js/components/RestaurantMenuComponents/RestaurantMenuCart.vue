@@ -4,7 +4,7 @@
             <div class="row ">
 
                 <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
-                
+
                 <div class="col-12 mt-2 p-0">
                     <div class="card rounded my-4 position-relative">
                         <div class="card-body p-4">
@@ -153,11 +153,30 @@ export default {
 
         // Delete cart by assigning it an empty array, then sync
         resetCart() {
+            this.$swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.cart = []
+                    this.syncCart()
+                    this.$swal(
+                        'Deleted!',
+                        'Your cart has been deleted.',
+                        'success'
+                    )
+                }
+            })
 
-            if (window.confirm('Do you really want to empty your cart?')) {
+         /*    if (window.confirm('Do you really want to empty your cart?')) {
                 this.cart = []
                 this.syncCart()
-            }
+            } */
         },
 
         // Return total value of items in cart (price*quantity sum)
