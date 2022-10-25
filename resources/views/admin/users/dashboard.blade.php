@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container bg-white border-violet p-5">
+    <h3 class="text-center my-3">Account Info</h3>
     <div class="row">
         <div class="col-7 d-flex">
             @if (filter_var($user->image_path , FILTER_VALIDATE_URL))

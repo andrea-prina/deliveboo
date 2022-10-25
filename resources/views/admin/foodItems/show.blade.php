@@ -7,9 +7,9 @@
 <div class="container">
 
 
-<div class="d-flex p-5">
+<div class="d-flex p-2">
   <div class="row justify-content-center w-100">
-    <div class="col-12">
+    <div class="col-12 col-lg-6">
       <div class="card">
         @if (filter_var($food->image_path , FILTER_VALIDATE_URL))
         <img src="{{ $food->image_path }}" class="card-img-top p-2" alt="image of food: {{ $food->name}}">
