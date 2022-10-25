@@ -70,13 +70,7 @@
           @success="onSuccess" 
           @error="onError">
         </v-braintree>
-          <div class="col-12"><input type="hidden"
-            :value="getTotalFromCart(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)" name="total">
-          <input type="hidden" name="foodItems" :value="foodItems">
-          <button class=" btn btn-main">
-            <input class="btn text-white" type="submit" value="SUBMIT">
-          </button>
-        </div>
+      
 
 
       </div>
