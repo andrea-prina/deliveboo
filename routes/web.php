@@ -33,6 +33,7 @@ Route::middleware('auth')
         Route::get('/user', 'UserController@show')->name('show');
         Route::put('/user/{id}', 'UserController@toggleFree')->name('toggleFree');
         Route::resource('foodItems','FoodItemController');
+        Route::resource('orders','OrderController');
     });
 
 Route::get('/home', 'HomeController@index')->name('home');
