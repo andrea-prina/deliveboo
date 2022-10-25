@@ -23,6 +23,10 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Item</a>
                 </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('admin.orders.index') }}">Your Orders</a>
+                </li>
                 @endauth
             </ul>
 
@@ -60,13 +64,6 @@
                         </div>
                     </li>
 
-                    {{-- <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.foodItems.index') }}">Index</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.foodItems.create') }}">Insert new food</a>
-                    </li> --}}
                 @endguest
 
             </ul>

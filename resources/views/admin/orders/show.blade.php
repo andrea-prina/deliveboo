@@ -22,7 +22,9 @@
                 <td>{{$food->name}}</td>
                 <td colspan="2">{{$food->description}}</td>
                 <td>{{$food->price}}</td>
-                <td>{{$order->additional_notes}}</td>
+                <td>{{$food->pivot->food_quantity}}</td>
+                  
+               
                
             </tr>
     
@@ -37,12 +39,5 @@
     </table>
 </div>
 
-<div class="container">
- @forelse ($order->food_items as $food)
-    {{$food->name }} - {{$food->price}} 
-@empty
-    No tags
-@endforelse
-</div>
 @endsection
 
