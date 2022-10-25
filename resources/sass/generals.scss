@@ -8,6 +8,14 @@
 
 }
 
+.brand-main-color{
+    color: $brand-main;
+}
+
+.brand-accent-color{
+    color: $accent-main;
+}
+
 @mixin brand-title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -33,8 +41,23 @@
     font-weight: 600;
     width: 100px;
 }
+
 .btn-main {
     background-color: $brand-main !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    width: 100px;
+}
+
+.btn-light {
+    background-color: $accent-secondary !important;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    width: 100px;
+}
+
+.btn-light-main {
+    background-color: $brand-secondary !important;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     width: 100px;
@@ -47,6 +70,11 @@
 }
 
 .border-violet {
+    border: 1px solid $brand-main;
+    border-radius: 5px;
+}
+
+.border-orange {
     border: 1px solid $brand-main;
     border-radius: 5px;
 }
@@ -78,4 +106,8 @@
 
 .ms_font-size{
     font-size: 0.8rem;
+}
+
+.width-custom{
+    width: 50%;
 }
