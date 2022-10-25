@@ -210,7 +210,6 @@ export default {
             this.addItem(this.item);
         },
         clearCart: function () {
-            console.warn('puliscing the cart');
             this.resetCart();
         },
     }
