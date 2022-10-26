@@ -46,7 +46,10 @@
                     <td class="fw-bold">{{$food->name}}</td>
                     <td class="responsive-description width-custom" colspan="2">{{$food->description}}</td>
                     <td class="fw-bold">€{{$food->price}}</td>
-                    <td><i class="{{ $food->availability ? 'fa-solid fa-check' : 'fa-solid fa-xmark' }}"></i></td>
+                    <td>
+                        <span class="display-not-available show-from-md-screen">Availaibility: </span>
+                        <i class="{{ $food->availability ? 'fa-solid fa-check' : 'fa-solid fa-xmark' }}"></i>
+                    </td>
 
                     <td class="buttons-flex">
                         <a href="{{route('admin.foodItems.edit', $food->id)}}">

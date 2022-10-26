@@ -5,10 +5,10 @@
     <div class="container text-center">
         
         @forelse ($order->food_items as $food)
-            <div class="d-flex justify-content-center p-2 my-5">
+            <div class="d-flex justify-content-center p-2 my-5 ">
                 <div class="row justify-content-center w-100">
-                    <div class="col-12 col-md-10">
-                        <div class="card">
+                    <div class="col-12 col-md-10 ">
+                        <div class="card border-violet">
 
                             <div class="card-body">
                                 <h5 class="card-title fw-bold fs-4">{{ $food->name }}</h5>
