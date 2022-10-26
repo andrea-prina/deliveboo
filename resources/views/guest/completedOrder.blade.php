@@ -47,7 +47,11 @@
                                         <p class="mb-0">Delivery Fee</p>
                                     </div>
                                     <div class="col-md-4 col-lg-3">
-                                        <p class="mb-0">{{ $orderUser->delivery_fee }} €</p>
+                                        @if ($orderUser->free_delivery)
+                                        <p class="mb-0">FREE</p>
+                                        @else
+                                            <p class="mb-0">{{ $orderUser->delivery_fee }} €</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
