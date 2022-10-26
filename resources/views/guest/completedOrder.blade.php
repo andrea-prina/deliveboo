@@ -11,26 +11,32 @@
           <div class="card border-top border-bottom border-3 border-orange">
             <div class="card-body p-5">
   
-              <p class="lead fw-bold fs-4 mb-5 brand-main-color">Order Received!</p>
+              <p class="lead fw-bold fs-4 mb-5 brand-main-color">Order Received! Thank you {{$order->customer_firstName}}</p>
   
               <div class="row">
                 <div class="col mb-3">
                   <p class="small text-muted mb-1">Date</p>
-                  <p>10 April 2021</p>
+                  <p>{{$order->created_at}}</p>
                 </div>
                 <div class="col mb-3">
                   <p class="small text-muted mb-1">Order No.</p>
-                  <p>012j1gvs356c</p>
+                  <p>{{substr(md5(time()), 0, 16)}}</p>
                 </div>
               </div>
   
               <div class="mx-n5 px-5 py-4 bg-brand-accent-secondary">
                 <div class="row">
                   <div class="col-md-8 col-lg-9">
-                    <p>Pizza Martherita</p>
+                   @foreach ($order->food_items as $food)
+                   <p>{{$food->name}}   <span class="text-secondary">x{{$food->pivot->food_quantity}}</span></p>
+                  
+                     
+                   @endforeach
                   </div>
                   <div class="col-md-4 col-lg-3">
-                    <p>€299.99</p>
+                    @foreach ($order->food_items as $food)
+                    <p>{{$food->price * $food->pivot->food_quantity}}  €  </p>
+                    @endforeach
                   </div>
                 </div>
                 <div class="row">
@@ -38,14 +44,14 @@
                     <p class="mb-0">Delivery Fee</p>
                   </div>
                   <div class="col-md-4 col-lg-3">
-                    <p class="mb-0">€33.00</p>
+                    <p class="mb-0">{{$orderUser->delivery_fee}} €</p>
                   </div>
                 </div>
               </div>
   
               <div class="row my-4">
                 <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
-                  <p class="lead fw-bold mb-0 brand-main-color">€262.99</p>
+                  <p class="lead fw-bold mb-0 brand-main-color">{{$order->order_price}} €</p>
                 </div>
               </div>
   

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -24,8 +25,11 @@ class OrderController extends Controller
             $order->food_items()->attach($foodItem->id, ['food_quantity' => $foodItem->quantity]);
         }
 
-        $customerName = $order->customer_firstName;
+      $orderUser = User::findOrfail($order->user_id);
 
-        return view('guest.completedOrder', compact('customerName'));
+       
+        
+
+        return view('guest.completedOrder', compact('order', 'orderUser'));
     }
 }
