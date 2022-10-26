@@ -75,14 +75,15 @@
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-6">
-                            <div class="alert alert-warning">
-                                <h3 class="text-center">No Food Items Found</h3>
+                            <div class=" alert-warning">
+                                <h5 class="text-center">No Food Items Found</h5>
                                 <div>
-                                    <img class="w-100" src="https://pbs.twimg.com/media/EXTDb5TWAAA-7jX.jpg" alt="">
+                                    <img class="w-100 rounded" src="https://pbs.twimg.com/media/EXTDb5TWAAA-7jX.jpg" alt="">
                                 </div>
                                 <div class="text-center mt-4">
-                                    Click <a class="text-primary text-decoration-none"
-                                        href="{{route('admin.foodItems.create')}}">HERE</a> to add a new food item
+                        
+                                     <a class="text-primary text-decoration-none btn btn-main w-100 text-decoration-none text-white fs-3"
+                                        href="{{route('admin.foodItems.create')}}">Start adding your dishes</a>
                                 </div>
         
                             </div>
