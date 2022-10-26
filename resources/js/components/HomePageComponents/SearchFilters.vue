@@ -37,6 +37,7 @@ export default {
     li {
         font-weight: bold;
         color: dimgrey;
+        margin-right: 1rem;
 
         span {
             margin-right: 10px;
