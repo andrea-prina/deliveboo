@@ -7,11 +7,11 @@
                 </div>
             </div>
             <div class="row text-center mt-3">
-                <div class="col-2"><button class="btn btn-main" @click="getPrevPage()" :disabled="currentPage === 1">Prev Page</button></div>
-                <div class="col-8">
+                <div class="col-4"><button class="btn btn-main" @click="getPrevPage()" :disabled="currentPage === 1">Prev Page</button></div>
+                <div class="col-4">
                     <h5>{{currentPage}} out of {{ lastPage }}</h5>
                 </div>
-                <div class="col-2"><button class="btn btn-main" @click="getNextPage()" :disabled="currentPage === lastPage">Next Page</button></div>
+                <div class="col-4"><button class="btn btn-main" @click="getNextPage()" :disabled="currentPage === lastPage">Next Page</button></div>
             </div>
         </div>
     </section>
