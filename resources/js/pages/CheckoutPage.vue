@@ -139,9 +139,6 @@ export default {
     submitOrder: function () {
 
       this.foodItems = localStorage.getItem(this.storageKey);
-      this.cart = []
-      const localCartStorage = JSON.stringify(this.cart)
-      localStorage.setItem(this.storageKey, localCartStorage)
     },
 
     onSuccess (payload) {
