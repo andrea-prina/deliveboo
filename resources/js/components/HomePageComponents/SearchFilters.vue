@@ -5,7 +5,7 @@
                 <ul class="d-flex category-list mt-3">
                     <li v-if="typeNames.length > 0"> Filtered for: <span v-for="(type, index) in typeNames"
                             :key="index">{{ type}} </span></li>
-                    <li v-if="searchQuery != ''"> Searched for: <span>{{ searchQuery }} </span></li>
+                    <li v-if="searchQuery != ''"> Search: <span>{{ searchQuery }} </span></li>
                 </ul>
             </div>
         </div>
@@ -45,6 +45,7 @@ export default {
             border-radius: 5px;
             color: darkgray;
             padding: 5px;
+            line-height: 35px;
         }
     }
 }
