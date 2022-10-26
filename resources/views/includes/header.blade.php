@@ -14,6 +14,9 @@
             <ul class="navbar-nav mr-auto">
                 @auth
                     <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url('/') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-white" href="{{ route('admin.show') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">

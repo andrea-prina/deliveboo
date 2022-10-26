@@ -59,33 +59,12 @@
                                 </div>
                             </div>
 
-                            {{-- <p class="lead fw-bold mb-4 pb-2 brand-main-color">Tracking Order</p> --}}
-
-                            {{-- <div class="row">
-                <div class="col-lg-12">
-  
-                  <div class="horizontal-timeline">
-  
-                    <ul class="list-inline items d-flex justify-content-between">
-                      <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded text-white bg-brand">Ordered</p>
-                      </li>
-                      <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded">Shipped</p
-                          class="py-1 px-2 rounded">
-                      </li>
-                      <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded">On the way
-                        </p>
-                      </li>
-                      <li class="list-inline-item items-list">
-                        <p class="py-1 px-2 rounded">Delivered
-                        </p>
-                      </li>
-                    </ul>
-  
-                  </div>
-   --}}
+                            <div class="row">
+                                <div class="col-12 d-flex justify-content-center">
+                                    <button class="btn-main w-50 border-0 rounded"> <a class="remove-link text-white" href="{{url('/')}}">Back to Home</a></button>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
 
