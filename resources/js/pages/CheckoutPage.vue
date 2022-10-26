@@ -1,8 +1,27 @@
 <template>
   <section>
     <div class="container py-4">
-      <div class="row py-4">
 
+      <!-- BraintreeDropIn -->
+      <div class="row py-4 position-relative">
+          <h3>Payment Method</h3>
+          <v-braintree
+          authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg"
+          locale="en_EN"
+          btnText="Confirm & Review Order"
+            @success="onSuccess"
+            @error="onError">
+          
+            <template v-slot:button="slotProps">
+              <v-btn @click="slotProps.submit" class="btn text-white btn-main w-25">Confirm payment method</v-btn>
+            </template>
+
+          </v-braintree>
+
+          <div class="w-100 h-100 position-absolute top-0 left-0 layer d-none" id="braintree-layer"></div>
+      </div>
+
+      <div class="row py-4 position-relative">
         <!-- form side  -->
         <div class="col-12 col-lg-8 mb-5">
           <h3>Order Details</h3>
@@ -47,32 +66,19 @@
                 :value="getTotalFromCart(restaurantInfo.delivery_fee, restaurantInfo.free_delivery)" name="total">
               <input type="hidden" name="foodItems" :value="foodItems">
               <button class=" btn btn-main">
-                <input class="btn text-white" type="submit" value="SUBMIT">
+                <input class="btn text-white" type="submit" value="Order">
               </button>
             </div>
-
-
-
           </form>
         </div>
 
         <!-- cart side  -->
         <div class="col-12 col-lg-4">
           <RestaurantMenuCart :deliveryFee="restaurantInfo.delivery_fee" :freeDelivery="restaurantInfo.free_delivery"
-            :restaurantId="restaurantId" />
+            :restaurantId="restaurantId"/>
         </div>
 
-        <!-- BraintreeDropIn -->
-        <v-braintree 
-        authorization="sandbox_mfpgm8gp_j6kyrc5ff9wmsngg" 
-        locale="it_IT" 
-        btnText="Ordina"
-          @success="onSuccess" 
-          @error="onError">
-        </v-braintree>
-      
-
-
+      <div class="w-100 h-100 position-absolute top-0 left-0 layer" id="order-layer"></div>
       </div>
     </div>
 
@@ -133,7 +139,18 @@ export default {
     submitOrder: function () {
 
       this.foodItems = localStorage.getItem(this.storageKey);
+    },
 
+    onSuccess (payload) {
+
+      document.querySelector('#order-layer').classList.add('d-none');
+      document.querySelector('#braintree-layer').classList.remove('d-none');
+      
+
+    },
+    onError (error) {
+        let message = error.message;
+        // Whoops, an error has occured while trying to get the nonce
     },
 
 
@@ -188,4 +205,10 @@ export default {
   background-color: #8bdda8;
   color: white;
 }
+
+.layer {
+  background-color: rgba($color: $brand-white, $alpha: 0.9);
+  z-index: 1;
+}
+
 </style>
