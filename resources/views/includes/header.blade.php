@@ -4,29 +4,30 @@
             <img src="{{ asset('assets/img/logo-white.png') }}" alt="DeliveBoo" height="50">
             {{--  {{ config('app.name', 'DeliveBoo') }} --}}
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 @auth
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.show') }}">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Your Menu</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.show') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.foodItems.index') }}">Your Menu</a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Dish</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ route('admin.orders.index') }}">Your Orders</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.foodItems.create') }}">New Dish</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('admin.orders.index') }}">Your Orders</a>
+                    </li>
+
                 @endauth
             </ul>
 
