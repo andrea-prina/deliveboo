@@ -19,7 +19,7 @@ class TypeUserTableSeeder extends Seeder
 
         foreach ($users as $user) {
 
-            $randomTypes = Type::inRandomOrder()->take(rand(1,3))->get();
+            $randomTypes = Type::inRandomOrder()->take(rand(1,4))->get();
             $user->types()->attach($randomTypes);
 
         }

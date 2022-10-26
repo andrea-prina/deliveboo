@@ -50,7 +50,7 @@ class FoodItemsTableSeeder extends Seeder
                 'image_path' => 'https://i.ibb.co/dc9GgVd/Abbraccia-Mi-a-cucina-a-pizza-Milano-PARMIGIANELLA-09-native-copia.jpg',
                 'user_id' => 1,
             ],
-            
+
             [
                 'name' => 'Montanarina',
                 'description' => 'Pizzett fritt con pmmdr pammiggn e bslc',
@@ -202,10 +202,10 @@ class FoodItemsTableSeeder extends Seeder
 
         // foreach ($users as $user) {
 
-        //     for ($i=1; $i < rand(5,20); $i++) { 
-                
+        //     for ($i=1; $i < rand(5,20); $i++) {
+
         //         $newFood = new FoodItem();
-                
+
         //         $newFood->user_id = $user->id;
         //         $newFood->name = "Dish n." . $i;
         //         $newFood->description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
@@ -214,7 +214,7 @@ class FoodItemsTableSeeder extends Seeder
 
         //         $newFood->save();
         //     }
-        
+
         // }
 
     }
