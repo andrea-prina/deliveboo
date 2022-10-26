@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
                 'restaurant_name' => 'Fu Abbracciami',
                 'address' => 'Via Montegani, 31',
                 'delivery_fee' => 5.5,
-                'image_path'=> 'https://i.ibb.co/FH1tfCf/il-nostro-dehor-estivo.jpg',
+                'image_path'=> 'https://i.ibb.co/Rb3CTj3/il-nostro-dehor-estivo.jpg',
                 'vat_number' => '12345678911',
              ],
                 [
