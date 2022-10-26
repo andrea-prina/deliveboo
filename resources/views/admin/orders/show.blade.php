@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h3 class="text-center my-5">Your Dish</h3>
+    <h3 class="text-center my-5">Your Order</h3>
     <div class="container text-center">
         
         @forelse ($order->food_items as $food)
