@@ -9,7 +9,7 @@ class UsersTableSeeder extends Seeder
 
 
 {
-   
+
 
     /**
      * Run the database seeds.
@@ -46,7 +46,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'Luca',
                 'surname' => 'Bianchi',
                 'email' => 'luca@bianchi.com',
-                'password' => Hash::make('password'),   
+                'password' => Hash::make('password'),
                 'restaurant_name' => 'Qui si mangia Mare',
                 'address' => 'Via Roma, 3',
                 'delivery_fee' => 1.7,
@@ -69,7 +69,7 @@ class UsersTableSeeder extends Seeder
                 'surname' => 'Prina',
                 'email' => 'andrea@prina.com',
                 'password' => Hash::make('password'),
-                'restaurant_name' => 'Da PriNa fai PriMa',
+                'restaurant_name' => 'Da Prina fai Prima',
                 'address' => 'Via Roma, 5',
                 'delivery_fee' => 10,
                 'image_path'=> 'https://i.ibb.co/rG24QNy/risto-4-sushi.jpg',
@@ -80,7 +80,7 @@ class UsersTableSeeder extends Seeder
                 'surname' => 'Rizzo',
                 'email' => 'giovanni@giovannini.com',
                 'password' => Hash::make('password'),
-                'restaurant_name' => 'Da RiZZardo',
+                'restaurant_name' => 'Da Rizzardo',
                 'address' => 'Via Roma, 6',
                 'delivery_fee' => 2.5,
                 'image_path'=> 'https://i.ibb.co/F47kjzq/risto-5-pizzoria.jpg',
@@ -178,8 +178,8 @@ class UsersTableSeeder extends Seeder
     //         $newUser->image_path = $faker->imageUrl(640, 480, 'food', true);
 
     //         $newUser->save();
-    //   
-        
-    
+    //
+
+
 
 
