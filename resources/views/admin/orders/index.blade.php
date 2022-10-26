@@ -29,11 +29,11 @@
             <thead>
                 <tr class="bg-brand text-center tr-flex-column">
                     <th scope="col">Order ID</th>
-                    <th scope="col">Name</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">Lastname</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Notes</th>
                     <th scope="col">Date</th>
                     <th scope="col">Total</th>
                     <th scope="col">Order details</th>
@@ -51,10 +51,10 @@
                         {{$order->id}}
                     </td>
                     <td>{{$order->customer_firstName}}</td>
+                    <td>{{$order->customer_lastName}}</td>
                     <td>{{$order->customer_email}}</td>
                     <td>{{$order->customer_phoneNumber}}</td>
                     <td>{{$order->customer_address}}</td>
-                    <td>{{$order->additional_notes}}</td>
                     <td>{{$order->created_at}}</td>
                     <td class="fw-bold" >€{{$order->order_price}}</td>
                     <td>
