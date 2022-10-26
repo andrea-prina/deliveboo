@@ -1,43 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <table class="table table-head ">
+    <h3 class="text-center my-5">Your Order</h3>
+    <div class="container text-center">
+        
+        @forelse ($order->food_items as $food)
+            <div class="d-flex justify-content-center p-2 my-5 ">
+                <div class="row justify-content-center w-100">
+                    <div class="col-12 col-md-10 ">
+                        <div class="card border-violet">
 
-   
-        <thead>
-            <tr class="bg-brand-secondary text-center">
-                <th scope="col">Food Name</th>
-                <th scope="col" colspan="2">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Quantity</th>
-                
-            </tr>
-        </thead>
-       
-    
-        <tbody>
-            @forelse ($order->food_items as $food)
-            <tr class="bg-white text-center">
-                <td>{{$food->name}}</td>
-                <td colspan="2">{{$food->description}}</td>
-                <td>{{$food->price}}</td>
-                <td>{{$food->pivot->food_quantity}}</td>
-                  
-               
-               
-            </tr>
-    
-            @empty
-            <tr>
-                <td colspan="7" class="text-center"Il tuo ordine è vuoto</td>
-    
-            @endforelse
-            
-        </tbody>
-    
-    </table>
-</div>
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold fs-4">{{ $food->name }}</h5>
+                                <p class="card-text fs-5">{{ $food->description }}</p>
+                                <p class="card-text">Price: € <span class="fs-5 fw-bold">{{ $food->price }}</span></p>
+                                <p class="card-text">Quantity: <span class="fs-5 fw-bold">{{ $food->pivot->food_quantity }}</span></p>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @empty
+            <div class="text-center">Il tuo ordine è vuoto</div>
+
+        @endforelse
+
+    </div>
 @endsection
-

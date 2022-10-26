@@ -27,16 +27,16 @@
 
             @if ($orders->isNotEmpty())
             <thead>
-                <tr class="bg-brand-secondary text-center">
+                <tr class="bg-brand text-center tr-flex-column">
                     <th scope="col">Order ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Customer Email</th>
-                    <th scope="col">Customer Phone</th>
-                    <th scope="col">Customer Address</th>
-                    <th scope="col">Customer notes</th>
-                    <th scope="col">Order Date</th>
-                    <th scope="col">Order Total</th>
-                    <th scope="col">Show details</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Order details</th>
                 </tr>
             </thead>
             @else
@@ -45,25 +45,28 @@
 
             <tbody>
                 @forelse ($orders as $order)
-                <tr class="bg-white text-center">
-                    <td>{{$order->id}}</td>
+                <tr class="bg-white text-center align-middle tr-flex-column">
+                    <td class="fw-bold">
+                        <span class="display-not-available show-from-md-screen">Order ID: </span>
+                        {{$order->id}}
+                    </td>
                     <td>{{$order->customer_firstName}}</td>
                     <td>{{$order->customer_email}}</td>
                     <td>{{$order->customer_phoneNumber}}</td>
                     <td>{{$order->customer_address}}</td>
                     <td>{{$order->additional_notes}}</td>
                     <td>{{$order->created_at}}</td>
-                    <td>{{$order->order_price}}</td>
+                    <td class="fw-bold" >€{{$order->order_price}}</td>
                     <td>
                         <a href="{{route('admin.orders.show', $order->id)}}">
-                            <button type="button" class="btn btn-sm btn-accent">Show order details</button>
+                            <button type="button" class="btn btn-sm btn-accent">Details</button>
                         </a>
                     </td>
                     
                 </tr>
 
                 @empty
-               non ci sono ordini
+                <h5 class="text-center">No recent orders here</h5>
 
                 @endforelse
                 

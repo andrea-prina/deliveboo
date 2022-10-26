@@ -70,8 +70,8 @@
 }
 
 .border-violet {
-    border: 1px solid $brand-main;
-    border-radius: 5px;
+    border: 1px solid $brand-main !important;
+    border-radius: 5px !important;
 }
 
 .border-orange {
@@ -110,4 +110,8 @@
 
 .width-custom{
     width: 50%;
+}
+
+.display-not-available{
+    display: none;
 }
