@@ -63,7 +63,7 @@
                 </tr>
 
                 @empty
-               non ci sono ordini
+                <h3 class="text-center">No recent orders here</h3>
 
                 @endforelse
                 
