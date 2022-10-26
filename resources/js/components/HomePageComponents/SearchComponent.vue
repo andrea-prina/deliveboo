@@ -85,7 +85,7 @@ export default {
 }
 
 .jumbotron {
-  height: 90vh;
+  height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
